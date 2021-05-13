@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Agile sysadmin</title>
+        <link>https://agilesysadmin.github.io/blog/</link>
+        <atom:link href="https://agilesysadmin.github.io/blog/index.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Agile sysadmin</description>
+        <generator>Statocles 0.098</generator>
+        <item>
+            <title>My first post</title>
+            <link>https://agilesysadmin.github.io/blog/2021/05/13/my-first-post.html</link>
+            <guid>https://agilesysadmin.github.io/blog/2021/05/13/my-first-post.html</guid>
+            <description><![CDATA[
+                <h1>Yes, I saw. You were doing well, until everyone died.</h1>
+
+<p>I didn&#39;t ask for a completely reasonable excuse! I asked you to get busy! Stop it, stop it. It&#39;s fine. I will &#39;destroy&#39; you! You, a bobsleder!? That I&#39;d like to see! Kids have names?</p>
+
+<p>Yes. You gave me a dollar and some candy. One hundred dollars. Oh right. I forgot about the battle. We can&#39;t compete with Mom! Her company is big and evil! <strong>Ours is small and neutral!</strong> <em>Eeeee!</em> Now say &quot;nuclear wessels&quot;!</p>
+
+                    <p><a href="https://agilesysadmin.github.io/blog/2021/05/13/my-first-post.html#section-2">Continue reading...</a></p>
+
+
+            ]]></description>
+            <pubDate>
+                Thu, 13 May 2021 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

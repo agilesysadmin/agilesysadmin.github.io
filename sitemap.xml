@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://agilesysadmin.github.io/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2021-05-13</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/blog/2021/05/13/my-first-post.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2021-05-13</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/pages/impressum.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2021-05-13</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/pages/privacy_policy.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2021-05-13</lastmod>
+    </url>
+</urlset>
+
+
