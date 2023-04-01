@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://agilesysadmin.github.io/blog/</id>
     <title>Agile sysadmin</title>
-    <updated>2021-05-13T00:00:00Z</updated>
+    <updated>2021-12-12T00:00:00Z</updated>
     <link href="https://agilesysadmin.github.io/blog/index.atom" rel="self" />
     <link href="https://agilesysadmin.github.io/blog/" rel="alternate" />
     <author>
@@ -11,20 +11,19 @@
     <generator version="0.098">Statocles</generator>
 
     <entry>
-        <id>https://agilesysadmin.github.io/blog/2021/05/13/my-first-post.html</id>
+        <id>https://agilesysadmin.github.io/blog/2021/12/12/my-first-post/</id>
         <title>My first post</title>
         <author><name>Ferenc Erki</name></author>
-        <link href="https://agilesysadmin.github.io/blog/2021/05/13/my-first-post.html" rel="alternate" />
+        <link href="https://agilesysadmin.github.io/blog/2021/12/12/my-first-post/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>I didn&#39;t ask for a completely reasonable excuse! I asked you to get busy! Stop it, stop it. It&#39;s fine. I will &#39;destroy&#39; you! You, a bobsleder!? That I&#39;d like to see! Kids have names?</p>
+            <p>Markdown content goes here.</p>
 
-<p>Yes. You gave me a dollar and some candy. One hundred dollars. Oh right. I forgot about the battle. We can&#39;t compete with Mom! Her company is big and evil! <strong>Ours is small and neutral!</strong> <em>Eeeee!</em> Now say &quot;nuclear wessels&quot;!</p>
+<p>New line.</p>
 
-                <p><a href="https://agilesysadmin.github.io/blog/2021/05/13/my-first-post.html#section-2">Continue reading...</a></p>
 
 
         ]]></content>
-        <updated>2021-05-13T00:00:00Z</updated>
+        <updated>2021-12-12T00:00:00Z</updated>
     </entry>
 </feed>
 

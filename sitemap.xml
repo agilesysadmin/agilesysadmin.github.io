@@ -4,25 +4,25 @@
         <loc>https://agilesysadmin.github.io/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-05-13</lastmod>
+        <lastmod>2021-12-12</lastmod>
     </url>
     <url>
-        <loc>https://agilesysadmin.github.io/blog/2021/05/13/my-first-post.html</loc>
+        <loc>https://agilesysadmin.github.io/blog/2021/12/12/my-first-post/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2021-05-13</lastmod>
+        <lastmod>2021-12-12</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/pages/impressum.html</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2021-05-13</lastmod>
+        <lastmod>2023-04-01</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/pages/privacy_policy.html</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2021-05-13</lastmod>
+        <lastmod>2023-04-01</lastmod>
     </url>
 </urlset>
 
