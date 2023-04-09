@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://agilesysadmin.github.io/tag/ubuntu/</id>
+    <title>agile sysadmin</title>
+    <updated>2013-09-09T00:00:00Z</updated>
+    <link href="https://agilesysadmin.github.io/tag/ubuntu.atom" rel="self" />
+    <link href="https://agilesysadmin.github.io/tag/ubuntu/" rel="alternate" />
+    <author>
+        <name>Ferenc Erki</name>
+    </author>
+    <generator version="0.098">Statocles</generator>
+
+    <entry>
+        <id>https://agilesysadmin.github.io/2013/09/09/simple-unattended-ubuntu-install-in-a-vm/</id>
+        <title>Simple unattended Ubuntu install in a VM</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://agilesysadmin.github.io/2013/09/09/simple-unattended-ubuntu-install-in-a-vm/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>I wrote the <a href="https://agilesysadmin.github.io/2013/03/28/unattended-ubuntu-install-in-a-vm/">previous post about this topic</a> almost 6 months ago. Recently I had to review the process for a different project and I was curious if I could find an easier way to seed the installer options – preferably without modifying the original ISO file. Although there is more than one way to do it, I hope others would also find this method helpful.</p>
+
+                <p><a href="https://agilesysadmin.github.io/2013/09/09/simple-unattended-ubuntu-install-in-a-vm/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://agilesysadmin.github.io/tag/kvm/">KVM</a>
+                    <a href="https://agilesysadmin.github.io/tag/ubuntu/">Ubuntu</a>
+                </p>
+
+        ]]></content>
+        <updated>2013-09-09T00:00:00Z</updated>
+        <category term="KVM" />
+        <category term="Ubuntu" />
+    </entry>
+    <entry>
+        <id>https://agilesysadmin.github.io/2013/03/28/unattended-ubuntu-install-in-a-vm/</id>
+        <title>Unattended Ubuntu install in a VM</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://agilesysadmin.github.io/2013/03/28/unattended-ubuntu-install-in-a-vm/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><strong>Edit: you may want to check out my <a href="https://agilesysadmin.github.io/2013/09/09/simple-unattended-ubuntu-install-in-a-vm/">updated post</a> in this topic.</strong></p>
+
+<p>In one of my projects I needed to quickly install and/or reproduce virtual Ubuntu servers using QEMU+KVM. It’s nothing difficult but I decided to record the required steps here so I don’t have to remember it all the time. The overall process is the following:</p>
+
+<ul>
+<li>download an installation image, mount it and make a writable copy</li>
+<li>modify/replace isolinux.cfg and preseed files</li>
+<li>recreate ISO and test by booting from it</li>
+</ul>
+
+                <p><a href="https://agilesysadmin.github.io/2013/03/28/unattended-ubuntu-install-in-a-vm/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://agilesysadmin.github.io/tag/kvm/">KVM</a>
+                    <a href="https://agilesysadmin.github.io/tag/qemu/">QEMU</a>
+                    <a href="https://agilesysadmin.github.io/tag/ubuntu/">Ubuntu</a>
+                </p>
+
+        ]]></content>
+        <updated>2013-03-28T00:00:00Z</updated>
+        <category term="KVM" />
+        <category term="QEMU" />
+        <category term="Ubuntu" />
+    </entry>
+</feed>
+

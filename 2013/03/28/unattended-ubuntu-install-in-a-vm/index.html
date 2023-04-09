@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="Ferenc Erki - agile sysadmin" name="description">
+        <meta content="Ferenc Erki" name="author">
+        <meta content="4KzbYclokErOfwrKiBpX8XCu8ckJ9A7zwueL9VAbAYE" name="google-site-verification">
+        <link href="/theme/css/selenized.css" rel="stylesheet">
+        <title>Ferenc Erki - agile sysadmin</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">agile sysadmin</a></h1>
+            <p>by Ferenc Erki</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/">Posts</a></li>
+                <li><a href="https://ferki.it" target="_blank">Homepage</a></li>
+                <li><a href="https://cal.com/ferki" target="_blank">Booking</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+
+    <header>
+    <h1><a href="/2013/03/28/unattended-ubuntu-install-in-a-vm/index.html">Unattended Ubuntu install in a VM</a></h1>
+
+    <aside>
+        <div>
+            <time datetime="2013-03-28">
+                on 2013-03-28
+            </time>
+                by Ferenc Erki
+        </div>
+        <div>
+                <a href="/tag/kvm/">🏷KVM</a>
+                <a href="/tag/qemu/">🏷QEMU</a>
+                <a href="/tag/ubuntu/">🏷Ubuntu</a>
+        </div>
+    </aside>
+
+</header>
+
+
+    <section id="section-1">
+        <p><strong>Edit: you may want to check out my <a href="/2013/09/09/simple-unattended-ubuntu-install-in-a-vm/index.html">updated post</a> in this topic.</strong></p>
+
+<p>In one of my projects I needed to quickly install and/or reproduce virtual Ubuntu servers using QEMU+KVM. It’s nothing difficult but I decided to record the required steps here so I don’t have to remember it all the time. The overall process is the following:</p>
+
+<ul>
+<li>download an installation image, mount it and make a writable copy</li>
+<li>modify/replace isolinux.cfg and preseed files</li>
+<li>recreate ISO and test by booting from it</li>
+</ul>
+
+    </section>
+    <section id="section-2">
+        <h2 id="getanubuntuinstallationimage">Get an Ubuntu installation image</h2>
+
+<p>I’m using the latest 64-bit LTS server ISO which is marked 12.04.2 at the moment of writing this. I also recommend downloading it via torrent then keep it seeding.</p>
+
+<ul>
+<li><a href="http://www.ubuntu.com/download">official downloads</a></li>
+<li><a href="http://www.ubuntu.com/download/desktop/alternative-downloads">alternative downloads</a></li>
+</ul>
+
+<h2 id="mountisoandcopyfiles">Mount ISO and copy files</h2>
+
+<p>Mount the downloaded image then copy the contents to a directory where you can edit the files since the mounted filesystem will be read-only.</p>
+
+<pre><code class="highlight">mount <span class="synSpecial">-o</span> loop /path/to/image /mount/here
+rsync <span class="synSpecial">-av</span> /mount/here/ /copy/here
+<span class="synStatement">chmod</span> <span class="synSpecial">-R</span> u+w /copy/here/isolinux
+<span class="synStatement">chmod</span> <span class="synSpecial">-R</span> u+w /copy/here/preseed
+</code></pre>
+
+<h2 id="modifyfiles">Modify files</h2>
+
+<p>Adjust isolinux.cfg and preseed files to your needs. The options needed before the installer mounts the installation media should go into isolinux.cfg as part of the append statement. Every other preconfiguration for the installer could be set in the preseed file (list of preseed options). All path info in the below examples should be seen as if the root directory was the ISO image’s root.</p>
+
+<h2 id="isolinux.cfg">isolinux.cfg</h2>
+
+<p>As I intend to use the new image for unattended installation I replaced the original file with the following:</p>
+
+<p><code>/isolinux/isolinux.cfg</code></p>
+
+<pre><code class="highlight">prompt <span class="synNumber">0</span>
+default install
+label install
+    menu label ^Install Ubuntu
+    kernel /install/vmlinuz
+    append <span class="synIdentifier">file</span>=/cdrom/preseed/ubuntu-server-minimalvm.seed <span class="synIdentifier">locale</span>=en_GB.UTF-8 console-setup/<span class="synIdentifier">ask_detect</span>=false keyboard-configuration/<span class="synIdentifier">layoutcode</span>=hu <span class="synIdentifier">vga</span>=<span class="synNumber">788</span> <span class="synIdentifier">initrd</span>=/install/initrd.gz quiet <span class="synSpecial">--</span>
+</code></pre>
+
+<ul>
+<li>prompt 0: this can spare time on boot by not waiting for any user input</li>
+<li>append options:
+<ul>
+<li>file: which preseed file should be used during the installation</li>
+<li>language, country and locale can be set separately but usually it’s enough to set the locale (<code>language=en country=GB locale=en_GB.UTF-8</code> is equivalent to <code>locale=en_GB.UTF-8</code> however <code>language=en country=HU locale=en_GB.UTF-8</code> combination won’t work for some reason..)</li>
+<li>console-setup/ask_detect=false: don’t try to autodetect keyboard settings</li>
+<li>keyboard-configuration/layoutcode=hu: set the keyboard layout to Hungarian</li>
+<li>everything else (vga, initrd, quiet) is kept from the default file</li>
+</ul></li>
+</ul>
+
+<p>The installer mounts the installation media at this point so it could load the specified preseed file and use that from here on.</p>
+
+<h2 id="preseedfile">Preseed file</h2>
+
+<p>In order to don’t stop to wait for any user input I needed to specify the following minimal set of preconfiguration options: hostname, initial user’s full name, username and MD5 hashed password, home directory encryption, timezone, partition setup, mirror config, update policy, additional packages to be insalled, GRUB installation, and how to finish the installation.</p>
+
+<p>I just prepended these lines to the existing ubuntu-server-minimalvm.seed file:</p>
+
+<p><code>/preseed/ubuntu-server-minimalvm.seed</code></p>
+
+<pre><code class="highlight"><span class="synComment"># Set hostname</span>
+d-i netcfg/get_hostname string ubuntu
+<span class="synComment"># Create new user</span>
+d-i passwd/user-fullname string Ubuntu User
+d-i passwd/username string ubuntu
+d-i passwd/user-password-crypted password <span class="synPreProc">$1$1</span>AniiGAw<span class="synPreProc">$ZsUcBK840ZrkmoVIvTneP1</span>
+<span class="synComment"># Don&#39;t encrypt the home directory</span>
+d-i user-setup/encrypt-home boolean <span class="synStatement">false</span>
+<span class="synComment"># Set timezone</span>
+d-i time/zone string Europe/Budapest
+<span class="synComment"># Partitioning</span>
+d-i partman-auto/disk string /dev/vda
+d-i partman-auto/method string lvm
+d-i partman-lvm/device_remove_lvm boolean <span class="synStatement">true</span>
+d-i partman-lvm/confirm boolean <span class="synStatement">true</span>
+d-i partman-lvm/confirm_nooverwrite boolean <span class="synStatement">true</span>
+d-i partman-auto-lvm/guided_size string max
+d-i partman-partitioning/confirm_write_new_label boolean <span class="synStatement">true</span>
+d-i partman/choose_partition <span class="synConditional">select </span>finish
+d<span class="synConditional">-i</span> partman/confirm boolean <span class="synStatement">true</span>
+d<span class="synConditional">-i</span> partman/confirm_nooverwrite boolean <span class="synStatement">true</span>
+
+<span class="synComment"># Mirror</span>
+d<span class="synConditional">-i</span> mirror/http/proxy string
+<span class="synComment"># Unattended security upgrades</span>
+d<span class="synConditional">-i</span> pkgsel/update-policy <span class="synConditional">select </span>unattended-upgrades
+<span class="synComment"># Install OpenSSH server</span>
+tasksel tasksel/first multiselect openssh-server
+<span class="synComment"># Install acpid</span>
+d<span class="synConditional">-i</span> pkgsel/include string acpid
+<span class="synComment"># Install GRUB2</span>
+d<span class="synConditional">-i</span> grub-installer/only_debian boolean <span class="synStatement">true</span>
+<span class="synComment"># Avoid that last message about the install being complete</span>
+d<span class="synConditional">-i</span> finish-install/reboot_in_progress note
+d<span class="synConditional">-i</span> debian-installer/<span class="synStatement">exit</span>/poweroff boolean <span class="synStatement">true</span>
+</code></pre>
+
+<p><strong>Edit: install acpid by default as it is needed for proper VM shutdown. The initial username/password is ubuntu/ubuntu in this example.</strong></p>
+
+<h2 id="recreateiso">recreate ISO</h2>
+
+<pre><code class="highlight">mkisofs <span class="synSpecial">-r</span> <span class="synSpecial">-V</span> <span class="synOperator">&quot;</span><span class="synString">auto-ubuntu-minimalvm</span><span class="synOperator">&quot;</span> <span class="synSpecial">-cache-inodes</span> <span class="synSpecial">-J</span> <span class="synSpecial">-l</span> <span class="synSpecial">-b</span> isolinux/isolinux.bin <span class="synSpecial">-c</span> isolinux/boot.cat <span class="synSpecial">-no-emul-boot</span> <span class="synSpecial">-boot-load-size</span> <span class="synNumber">4</span> <span class="synSpecial">-boot-info-table</span> <span class="synSpecial">-o</span> /path/to/new/iso /copy/here
+</code></pre>
+
+<h2 id="boot">boot</h2>
+
+<ul>
+<li>createqemu image</li>
+</ul>
+
+<pre><code class="highlight">qemu-img create <span class="synSpecial">-f</span> qcow2 ubuntu-server-12.<span class="synNumber">04</span>.2-amd64-minimalvm.img 2G
+</code></pre>
+
+<ul>
+<li>boot from modified iso</li>
+</ul>
+
+<pre><code class="highlight">qemu-kvm <span class="synSpecial">-cpu</span> host <span class="synSpecial">-drive</span> <span class="synIdentifier">file</span>=ubuntu-server-12.<span class="synNumber">04</span>.2-amd64-minimalvm.img,<span class="synIdentifier">if</span>=virtio <span class="synSpecial">-net</span> nic <span class="synSpecial">-net</span> user,<span class="synIdentifier">hostname</span>=ubuntu <span class="synSpecial">-m</span> 256M <span class="synSpecial">-boot</span> d <span class="synSpecial">-cdrom</span> /path/to/new/iso
+</code></pre>
+
+    </section>
+
+</article>
+
+<ul class="pager">
+    <li class="prev">
+    </li>
+    <li class="next">
+            <a href="/2013/05/22/improved-ebuild-for-arnos-iptables-firewall/index.html" rel="next">
+                Newer →
+            </a>
+    </li>
+</ul>
+
+
+        </main>
+
+        <footer>
+            
+            <ul>
+                <li><a href="https://github.com/ferki" rel="me" target="_blank">GitHub</a></li>
+                <li><a href="https://profile.codersrank.io/user/ferki" rel="me" target="_blank">CodersRank</a></li>
+                <li><a href="https://www.linkedin.com/in/ferki" rel="me" target="_blank">LinkedIn</a></li>
+                <li><a href="https://twitter.com/erkiferenc" rel="me" target="_blank">Twitter</a></li>
+                <li><a href="https://fosstodon.org/@ferki" rel="me" target="_blank">Mastodon</a></li>
+                <li><a href="mailto:erkiferenc@gmail.com">Email</a></li>
+                <li><a href="/pages/impressum.html">Impressum</a></li>
+                <li><a href="/pages/privacy_policy.html">Privacy policy</a></li>
+            </ul>
+
+            <ul>
+                <li>Built with <a href="http://preaction.me/statocles" target="_blank">Statocles</a></li>
+                <li>Powered by <a href="https://www.perl.org" target="_blank">Perl</a></li>
+                <li>Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></li>
+                <li>© 2023 Ferenc Erki</li>
+            </ul>
+
+        </footer>
+    </body>
+</html>

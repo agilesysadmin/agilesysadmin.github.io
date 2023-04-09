@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>agile sysadmin</title>
+        <link>https://agilesysadmin.github.io/tag/rex/</link>
+        <atom:link href="https://agilesysadmin.github.io/tag/rex.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of agile sysadmin</description>
+        <generator>Statocles 0.098</generator>
+        <item>
+            <title>OpenWrt support in (R)?ex</title>
+            <link>https://agilesysadmin.github.io/2013/07/16/openwrt-support-in-r-ex/</link>
+            <guid>https://agilesysadmin.github.io/2013/07/16/openwrt-support-in-r-ex/</guid>
+            <description><![CDATA[
+                <p><a href="http://rexify.org/">(R)?ex</a> is a configuration management framework written in Perl which can be used to simplify and automate various system administrator tasks from deployment management to data center automation. <a href="https://openwrt.org/">OpenWrt</a> is a Linux distribution for embedded devices and it is widely used on different network equipment by replacing their original firmware. Soon you can combine the power of these two as OpenWrt support is coming into Rex!</p>
+
+                    <p><a href="https://agilesysadmin.github.io/2013/07/16/openwrt-support-in-r-ex/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://agilesysadmin.github.io/tag/openwrt/">OpenWrt</a>
+                        <a href="https://agilesysadmin.github.io/tag/rex/">Rex</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Tue, 16 Jul 2013 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

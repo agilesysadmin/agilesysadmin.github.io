@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="Ferenc Erki - agile sysadmin" name="description">
+        <meta content="Ferenc Erki" name="author">
+        <meta content="4KzbYclokErOfwrKiBpX8XCu8ckJ9A7zwueL9VAbAYE" name="google-site-verification">
+        <link href="/theme/css/selenized.css" rel="stylesheet">
+        <title>Ferenc Erki - agile sysadmin</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">agile sysadmin</a></h1>
+            <p>by Ferenc Erki</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/">Posts</a></li>
+                <li><a href="https://ferki.it" target="_blank">Homepage</a></li>
+                <li><a href="https://cal.com/ferki" target="_blank">Booking</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+
+    <header>
+    <h1><a href="/2013/05/22/improved-ebuild-for-arnos-iptables-firewall/index.html">Improved ebuild for Arno’s iptables firewall</a></h1>
+
+    <aside>
+        <div>
+            <time datetime="2013-05-22">
+                on 2013-05-22
+            </time>
+                by Ferenc Erki
+        </div>
+        <div>
+                <a href="/tag/aif/">🏷AIF</a>
+                <a href="/tag/ebuild/">🏷ebuild</a>
+                <a href="/tag/gentoo/">🏷Gentoo</a>
+        </div>
+    </aside>
+
+</header>
+
+
+    <section id="section-1">
+        <p>Back in December 2012 I was frustrated by a few issues about using net-firewall/arno-iptables-firewall on Gentoo. Only an old version was available through portage and that had its problems working with recent versions of iptables as state matching module’s functionality was being replaced by conntrack module – among other problems like ancient homepage and initscript.</p>
+
+<p>I collected the various pieces spread across a <a href="https://bugs.gentoo.org/show_bug.cgi?id=309473">few</a> <a href="https://bugs.gentoo.org/show_bug.cgi?id=411661">bugs</a>, patched them together and filed it as an overall <a href="https://bugs.gentoo.org/show_bug.cgi?id=447386">version bump</a> to 2.0.1d and volunteered for proxy maintainership as well. I also sent the initscript changes upstream (originally filed to Gentoo’s Bugzilla by Marius Brehler).</p>
+
+<p>However I wasn’t fully comfortable with some details here and there in the ebuild and decided to give it a more thorough look. The result is 30-something commits for the 2.0.1d-r1 ebuild :) They contain roughly the following:</p>
+
+<ul>
+<li>EAPI5</li>
+<li>new initscript</li>
+<li>dependency updates (remarkably to avoid a <a href="http://git.savannah.gnu.org/cgit/coreutils.git/diff/?id=76f606a9544bd67629bd4766ff6efe8bf42b20d9">bug in the seq implementation</a> from coreutils-8.20 and 8.20-r1 <a href="http://rocky.eld.leidenuniv.nl/pipermail/firewall/2013-April/002288.html">reported by Daniel Lindbeck</a>)</li>
+<li>install sourced/executable helper files into /usr/libexec</li>
+<li>fix documentation path</li>
+<li>postinst messages cleanup</li>
+<li>general cleanup</li>
+</ul>
+
+<p>The revamped ebuild is <a href="https://bugs.gentoo.org/show_bug.cgi?id=465114">already in the portage tree</a>. Thanks goes to Arno van Amersfoort for the firewall script and to Markos Chandras (hwoarang) for reviewing and committing the ebuild, and of course to everyone else who helped me via the firewall mailing list and #gentoo-dev-help.</p>
+
+    </section>
+
+</article>
+
+<ul class="pager">
+    <li class="prev">
+            <a href="/2013/03/28/unattended-ubuntu-install-in-a-vm/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <a href="/2013/07/16/openwrt-support-in-r-ex/index.html" rel="next">
+                Newer →
+            </a>
+    </li>
+</ul>
+
+
+        </main>
+
+        <footer>
+            
+            <ul>
+                <li><a href="https://github.com/ferki" rel="me" target="_blank">GitHub</a></li>
+                <li><a href="https://profile.codersrank.io/user/ferki" rel="me" target="_blank">CodersRank</a></li>
+                <li><a href="https://www.linkedin.com/in/ferki" rel="me" target="_blank">LinkedIn</a></li>
+                <li><a href="https://twitter.com/erkiferenc" rel="me" target="_blank">Twitter</a></li>
+                <li><a href="https://fosstodon.org/@ferki" rel="me" target="_blank">Mastodon</a></li>
+                <li><a href="mailto:erkiferenc@gmail.com">Email</a></li>
+                <li><a href="/pages/impressum.html">Impressum</a></li>
+                <li><a href="/pages/privacy_policy.html">Privacy policy</a></li>
+            </ul>
+
+            <ul>
+                <li>Built with <a href="http://preaction.me/statocles" target="_blank">Statocles</a></li>
+                <li>Powered by <a href="https://www.perl.org" target="_blank">Perl</a></li>
+                <li>Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></li>
+                <li>© 2023 Ferenc Erki</li>
+            </ul>
+
+        </footer>
+    </body>
+</html>

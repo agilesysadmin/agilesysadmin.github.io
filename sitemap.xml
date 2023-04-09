@@ -4,13 +4,49 @@
         <loc>https://agilesysadmin.github.io/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-12-12</lastmod>
+        <lastmod>2013-11-16</lastmod>
     </url>
     <url>
-        <loc>https://agilesysadmin.github.io/blog/2021/12/12/my-first-post/</loc>
+        <loc>https://agilesysadmin.github.io/2013/03/28/unattended-ubuntu-install-in-a-vm/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2021-12-12</lastmod>
+        <lastmod>2013-03-28</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/2013/05/22/improved-ebuild-for-arnos-iptables-firewall/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-05-22</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/2013/07/16/final-term-is-available-in-gentoo-sunrise/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-07-16</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/2013/07/16/openwrt-support-in-r-ex/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-07-16</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/2013/09/09/simple-unattended-ubuntu-install-in-a-vm/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-09-09</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/2013/11/16/aaphoto-is-available-in-gentoo/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-11-16</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-11-16</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/pages/impressum.html</loc>
@@ -23,6 +59,60 @@
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2023-04-01</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/tag/aif/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-05-22</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/tag/ebuild/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-07-16</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/tag/final-term/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-07-16</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/tag/gentoo/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-11-16</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/tag/kvm/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-09-09</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/tag/openwrt/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-07-16</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/tag/qemu/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-03-28</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/tag/rex/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-07-16</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/tag/ubuntu/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2013-09-09</lastmod>
     </url>
 </urlset>
 

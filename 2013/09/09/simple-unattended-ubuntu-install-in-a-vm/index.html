@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="Ferenc Erki - agile sysadmin" name="description">
+        <meta content="Ferenc Erki" name="author">
+        <meta content="4KzbYclokErOfwrKiBpX8XCu8ckJ9A7zwueL9VAbAYE" name="google-site-verification">
+        <link href="/theme/css/selenized.css" rel="stylesheet">
+        <title>Ferenc Erki - agile sysadmin</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">agile sysadmin</a></h1>
+            <p>by Ferenc Erki</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/">Posts</a></li>
+                <li><a href="https://ferki.it" target="_blank">Homepage</a></li>
+                <li><a href="https://cal.com/ferki" target="_blank">Booking</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+
+    <header>
+    <h1><a href="/2013/09/09/simple-unattended-ubuntu-install-in-a-vm/index.html">Simple unattended Ubuntu install in a VM</a></h1>
+
+    <aside>
+        <div>
+            <time datetime="2013-09-09">
+                on 2013-09-09
+            </time>
+                by Ferenc Erki
+        </div>
+        <div>
+                <a href="/tag/kvm/">🏷KVM</a>
+                <a href="/tag/ubuntu/">🏷Ubuntu</a>
+        </div>
+    </aside>
+
+</header>
+
+
+    <section id="section-1">
+        <p>I wrote the <a href="/2013/03/28/unattended-ubuntu-install-in-a-vm/index.html">previous post about this topic</a> almost 6 months ago. Recently I had to review the process for a different project and I was curious if I could find an easier way to seed the installer options – preferably without modifying the original ISO file. Although there is more than one way to do it, I hope others would also find this method helpful.</p>
+
+    </section>
+    <section id="section-2">
+        <p>Ingredients:</p>
+
+<ul>
+<li>preseed file</li>
+<li>libvirt</li>
+<li>virtinst or virt-manager</li>
+<li>virt-viewer (optional)</li>
+</ul>
+
+<p>Virtinst recently got merged with virt-manager but your distribution may still provide it separately. And that’s right, you don’t even need to download the ISO as virtinst can use an online kernel/initrd pair as install media.</p>
+
+<p>Basically the process is to download an install media from the internet, inject our custom preseed file into initrd, then boot a VM with these.</p>
+
+<p>Let’s see the full command first then some details:</p>
+
+<pre><code class="highlight">virt-install <span class="synOperator">\</span>
+--connect qemu:///system <span class="synOperator">\</span>
+--name ubuntu <span class="synOperator">\</span>
+--ram <span class="synNumber">256</span> <span class="synOperator">\</span>
+--disk <span class="synIdentifier">pool</span>=default,<span class="synIdentifier">size</span>=<span class="synNumber">5</span>,<span class="synIdentifier">bus</span>=virtio,<span class="synIdentifier">sparse</span>=false <span class="synOperator">\</span>
+--network <span class="synIdentifier">network</span>=default,<span class="synIdentifier">model</span>=virtio <span class="synOperator">\</span>
+--location http://hu.archive.ubuntu.com/dists/precise-updates/main/installer-amd64 <span class="synOperator">\</span>
+--initrd-inject<span class="synOperator">=</span>/var/lib/libvirt/images/preseed.cfg <span class="synOperator">\</span>
+--extra-args<span class="synOperator">=&quot;</span><span class="synString">locale=en_GB.UTF-8 console-setup/ask_detect=false keyboard-configuration/layoutcode=hu file=file:/preseed.cfg vga=788 quiet</span><span class="synOperator">&quot;</span> <span class="synOperator">\</span>
+--os-type<span class="synOperator">=</span>linux <span class="synOperator">\</span>
+--os-variant<span class="synOperator">=</span>ubuntuprecise <span class="synOperator">\</span>
+--virt-type kvm <span class="synOperator">\</span>
+--video<span class="synOperator">=</span>vga <span class="synOperator">\</span>
+--noreboot
+</code></pre>
+
+<p>This creates a VM named ubuntu with 256 Mb of RAM and an 5Gb disk in the default storage pool. The virtual disk uses the virtio bus and non-sparse allocation for performance reasons. The VM will also have a virtio network card in the default network. Here comes the interesting part:</p>
+
+<ul>
+<li>–location: it tells virtinst to use an online kernel/initrd from the official Ubuntu repos; you may want to adjust the mirror, release name and architecture parts of the link to your needs</li>
+<li>–initrd-inject: the custom preseed config to be injected into initrd before booting the VM; only preseed.cfg worked for me as the name for this file, and it will be placed under the root directory (an example preseed.cfg is included below)</li>
+<li>–extra-args: these will be passed to the downladed kernel as command line parameters on boot; it’s generally the answers for the first few installer steps (locale, console, keyboard), the path to the seed file to use, and some convenience options (graphics mode and boot verbosity)</li>
+</ul>
+
+<p>The remaining options are telling virtinst that it will be a Linux VM, specifically an Ubuntu Precise OS using KVM virtualization, simple VGA video card and no reboot is needed after the installer finished. Virt-installer also tries to display the console of the new VM during installation, but virt-viewer is needed for it – if you don’t want to install it you can also open the console via virt-manager or a VNC/SPICE client (depending on what graphics settings your new VM is using).</p>
+
+<p><strong>UPDATE</strong>: adamstokes2013 kindly pointed out that <code>--connect qemu:///system</code> is needed for virt-install if you would like to use anything else than usermode networking. You can find out more about this in <a href="http://wiki.libvirt.org/page/FAQ#What_is_the_difference_between_qemu:.2F.2F.2Fsystem_and_qemu:.2F.2F.2Fsession.3F_Which_one_should_I_use.3F">libvirt FAQ</a> and <a href="http://libvirt.org/uri.html">documentation</a>, along with info on how to set your default hypervisor.</p>
+
+<p>Currently I’m using the following preseed file:</p>
+
+<p><code>preseed.cfg</code></p>
+
+<pre><code class="highlight"><span class="synComment"># Set hostname</span>
+d-i netcfg/get_hostname string ubuntu
+<span class="synComment"># Create new user</span>
+d-i passwd/user-fullname string Ubuntu User
+d-i passwd/username string ubuntu
+d-i passwd/user-password-crypted password <span class="synPreProc">$1$1</span>AniiGAw<span class="synPreProc">$ZsUcBK840ZrkmoVIvTneP1</span>
+<span class="synComment"># Don&#39;t encrypt the home directory</span>
+d-i user-setup/encrypt-home boolean <span class="synStatement">false</span>
+<span class="synComment"># Set timezone</span>
+d-i time/zone string Europe/Budapest
+<span class="synComment"># Partitioning</span>
+d-i partman-auto/disk string /dev/vda
+d-i partman-auto/method string lvm
+d-i partman-lvm/device_remove_lvm boolean <span class="synStatement">true</span>
+d-i partman-lvm/confirm boolean <span class="synStatement">true</span>
+d-i partman-lvm/confirm_nooverwrite boolean <span class="synStatement">true</span>
+d-i partman-auto-lvm/guided_size string max
+d-i partman-partitioning/confirm_write_new_label boolean <span class="synStatement">true</span>
+d-i partman/choose_partition <span class="synConditional">select </span>finish
+d<span class="synConditional">-i</span> partman/confirm boolean <span class="synStatement">true</span>
+d<span class="synConditional">-i</span> partman/confirm_nooverwrite boolean <span class="synStatement">true</span>
+<span class="synComment"># Mirror</span>
+d<span class="synConditional">-i</span> mirror/country string manual
+d<span class="synConditional">-i</span> mirror/http/hostname string hu.archive.ubuntu.com
+d<span class="synConditional">-i</span> mirror/http/directory string /ubuntu
+d<span class="synConditional">-i</span> mirror/http/proxy string
+<span class="synComment"># Upgrade packages after debootstrap</span>
+d<span class="synConditional">-i</span> pkgsel/upgrade <span class="synConditional">select </span>full-upgrade
+<span class="synComment"># Unattended security upgrades</span>
+d<span class="synConditional">-i</span> pkgsel/update-policy <span class="synConditional">select </span>unattended-upgrades
+<span class="synComment"># Install OpenSSH server</span>
+tasksel tasksel/first multiselect openssh-server
+<span class="synComment"># Install acpid</span>
+d<span class="synConditional">-i</span> pkgsel/include string acpid
+<span class="synComment"># Install GRUB2</span>
+d<span class="synConditional">-i</span> grub-installer/only_debian boolean <span class="synStatement">true</span>
+<span class="synComment"># Avoid that last message about the install being complete</span>
+d<span class="synConditional">-i</span> finish-install/reboot_in_progress note
+d<span class="synConditional">-i</span> debian-installer/<span class="synStatement">exit</span>/poweroff boolean <span class="synStatement">true</span>
+
+<span class="synComment"># Don&#39;t install kernel headers.</span>
+d<span class="synConditional">-i</span> base-installer/kernel/headers boolean <span class="synStatement">false</span>
+<span class="synComment"># Don&#39;t even install the standard task.</span>
+tasksel tasksel/skip-tasks string standard
+<span class="synComment"># Only install basic language packs. Let tasksel ask about tasks.</span>
+d<span class="synConditional">-i</span> pkgsel/language-pack-patterns string
+<span class="synComment"># No language support packages.</span>
+d<span class="synConditional">-i</span> pkgsel/install-language-support boolean <span class="synStatement">false</span>
+<span class="synComment"># Only ask the UTC question if there are other operating systems installed.</span>
+d<span class="synConditional">-i</span> clock-setup/utc-auto boolean <span class="synStatement">true</span>
+<span class="synComment"># Verbose output and no boot splash screen.</span>
+d<span class="synConditional">-i</span> debian-installer/quiet boolean <span class="synStatement">false</span>
+d<span class="synConditional">-i</span> debian-installer/splash boolean <span class="synStatement">false</span>
+<span class="synComment"># Install the debconf oem-config frontend (if in OEM mode).</span>
+<span class="synComment">#d-i oem-config-udeb/frontend string debconf</span>
+<span class="synComment"># Wait for two seconds in grub</span>
+d<span class="synConditional">-i</span> grub-installer/timeout string <span class="synNumber">2</span>
+<span class="synComment"># Add the network and tasks oem-config steps by default.</span>
+<span class="synComment">#oem-config oem-config/steps multiselect language, timezone, keyboard, user, network, tasks</span>
+d<span class="synConditional">-i</span> base-installer/kernel/altmeta string lts-raring
+</code></pre>
+
+<p>The second part of the file is basically the original preseed file from the Ubuntu 12.04.3 ISO and the custom options are placed before them. The initial username/password is ubuntu/ubuntu in this example and acpid is needed for proper VM shutdown.</p>
+
+    </section>
+
+</article>
+
+<ul class="pager">
+    <li class="prev">
+            <a href="/2013/07/16/final-term-is-available-in-gentoo-sunrise/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <a href="/2013/11/16/aaphoto-is-available-in-gentoo/index.html" rel="next">
+                Newer →
+            </a>
+    </li>
+</ul>
+
+
+        </main>
+
+        <footer>
+            
+            <ul>
+                <li><a href="https://github.com/ferki" rel="me" target="_blank">GitHub</a></li>
+                <li><a href="https://profile.codersrank.io/user/ferki" rel="me" target="_blank">CodersRank</a></li>
+                <li><a href="https://www.linkedin.com/in/ferki" rel="me" target="_blank">LinkedIn</a></li>
+                <li><a href="https://twitter.com/erkiferenc" rel="me" target="_blank">Twitter</a></li>
+                <li><a href="https://fosstodon.org/@ferki" rel="me" target="_blank">Mastodon</a></li>
+                <li><a href="mailto:erkiferenc@gmail.com">Email</a></li>
+                <li><a href="/pages/impressum.html">Impressum</a></li>
+                <li><a href="/pages/privacy_policy.html">Privacy policy</a></li>
+            </ul>
+
+            <ul>
+                <li>Built with <a href="http://preaction.me/statocles" target="_blank">Statocles</a></li>
+                <li>Powered by <a href="https://www.perl.org" target="_blank">Perl</a></li>
+                <li>Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></li>
+                <li>© 2023 Ferenc Erki</li>
+            </ul>
+
+        </footer>
+    </body>
+</html>

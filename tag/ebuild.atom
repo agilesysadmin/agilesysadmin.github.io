@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://agilesysadmin.github.io/tag/ebuild/</id>
+    <title>agile sysadmin</title>
+    <updated>2013-07-16T00:00:00Z</updated>
+    <link href="https://agilesysadmin.github.io/tag/ebuild.atom" rel="self" />
+    <link href="https://agilesysadmin.github.io/tag/ebuild/" rel="alternate" />
+    <author>
+        <name>Ferenc Erki</name>
+    </author>
+    <generator version="0.098">Statocles</generator>
+
+    <entry>
+        <id>https://agilesysadmin.github.io/2013/07/16/final-term-is-available-in-gentoo-sunrise/</id>
+        <title>Final Term is available in Gentoo Sunrise</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://agilesysadmin.github.io/2013/07/16/final-term-is-available-in-gentoo-sunrise/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="http://finalterm.org/">Final Term</a> is an interesting and promising terminal emulator with advanced interactive features like semantic text menus, smart command completion, GUI terminal controls, reflow support and more.</p>
+
+<p>I contributed an initial Hungarian translation for the project just to soon find myself hacking on an ebuild, and on minor features. All in all, as of 2013-07-11, Final Term is now available in Gentoo’s Sunrise overlay. You can find <a href="http://overlays.gentoo.org/proj/sunrise/">usage instructions here</a>.</p>
+
+<p>Thanks to:</p>
+
+<ul>
+<li>Philipp Emanuel Weidmann for creating Final Term and <a href="http://blog.finalterm.org/">blogging about it</a></li>
+<li>GitHub user Richard-W for letting me know that I’m not the only one who would like to use Final Term on Gentoo</li>
+<li>Julian Ospald (hasufell) for reviewing my ebuilds, suggesting a modification to the build system, and finally merging the ebuild into Sunrise</li>
+<li>the always helpful people on #gentoo-dev-help and #gentoo-sunrise</li>
+</ul>
+
+
+                <p>Tags:
+                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                    <a href="https://agilesysadmin.github.io/tag/final-term/">Final Term</a>
+                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                </p>
+
+        ]]></content>
+        <updated>2013-07-16T00:00:00Z</updated>
+        <category term="ebuild" />
+        <category term="Final Term" />
+        <category term="Gentoo" />
+    </entry>
+    <entry>
+        <id>https://agilesysadmin.github.io/2013/05/22/improved-ebuild-for-arnos-iptables-firewall/</id>
+        <title>Improved ebuild for Arno’s iptables firewall</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://agilesysadmin.github.io/2013/05/22/improved-ebuild-for-arnos-iptables-firewall/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Back in December 2012 I was frustrated by a few issues about using net-firewall/arno-iptables-firewall on Gentoo. Only an old version was available through portage and that had its problems working with recent versions of iptables as state matching module’s functionality was being replaced by conntrack module – among other problems like ancient homepage and initscript.</p>
+
+<p>I collected the various pieces spread across a <a href="https://bugs.gentoo.org/show_bug.cgi?id=309473">few</a> <a href="https://bugs.gentoo.org/show_bug.cgi?id=411661">bugs</a>, patched them together and filed it as an overall <a href="https://bugs.gentoo.org/show_bug.cgi?id=447386">version bump</a> to 2.0.1d and volunteered for proxy maintainership as well. I also sent the initscript changes upstream (originally filed to Gentoo’s Bugzilla by Marius Brehler).</p>
+
+<p>However I wasn’t fully comfortable with some details here and there in the ebuild and decided to give it a more thorough look. The result is 30-something commits for the 2.0.1d-r1 ebuild :) They contain roughly the following:</p>
+
+<ul>
+<li>EAPI5</li>
+<li>new initscript</li>
+<li>dependency updates (remarkably to avoid a <a href="http://git.savannah.gnu.org/cgit/coreutils.git/diff/?id=76f606a9544bd67629bd4766ff6efe8bf42b20d9">bug in the seq implementation</a> from coreutils-8.20 and 8.20-r1 <a href="http://rocky.eld.leidenuniv.nl/pipermail/firewall/2013-April/002288.html">reported by Daniel Lindbeck</a>)</li>
+<li>install sourced/executable helper files into /usr/libexec</li>
+<li>fix documentation path</li>
+<li>postinst messages cleanup</li>
+<li>general cleanup</li>
+</ul>
+
+<p>The revamped ebuild is <a href="https://bugs.gentoo.org/show_bug.cgi?id=465114">already in the portage tree</a>. Thanks goes to Arno van Amersfoort for the firewall script and to Markos Chandras (hwoarang) for reviewing and committing the ebuild, and of course to everyone else who helped me via the firewall mailing list and #gentoo-dev-help.</p>
+
+
+                <p>Tags:
+                    <a href="https://agilesysadmin.github.io/tag/aif/">AIF</a>
+                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                </p>
+
+        ]]></content>
+        <updated>2013-05-22T00:00:00Z</updated>
+        <category term="AIF" />
+        <category term="ebuild" />
+        <category term="Gentoo" />
+    </entry>
+</feed>
+

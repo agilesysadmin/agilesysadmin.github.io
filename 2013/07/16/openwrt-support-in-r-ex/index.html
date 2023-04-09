@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="Ferenc Erki - agile sysadmin" name="description">
+        <meta content="Ferenc Erki" name="author">
+        <meta content="4KzbYclokErOfwrKiBpX8XCu8ckJ9A7zwueL9VAbAYE" name="google-site-verification">
+        <link href="/theme/css/selenized.css" rel="stylesheet">
+        <title>Ferenc Erki - agile sysadmin</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">agile sysadmin</a></h1>
+            <p>by Ferenc Erki</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/">Posts</a></li>
+                <li><a href="https://ferki.it" target="_blank">Homepage</a></li>
+                <li><a href="https://cal.com/ferki" target="_blank">Booking</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+
+    <header>
+    <h1><a href="/2013/07/16/openwrt-support-in-r-ex/index.html">OpenWrt support in (R)?ex</a></h1>
+
+    <aside>
+        <div>
+            <time datetime="2013-07-16">
+                on 2013-07-16
+            </time>
+                by Ferenc Erki
+        </div>
+        <div>
+                <a href="/tag/openwrt/">🏷OpenWrt</a>
+                <a href="/tag/rex/">🏷Rex</a>
+        </div>
+    </aside>
+
+</header>
+
+
+    <section id="section-1">
+        <p><a href="http://rexify.org/">(R)?ex</a> is a configuration management framework written in Perl which can be used to simplify and automate various system administrator tasks from deployment management to data center automation. <a href="https://openwrt.org/">OpenWrt</a> is a Linux distribution for embedded devices and it is widely used on different network equipment by replacing their original firmware. Soon you can combine the power of these two as OpenWrt support is coming into Rex!</p>
+
+    </section>
+    <section id="section-2">
+        <p>I was using Rex for various tasks for almost a year when I wanted to be able to quickly build my OpenWrt-based home wireless router’s configuration from scratch. My first experiments to do it with Rex have failed quickly as soon as I tried to do anything more than running a command directly on the remote box. After hacking my way through the different issues, I suddenly found myself sending a <a href="https://github.com/krimdomu/Rex/pull/164">pull request with initial support</a> patches. A bit later it got merged into the upstream project and I was also given access to the testing and build infrastructure, where we ask Mr. Jenkins to help run our tests on KVM images. If you’re interested you can check the current project weather on <a href="https://build.rexify.org/">build.rexify.org</a>.</p>
+
+<p>Given the minimalistic/restricted environments of embedded systems in general, you need some simple preparations before you try to use Rex with OpenWrt. At least the following commands are needed to be run against a vanilla OpenWrt Attitude Adjustment (12.09) installation:</p>
+
+<ul>
+<li>install perl</li>
+</ul>
+
+<pre><code class="highlight">opkg update
+opkg install perl
+</code></pre>
+
+<ul>
+<li>install an SFTP server (to avoid <code>ERROR - Error executing task: Can&#39;t call method &quot;open&quot; on an undefined value</code> messages)</li>
+</ul>
+
+<pre><code class="highlight">opkg update
+opkg install gesftpserver
+<span class="synStatement">mkdir</span> /usr/libexec
+ln <span class="synSpecial">-s</span> /usr/bin/gesftpserver /usr/libexec/sftp-server
+</code></pre>
+
+<p>Optionally you may want to install additional Perl components for convenience:</p>
+
+<pre><code class="highlight">opkg update
+opkg install perlbase-essential perlbase-xsloader perlbase-digest
+</code></pre>
+
+    </section>
+
+</article>
+
+<ul class="pager">
+    <li class="prev">
+            <a href="/2013/05/22/improved-ebuild-for-arnos-iptables-firewall/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <a href="/2013/07/16/final-term-is-available-in-gentoo-sunrise/index.html" rel="next">
+                Newer →
+            </a>
+    </li>
+</ul>
+
+
+        </main>
+
+        <footer>
+            
+            <ul>
+                <li><a href="https://github.com/ferki" rel="me" target="_blank">GitHub</a></li>
+                <li><a href="https://profile.codersrank.io/user/ferki" rel="me" target="_blank">CodersRank</a></li>
+                <li><a href="https://www.linkedin.com/in/ferki" rel="me" target="_blank">LinkedIn</a></li>
+                <li><a href="https://twitter.com/erkiferenc" rel="me" target="_blank">Twitter</a></li>
+                <li><a href="https://fosstodon.org/@ferki" rel="me" target="_blank">Mastodon</a></li>
+                <li><a href="mailto:erkiferenc@gmail.com">Email</a></li>
+                <li><a href="/pages/impressum.html">Impressum</a></li>
+                <li><a href="/pages/privacy_policy.html">Privacy policy</a></li>
+            </ul>
+
+            <ul>
+                <li>Built with <a href="http://preaction.me/statocles" target="_blank">Statocles</a></li>
+                <li>Powered by <a href="https://www.perl.org" target="_blank">Perl</a></li>
+                <li>Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></li>
+                <li>© 2023 Ferenc Erki</li>
+            </ul>
+
+        </footer>
+    </body>
+</html>
