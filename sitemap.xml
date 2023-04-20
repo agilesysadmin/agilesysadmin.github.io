@@ -4,7 +4,7 @@
         <loc>https://agilesysadmin.github.io/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2013-11-16</lastmod>
+        <lastmod>2023-04-20</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/2013/03/28/unattended-ubuntu-install-in-a-vm/</loc>
@@ -43,10 +43,16 @@
         <lastmod>2013-11-16</lastmod>
     </url>
     <url>
+        <loc>https://agilesysadmin.github.io/2023/04/20/new-blog-who-dis/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2023-04-20</lastmod>
+    </url>
+    <url>
         <loc>https://agilesysadmin.github.io/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2013-11-16</lastmod>
+        <lastmod>2023-04-20</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/pages/about.html</loc>
