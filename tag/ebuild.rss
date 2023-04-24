@@ -7,6 +7,35 @@
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Host Gentoo dependency tarballs as GitHub releases</title>
+            <link>https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/</link>
+            <guid>https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/</guid>
+            <description><![CDATA[
+                <p>People who create Gentoo ebuilds for software written in Go probably noticed
+deprecation notices and discussion <a href="https://archives.gentoo.org/gentoo-dev/message/1a64a8e7694c3ee11cd48a58a95f2faa">About
+EGO_SUM</a>,
+and also about a <a href="https://archives.gentoo.org/gentoo-dev/message/d78af7f168cef24bfa302f7f75c3ef11">Proposal to undeprecate
+EGO_SUM</a>.</p>
+
+<p>While the mailing lists and IRC channels provide plenty of opportunity to
+discuss how to supply dependencies for Go software, here I share a way to use
+GitHub releases to host dependency tarballs as an external Gentoo contributor,
+like proxied maintainer, GURU contributor, or overlay maintainer.</p>
+
+                    <p><a href="https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                        <a href="https://agilesysadmin.github.io/tag/github/">GitHub</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 24 Apr 2023 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Final Term is available in Gentoo Sunrise</title>
             <link>https://agilesysadmin.github.io/2013/07/16/final-term-is-available-in-gentoo-sunrise/</link>
             <guid>https://agilesysadmin.github.io/2013/07/16/final-term-is-available-in-gentoo-sunrise/</guid>

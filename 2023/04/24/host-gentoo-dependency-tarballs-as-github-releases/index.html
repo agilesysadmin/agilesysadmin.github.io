@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="Ferenc Erki - agile sysadmin" name="description">
+        <meta content="Ferenc Erki" name="author">
+        <meta content="4KzbYclokErOfwrKiBpX8XCu8ckJ9A7zwueL9VAbAYE" name="google-site-verification">
+        <link href="/theme/images/favicon.svg" rel="icon">
+        <link href="/theme/css/selenized.css" rel="stylesheet">
+        <script data-domain="blog.ferki.it" defer src="https://plausible.io/js/script.js"></script>
+        <title>Host Gentoo dependency tarballs as GitHub releases</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">agile sysadmin</a></h1>
+            <p>by Ferenc Erki</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/">Posts</a></li>
+                <li><a href="https://ferki.it" target="_blank">Homepage</a></li>
+                <li><a href="https://cal.com/ferki" target="_blank">Booking</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+
+    <header>
+    <h1><a href="/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/">Host Gentoo dependency tarballs as GitHub releases</a></h1>
+
+    <aside>
+        <time datetime="2023-04-24">
+            📅 2023-04-24
+        </time>
+            <a href="/tag/gentoo/">#Gentoo</a>
+            <a href="/tag/ebuild/">#ebuild</a>
+            <a href="/tag/github/">#GitHub</a>
+    </aside>
+
+</header>
+
+
+    <section id="section-1">
+        <p>People who create Gentoo ebuilds for software written in Go probably noticed
+deprecation notices and discussion <a href="https://archives.gentoo.org/gentoo-dev/message/1a64a8e7694c3ee11cd48a58a95f2faa">About
+EGO_SUM</a>,
+and also about a <a href="https://archives.gentoo.org/gentoo-dev/message/d78af7f168cef24bfa302f7f75c3ef11">Proposal to undeprecate
+EGO_SUM</a>.</p>
+
+<p>While the mailing lists and IRC channels provide plenty of opportunity to
+discuss how to supply dependencies for Go software, here I share a way to use
+GitHub releases to host dependency tarballs as an external Gentoo contributor,
+like proxied maintainer, GURU contributor, or overlay maintainer.</p>
+
+    </section>
+    <section id="section-2">
+        <h2 id="thechallenge">The challenge</h2>
+
+<p>Official Gentoo developers have a personal space on dev.gentoo.org, and
+mirroring provided by the Gentoo Infrastructure project. They may decide to
+host distfiles there if necessary, including dependency tarballs for Go
+software in case upstream does not provide one.</p>
+
+<p>In contrast, external contributors striving to provide warning-free ebuilds to
+the community need to find a hosting solution that fits various criteria, like:</p>
+
+<ul>
+<li>has enough storage space</li>
+<li>can handle enough traffic to serve downloads</li>
+<li>stores and serves data securely</li>
+<li>stays highly available even for a longer time</li>
+<li>conforms to applicable privacy regulations, if any</li>
+<li>fits community usage purposes</li>
+<li>has no cost or at least an affordable price</li>
+</ul>
+
+<h2 id="discardedalternatives">Discarded alternatives</h2>
+
+<p>On my business domain it would cost extra money to host tarballs, and traffic
+limit might become a problem already around 350 downloads given the total
+tarball size of 180MB for 3 ebuilds. Mixing business and community usage there
+also requires more planning, partly because having to deal with the intricacies
+of providing a public service.</p>
+
+<p>The same goes for my personal domain as well, with the difference of having
+even more limited storage and traffic limits.</p>
+
+<p>Others recommended to commit tarballs directly into a GitHub repository. While
+storing blobs in git like that could work, it also has various drawbacks. Using
+Git Large File Storage (LFS) or git-annex would fit better in this direction.
+GitHub limits free storage to 1 GB, and traffic to 1 GB/month for the former,
+and the latter would require an external store to host blobs, though.</p>
+
+<h2 id="theidea">The idea</h2>
+
+<p>I’m always interested to find the simplest solution that could work for the
+given situation, and then iterate from there gradually.</p>
+
+<p>All the Go software I package for Gentoo has its upstream repository on GitHub,
+where releases may host several assets, and I already have the relevant tools
+and workflows in place to efficiently interact with them.</p>
+
+<p>Based on that, I decided to try the following idea:</p>
+
+<ul>
+<li>fork and clone the upstream project</li>
+<li>checkout the upstream release tag</li>
+<li>generate a dependency tarball</li>
+<li>create a GitHub release in my fork which includes the tarball</li>
+</ul>
+
+<h2 id="anexample">An example</h2>
+
+<p>I have <a href="https://cli.github.com">GitHub CLI</a> installed and configured, so I will use that as an example below along with the app-text/vale ebuild I worked on last time. Similar tools could work as well, like <a href="https://hub.github.com/">hub</a>, or even a mix of browser interactions and plain git commands.</p>
+
+<h3 id="preparetherepository">Prepare the repository</h3>
+
+<pre><code class="highlight">$ gh repo fork errata-ai/vale
+$ cd vale
+$ git checkout v2.24.4
+</code></pre>
+
+<h3 id="generatetarball">Generate tarball</h3>
+
+<p>The <a href="https://devmanual.gentoo.org/eclass-reference/go-module.eclass/index.html">go-module eclass
+documentation</a>
+uses the following commands to download the dependencies into the <code>go-mod</code>
+directory, and create a tarball of it:</p>
+
+<pre><code class="highlight">$ GOMODCACHE=&quot;${PWD}&quot;/go-mod go mod download -modcacherw
+$ XZ_OPT=&#39;-T0 -9&#39; tar -acf vale-2.24.4-gentoo-deps.tar.xz go-mod
+</code></pre>
+
+<p>I chose the tarball name of <code>vale-2.24.4-gentoo-deps.tar.xz</code> because that makes
+the relation clear to Gentoo dependencies, and the prefix nicely matches with
+the value of <code>${P}</code> when included as part of <code>SRC_URI</code> later in the ebuild.</p>
+
+<h3 id="creategithubrelease">Create GitHub release</h3>
+
+<p>First, mark the forked repository as default for this directory. Then create
+a GitHub release including our tarball, with clear references to Gentoo usage
+and the upstream version:</p>
+
+<pre><code class="highlight">$ gh repo set-default ferki/vale
+$ gh release create --notes &#39;dependency tarball for Gentoo v2.24.4&#39; v2.24.4-gentoo-deps vale-2.24.4-gentoo-deps.tar.xz
+</code></pre>
+
+<p>The release name of <code>v2.24.4-gentoo-deps</code> refers to both the upstream tagged
+version and the purpose. The notes make the purpose of the release clear for
+humans to read.</p>
+
+<h3 id="useitinanebuild">Use it in an ebuild</h3>
+
+<p>With the GitHub release in place in the fork, add the tarball as an extra
+distfile to the <code>SRC_URI</code> in the ebuild:</p>
+
+<pre><code class="highlight">SRC_URI<span class="synOperator">+=&quot;</span><span class="synString"> https://github.com/ferki/vale/releases/download/v</span><span class="synPreProc">${PV}</span><span class="synString">-gentoo-deps/</span><span class="synPreProc">${P}</span><span class="synString">-gentoo-deps.tar.xz</span><span class="synOperator">&quot;</span>
+</code></pre>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>GitHub releases can host dependency tarballs when packaging Go software for Gentoo as an external contributor.</p>
+
+<p>For the 3 ebuilds I maintain in my overlay, the above approach allowed me to remove around 900 lines from ebuild and Manifest files, reducing their size by 173 kB. The process also feels more straightforward than populating <code>EGO_SUM</code> content by extracting <code>go.sum</code> files.</p>
+
+<p>As a trade-off, I need to host about 180MB worth of data, and I wonder how well it would scale with the number of packages and version.</p>
+
+    </section>
+
+</article>
+
+<ul class="pager">
+    <li class="prev">
+            <a href="/2023/04/20/new-blog-who-dis/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+    </li>
+</ul>
+
+
+        </main>
+
+        <footer>
+            
+            <ul>
+                <li><a href="https://github.com/ferki" rel="me" target="_blank">GitHub</a></li>
+                <li><a href="https://profile.codersrank.io/user/ferki" rel="me" target="_blank">CodersRank</a></li>
+                <li><a href="https://www.linkedin.com/in/ferki" rel="me" target="_blank">LinkedIn</a></li>
+                <li><a href="https://twitter.com/erkiferenc" rel="me" target="_blank">Twitter</a></li>
+                <li><a href="https://fosstodon.org/@ferki" rel="me" target="_blank">Mastodon</a></li>
+                <li><a href="mailto:ferki@ferki.it">Email</a></li>
+                <li><a href="/pages/impressum.html">Impressum</a></li>
+                <li><a href="/pages/privacy_policy.html">Privacy policy</a></li>
+            </ul>
+            <ul>
+                <li>© 2023 Ferenc Erki</li>
+            </ul>
+
+        </footer>
+    </body>
+</html>

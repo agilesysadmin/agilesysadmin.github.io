@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://agilesysadmin.github.io/</id>
     <title>agile sysadmin</title>
-    <updated>2023-04-20T00:00:00Z</updated>
+    <updated>2023-04-24T00:00:00Z</updated>
     <link href="https://agilesysadmin.github.io/index.atom" rel="self" />
     <link href="https://agilesysadmin.github.io/" rel="alternate" />
     <author>
@@ -10,6 +10,37 @@
     </author>
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/</id>
+        <title>Host Gentoo dependency tarballs as GitHub releases</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>People who create Gentoo ebuilds for software written in Go probably noticed
+deprecation notices and discussion <a href="https://archives.gentoo.org/gentoo-dev/message/1a64a8e7694c3ee11cd48a58a95f2faa">About
+EGO_SUM</a>,
+and also about a <a href="https://archives.gentoo.org/gentoo-dev/message/d78af7f168cef24bfa302f7f75c3ef11">Proposal to undeprecate
+EGO_SUM</a>.</p>
+
+<p>While the mailing lists and IRC channels provide plenty of opportunity to
+discuss how to supply dependencies for Go software, here I share a way to use
+GitHub releases to host dependency tarballs as an external Gentoo contributor,
+like proxied maintainer, GURU contributor, or overlay maintainer.</p>
+
+                <p><a href="https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                    <a href="https://agilesysadmin.github.io/tag/github/">GitHub</a>
+                </p>
+
+        ]]></content>
+        <updated>2023-04-24T00:00:00Z</updated>
+        <category term="Gentoo" />
+        <category term="ebuild" />
+        <category term="GitHub" />
+    </entry>
     <entry>
         <id>https://agilesysadmin.github.io/2023/04/20/new-blog-who-dis/</id>
         <title>New blog, who dis?</title>
@@ -112,26 +143,6 @@ Gentoo, as well as automation, software delivery, testing, and open source.</p>
         <category term="ebuild" />
         <category term="Final Term" />
         <category term="Gentoo" />
-    </entry>
-    <entry>
-        <id>https://agilesysadmin.github.io/2013/07/16/openwrt-support-in-r-ex/</id>
-        <title>OpenWrt support in (R)?ex</title>
-        <author><name>Ferenc Erki</name></author>
-        <link href="https://agilesysadmin.github.io/2013/07/16/openwrt-support-in-r-ex/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><a href="http://rexify.org/">(R)?ex</a> is a configuration management framework written in Perl which can be used to simplify and automate various system administrator tasks from deployment management to data center automation. <a href="https://openwrt.org/">OpenWrt</a> is a Linux distribution for embedded devices and it is widely used on different network equipment by replacing their original firmware. Soon you can combine the power of these two as OpenWrt support is coming into Rex!</p>
-
-                <p><a href="https://agilesysadmin.github.io/2013/07/16/openwrt-support-in-r-ex/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://agilesysadmin.github.io/tag/openwrt/">OpenWrt</a>
-                    <a href="https://agilesysadmin.github.io/tag/rex/">Rex</a>
-                </p>
-
-        ]]></content>
-        <updated>2013-07-16T00:00:00Z</updated>
-        <category term="OpenWrt" />
-        <category term="Rex" />
     </entry>
 </feed>
 
