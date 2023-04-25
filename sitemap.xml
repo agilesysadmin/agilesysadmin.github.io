@@ -4,7 +4,7 @@
         <loc>https://agilesysadmin.github.io/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2023-04-24</lastmod>
+        <lastmod>2023-04-25</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/2013/03/28/unattended-ubuntu-install-in-a-vm/</loc>
@@ -55,10 +55,16 @@
         <lastmod>2023-04-24</lastmod>
     </url>
     <url>
+        <loc>https://agilesysadmin.github.io/2023/04/25/packaging-vale-2-24-4-for-gentoo/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2023-04-25</lastmod>
+    </url>
+    <url>
         <loc>https://agilesysadmin.github.io/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2023-04-24</lastmod>
+        <lastmod>2023-04-25</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/pages/about.html</loc>
@@ -88,7 +94,7 @@
         <loc>https://agilesysadmin.github.io/tag/ebuild/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2023-04-24</lastmod>
+        <lastmod>2023-04-25</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/tag/final-term/</loc>
@@ -100,7 +106,7 @@
         <loc>https://agilesysadmin.github.io/tag/gentoo/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2023-04-24</lastmod>
+        <lastmod>2023-04-25</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/tag/github/</loc>
@@ -137,6 +143,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2013-09-09</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/tag/vale/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2023-04-25</lastmod>
     </url>
 </urlset>
 

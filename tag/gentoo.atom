@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://agilesysadmin.github.io/tag/gentoo/</id>
     <title>agile sysadmin</title>
-    <updated>2023-04-24T00:00:00Z</updated>
+    <updated>2023-04-25T00:00:00Z</updated>
     <link href="https://agilesysadmin.github.io/tag/gentoo.atom" rel="self" />
     <link href="https://agilesysadmin.github.io/tag/gentoo/" rel="alternate" />
     <author>
@@ -10,6 +10,34 @@
     </author>
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://agilesysadmin.github.io/2023/04/25/packaging-vale-2-24-4-for-gentoo/</id>
+        <title>Packaging vale-2.24.4 for Gentoo</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://agilesysadmin.github.io/2023/04/25/packaging-vale-2-24-4-for-gentoo/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://vale.sh">Vale</a> describes itself as a “syntax-aware linter for prose
+built with speed and extensibility in mind”. <a href="https://github.com/ferki/gentoo-overlay">My
+overlay</a> has the latest <a href="https://github.com/errata-ai/vale/releases/tag/v2.24.4">v2.24.4
+release</a> available for
+fellow Gentoo users.</p>
+
+<p>I recommend previous users to continue reading about ebuild changes.</p>
+
+                <p><a href="https://agilesysadmin.github.io/2023/04/25/packaging-vale-2-24-4-for-gentoo/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                    <a href="https://agilesysadmin.github.io/tag/vale/">vale</a>
+                </p>
+
+        ]]></content>
+        <updated>2023-04-25T00:00:00Z</updated>
+        <category term="Gentoo" />
+        <category term="ebuild" />
+        <category term="vale" />
+    </entry>
     <entry>
         <id>https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/</id>
         <title>Host Gentoo dependency tarballs as GitHub releases</title>

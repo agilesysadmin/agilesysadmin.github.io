@@ -7,6 +7,32 @@
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Packaging vale-2.24.4 for Gentoo</title>
+            <link>https://agilesysadmin.github.io/2023/04/25/packaging-vale-2-24-4-for-gentoo/</link>
+            <guid>https://agilesysadmin.github.io/2023/04/25/packaging-vale-2-24-4-for-gentoo/</guid>
+            <description><![CDATA[
+                <p><a href="https://vale.sh">Vale</a> describes itself as a “syntax-aware linter for prose
+built with speed and extensibility in mind”. <a href="https://github.com/ferki/gentoo-overlay">My
+overlay</a> has the latest <a href="https://github.com/errata-ai/vale/releases/tag/v2.24.4">v2.24.4
+release</a> available for
+fellow Gentoo users.</p>
+
+<p>I recommend previous users to continue reading about ebuild changes.</p>
+
+                    <p><a href="https://agilesysadmin.github.io/2023/04/25/packaging-vale-2-24-4-for-gentoo/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                        <a href="https://agilesysadmin.github.io/tag/vale/">vale</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Tue, 25 Apr 2023 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Host Gentoo dependency tarballs as GitHub releases</title>
             <link>https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/</link>
             <guid>https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/</guid>
