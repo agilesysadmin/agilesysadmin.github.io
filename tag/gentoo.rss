@@ -7,6 +7,36 @@
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Gentoo has xsel-1.2.1 among the firsts</title>
+            <link>https://agilesysadmin.github.io/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/</link>
+            <guid>https://agilesysadmin.github.io/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/</guid>
+            <description><![CDATA[
+                <p><a href="https://github.com/kfish/xsel">xsel</a> works great to “manipulate the
+X selection”. Last week I stepped up as proxied maintainer to help bring
+already merged improvements to Gentoo users despite lack of new releases since
+2008.</p>
+
+<p>Thanks to support from <a href="https://wiki.gentoo.org/wiki/User:Soap">soap</a> during
+the past week, upstream has merged all ebuild patches, <a href="https://github.com/kfish/xsel/releases/tag/1.2.1">tagged
+1.2.1</a>, and Gentoo already
+ships the latest version — among the first distros, according to
+<a href="https://repology.org/project/xsel/history">repology</a>.</p>
+
+                    <p><a href="https://agilesysadmin.github.io/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                        <a href="https://agilesysadmin.github.io/tag/proxied/">proxied</a>
+                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                        <a href="https://agilesysadmin.github.io/tag/xsel/">xsel</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Wed, 26 Apr 2023 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Packaging vale-2.24.4 for Gentoo</title>
             <link>https://agilesysadmin.github.io/2023/04/25/packaging-vale-2-24-4-for-gentoo/</link>
             <guid>https://agilesysadmin.github.io/2023/04/25/packaging-vale-2-24-4-for-gentoo/</guid>
@@ -24,6 +54,7 @@ fellow Gentoo users.</p>
                     <p>Tags:
                         <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
                         <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                        <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
                         <a href="https://agilesysadmin.github.io/tag/vale/">vale</a>
                     </p>
 
@@ -113,41 +144,6 @@ like proxied maintainer, GURU contributor, or overlay maintainer.</p>
             ]]></description>
             <pubDate>
                 Tue, 16 Jul 2013 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Improved ebuild for Arno’s iptables firewall</title>
-            <link>https://agilesysadmin.github.io/2013/05/22/improved-ebuild-for-arnos-iptables-firewall/</link>
-            <guid>https://agilesysadmin.github.io/2013/05/22/improved-ebuild-for-arnos-iptables-firewall/</guid>
-            <description><![CDATA[
-                <p>Back in December 2012 I was frustrated by a few issues about using net-firewall/arno-iptables-firewall on Gentoo. Only an old version was available through portage and that had its problems working with recent versions of iptables as state matching module’s functionality was being replaced by conntrack module – among other problems like ancient homepage and initscript.</p>
-
-<p>I collected the various pieces spread across a <a href="https://bugs.gentoo.org/show_bug.cgi?id=309473">few</a> <a href="https://bugs.gentoo.org/show_bug.cgi?id=411661">bugs</a>, patched them together and filed it as an overall <a href="https://bugs.gentoo.org/show_bug.cgi?id=447386">version bump</a> to 2.0.1d and volunteered for proxy maintainership as well. I also sent the initscript changes upstream (originally filed to Gentoo’s Bugzilla by Marius Brehler).</p>
-
-<p>However I wasn’t fully comfortable with some details here and there in the ebuild and decided to give it a more thorough look. The result is 30-something commits for the 2.0.1d-r1 ebuild :) They contain roughly the following:</p>
-
-<ul>
-<li>EAPI5</li>
-<li>new initscript</li>
-<li>dependency updates (remarkably to avoid a <a href="http://git.savannah.gnu.org/cgit/coreutils.git/diff/?id=76f606a9544bd67629bd4766ff6efe8bf42b20d9">bug in the seq implementation</a> from coreutils-8.20 and 8.20-r1 <a href="http://rocky.eld.leidenuniv.nl/pipermail/firewall/2013-April/002288.html">reported by Daniel Lindbeck</a>)</li>
-<li>install sourced/executable helper files into /usr/libexec</li>
-<li>fix documentation path</li>
-<li>postinst messages cleanup</li>
-<li>general cleanup</li>
-</ul>
-
-<p>The revamped ebuild is <a href="https://bugs.gentoo.org/show_bug.cgi?id=465114">already in the portage tree</a>. Thanks goes to Arno van Amersfoort for the firewall script and to Markos Chandras (hwoarang) for reviewing and committing the ebuild, and of course to everyone else who helped me via the firewall mailing list and #gentoo-dev-help.</p>
-
-
-                    <p>Tags:
-                        <a href="https://agilesysadmin.github.io/tag/aif/">AIF</a>
-                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Wed, 22 May 2013 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

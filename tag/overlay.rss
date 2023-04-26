@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>agile sysadmin</title>
-        <link>https://agilesysadmin.github.io/tag/vale/</link>
-        <atom:link href="https://agilesysadmin.github.io/tag/vale.rss" rel="self" type="application/rss+xml" />
+        <link>https://agilesysadmin.github.io/tag/overlay/</link>
+        <atom:link href="https://agilesysadmin.github.io/tag/overlay.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>

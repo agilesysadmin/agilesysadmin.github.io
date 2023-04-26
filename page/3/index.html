@@ -30,34 +30,44 @@
             <article>
 
     <header>
-    <h1><a href="/2023/04/25/packaging-vale-2-24-4-for-gentoo/">Packaging vale-2.24.4 for Gentoo</a></h1>
+    <h1><a href="/2013/03/28/unattended-ubuntu-install-in-a-vm/">Unattended Ubuntu install in a VM</a></h1>
 
     <aside>
-        <time datetime="2023-04-25">
-            📅 2023-04-25
+        <time datetime="2013-03-28">
+            📅 2013-03-28
         </time>
-            <a href="/tag/gentoo/">#Gentoo</a>
-            <a href="/tag/ebuild/">#ebuild</a>
-            <a href="/tag/overlay/">#overlay</a>
-            <a href="/tag/vale/">#vale</a>
+            <a href="/tag/kvm/">#KVM</a>
+            <a href="/tag/qemu/">#QEMU</a>
+            <a href="/tag/ubuntu/">#Ubuntu</a>
     </aside>
 
 </header>
 
 
-    <p><a href="https://vale.sh">Vale</a> describes itself as a “syntax-aware linter for prose
-built with speed and extensibility in mind”. <a href="https://github.com/ferki/gentoo-overlay">My
-overlay</a> has the latest <a href="https://github.com/errata-ai/vale/releases/tag/v2.24.4">v2.24.4
-release</a> available for
-fellow Gentoo users.</p>
+    <p><strong>Edit: you may want to check out my <a href="/2013/09/09/simple-unattended-ubuntu-install-in-a-vm/index.html">updated post</a> in this topic.</strong></p>
 
-<p>I recommend previous users to continue reading about ebuild changes.</p>
+<p>In one of my projects I needed to quickly install and/or reproduce virtual Ubuntu servers using QEMU+KVM. It’s nothing difficult but I decided to record the required steps here so I don’t have to remember it all the time. The overall process is the following:</p>
+
+<ul>
+<li>download an installation image, mount it and make a writable copy</li>
+<li>modify/replace isolinux.cfg and preseed files</li>
+<li>recreate ISO and test by booting from it</li>
+</ul>
 
 
-    <p><a href="/2023/04/25/packaging-vale-2-24-4-for-gentoo/#section-2">Continue reading …</a></p>
+    <p><a href="/2013/03/28/unattended-ubuntu-install-in-a-vm/#section-2">Continue reading …</a></p>
 
 </article>
 
+<ul class="pager">
+    <li class="prev">
+    </li>
+    <li class="next">
+            <a href="/page/2/" rel="next">
+                Newer →
+            </a>
+    </li>
+</ul>
 
 
         </main>

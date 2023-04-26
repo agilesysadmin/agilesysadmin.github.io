@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://agilesysadmin.github.io/tag/ebuild/</id>
     <title>agile sysadmin</title>
-    <updated>2023-04-25T00:00:00Z</updated>
+    <updated>2023-04-26T00:00:00Z</updated>
     <link href="https://agilesysadmin.github.io/tag/ebuild.atom" rel="self" />
     <link href="https://agilesysadmin.github.io/tag/ebuild/" rel="alternate" />
     <author>
@@ -10,6 +10,39 @@
     </author>
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://agilesysadmin.github.io/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/</id>
+        <title>Gentoo has xsel-1.2.1 among the firsts</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://agilesysadmin.github.io/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://github.com/kfish/xsel">xsel</a> works great to “manipulate the
+X selection”. Last week I stepped up as proxied maintainer to help bring
+already merged improvements to Gentoo users despite lack of new releases since
+2008.</p>
+
+<p>Thanks to support from <a href="https://wiki.gentoo.org/wiki/User:Soap">soap</a> during
+the past week, upstream has merged all ebuild patches, <a href="https://github.com/kfish/xsel/releases/tag/1.2.1">tagged
+1.2.1</a>, and Gentoo already
+ships the latest version — among the first distros, according to
+<a href="https://repology.org/project/xsel/history">repology</a>.</p>
+
+                <p><a href="https://agilesysadmin.github.io/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                    <a href="https://agilesysadmin.github.io/tag/proxied/">proxied</a>
+                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                    <a href="https://agilesysadmin.github.io/tag/xsel/">xsel</a>
+                </p>
+
+        ]]></content>
+        <updated>2023-04-26T00:00:00Z</updated>
+        <category term="Gentoo" />
+        <category term="proxied" />
+        <category term="ebuild" />
+        <category term="xsel" />
+    </entry>
     <entry>
         <id>https://agilesysadmin.github.io/2023/04/25/packaging-vale-2-24-4-for-gentoo/</id>
         <title>Packaging vale-2.24.4 for Gentoo</title>
@@ -29,6 +62,7 @@ fellow Gentoo users.</p>
                 <p>Tags:
                     <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
                     <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                    <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
                     <a href="https://agilesysadmin.github.io/tag/vale/">vale</a>
                 </p>
 
@@ -36,6 +70,7 @@ fellow Gentoo users.</p>
         <updated>2023-04-25T00:00:00Z</updated>
         <category term="Gentoo" />
         <category term="ebuild" />
+        <category term="overlay" />
         <category term="vale" />
     </entry>
     <entry>
