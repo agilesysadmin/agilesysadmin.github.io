@@ -74,19 +74,6 @@ fellow Gentoo users.</p>
         <category term="vale" />
     </entry>
     <entry>
-        <id>https://agilesysadmin.github.io/2023/04/25/shipping-xsel-1-2-1-for-gentoo/</id>
-        <title>Shipping xsel-1.2.1 for Gentoo</title>
-        <author><name>Ferenc Erki</name></author>
-        <link href="https://agilesysadmin.github.io/2023/04/25/shipping-xsel-1-2-1-for-gentoo/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>Markdown content goes here.</p>
-
-
-
-        ]]></content>
-        <updated>2023-04-25T00:00:00Z</updated>
-    </entry>
-    <entry>
         <id>https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/</id>
         <title>Host Gentoo dependency tarballs as GitHub releases</title>
         <author><name>Ferenc Erki</name></author>
@@ -143,6 +130,30 @@ Gentoo, as well as automation, software delivery, testing, and open source.</p>
 
         ]]></content>
         <updated>2023-04-20T00:00:00Z</updated>
+    </entry>
+    <entry>
+        <id>https://agilesysadmin.github.io/2013/11/16/aaphoto-is-available-in-gentoo/</id>
+        <title>aaphoto is available in Gentoo</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://agilesysadmin.github.io/2013/11/16/aaphoto-is-available-in-gentoo/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Auto Adjust Photo, or <a href="http://log69.com/aaphoto_en.html">aaphoto</a> in short, is a cool little tool for automatic color correction and resizing of photos. I cooked an ebuild for it a long time ago which was waiting to be rediscovered in a forgotten corner of my drive. After a quick refurbishing and some minor/trivial upstream cleanup with the extremely friendly author, it is now available in the main portage tree of Gentoo.</p>
+
+<p>Thanks goes to:</p>
+
+<ul>
+<li>András Horváth for creating aaphoto</li>
+<li>the always helpful Gentoo developers (in this particular case TomWij, mrueg and Pinkbyte) for their review via Bugzilla and #gentoo-dev-help, and for accepting me as a proxied maintainer for the package</li>
+</ul>
+
+
+                <p>Tags:
+                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                </p>
+
+        ]]></content>
+        <updated>2013-11-16T00:00:00Z</updated>
+        <category term="Gentoo" />
     </entry>
 </feed>
 
