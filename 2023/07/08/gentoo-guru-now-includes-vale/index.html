@@ -9,7 +9,7 @@
         <link href="/theme/images/favicon.svg" rel="icon">
         <link href="/theme/css/selenized.css" rel="stylesheet">
         <script data-domain="blog.ferki.it" defer src="https://plausible.io/js/script.js"></script>
-        <title>Gentoo has xsel-1.2.1 among the firsts</title>
+        <title>Gentoo GURU now includes Vale</title>
     </head>
     <body>
         <header>
@@ -30,57 +30,46 @@
             <article>
 
     <header>
-    <h1><a href="/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/">Gentoo has xsel-1.2.1 among the firsts</a></h1>
+    <h1><a href="/2023/07/08/gentoo-guru-now-includes-vale/">Gentoo GURU now includes Vale</a></h1>
 
     <aside>
-        <time datetime="2023-04-26">
-            📅 2023-04-26
+        <time datetime="2023-07-08">
+            📅 2023-07-08
         </time>
             <a href="/tag/gentoo/">#Gentoo</a>
-            <a href="/tag/proxied/">#proxied</a>
             <a href="/tag/ebuild/">#ebuild</a>
-            <a href="/tag/xsel/">#xsel</a>
+            <a href="/tag/guru/">#GURU</a>
+            <a href="/tag/vale/">#vale</a>
     </aside>
 
 </header>
 
 
     <section id="section-1">
-        <p><a href="https://github.com/kfish/xsel">xsel</a> works great to “manipulate the
-X selection”. Last week I stepped up as proxied maintainer to help bring
-already merged improvements to Gentoo users despite lack of new releases since
-2008.</p>
-
-<p>Thanks to support from <a href="https://wiki.gentoo.org/wiki/User:Soap">soap</a> during
-the past week, upstream has merged all ebuild patches, <a href="https://github.com/kfish/xsel/releases/tag/1.2.1">tagged
-1.2.1</a>, and Gentoo already
-ships the latest version — among the first distros, according to
-<a href="https://repology.org/project/xsel/history">repology</a>.</p>
+        <p><a href="https://vale.sh/">Vale</a> describes itself as a “syntax-aware linter for prose
+built with speed and extensibility in mind”. The official Gentoo
+<a href="https://wiki.gentoo.org/wiki/Project:GURU">GURU</a> overlay now makes the
+<a href="https://github.com/errata-ai/vale/releases/tag/v2.27.0">v2.27.0 release</a>
+available for the wider community.</p>
 
     </section>
     <section id="section-2">
-        <h2 id="whydoesitmatter">Why does it matter?</h2>
+        <p>I improved the ebuild in my overlay about two weeks ago by commenting on test
+requirements, and replacing the previous USE-flag controlled runtime
+dependencies with optional features.</p>
 
-<p>The xsel-1.2.1 release has accumulated several changes over time, including
-fixes for segfaults and memory leaks. As a personal highlight, the
-<a href="https://github.com/kfish/xsel/pull/16">kfish/xsel#16</a> pull request also fixed
-an annoying bug that prevented copy-pasting more than 4000 characters.</p>
+<p>Once I felt confident about meeting the quality standards for inclusion in
+GURU, I followed the official <a href="https://wiki.gentoo.org/wiki/Project:GURU/Information_for_Contributors">information for
+contributors</a>
+to push the results to the <code>dev</code> branch. Then I left for my vacation 😎</p>
 
-<p>Before this release, everyone had to build xsel from a specific git commit of
-their choice with occasional patches to enjoy the benefits of this progress.</p>
+<p>After a couple of days, a fellow Trusted Contributor merged my commit to the
+mainline (thanks!), making Vale my first package maintained in GURU.</p>
 
-<p>The x11-misc/xsel-9999 live ebuild used to make it possible to follow the
-latest changes on Gentoo. It got removed from the main repository on
-2023-04-16, which lead me to contribute a snapshot ebuild next day, containing
-latest git commits and a selection of build system patches.</p>
-
-<p>Meanwhile, soap worked with upstream to merge these patches, and to cut a new
-release. Which considerably simplified my work about bumping the ebuild version
-and cleaning up our interim solutions.</p>
-
-<p>On a personal note, the quality of collaboration both within and across open
-source projects made me quite happy, and I feel glad about the related result
-helping an even wider community. Thank you for everyone involved!</p>
+<p>I will decide later whether I want to clean it up from my overlay to avoid
+duplication, or still keep it around there to have a faster feedback loop for
+test purposes. In any case, I plan to move further ebuilds from my overlay to
+GURU as they become ready for it.</p>
 
     </section>
 
@@ -88,14 +77,11 @@ helping an even wider community. Thank you for everyone involved!</p>
 
 <ul class="pager">
     <li class="prev">
-            <a href="/2023/04/25/packaging-vale-2-24-4-for-gentoo/index.html" rel="prev">
+            <a href="/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/index.html" rel="prev">
                 ← Older
             </a>
     </li>
     <li class="next">
-            <a href="/2023/07/08/gentoo-guru-now-includes-vale/index.html" rel="next">
-                Newer →
-            </a>
     </li>
 </ul>
 

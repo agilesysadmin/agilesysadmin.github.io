@@ -4,7 +4,7 @@
         <loc>https://agilesysadmin.github.io/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2023-04-26</lastmod>
+        <lastmod>2023-07-08</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/2013/03/28/unattended-ubuntu-install-in-a-vm/</loc>
@@ -67,10 +67,22 @@
         <lastmod>2023-04-26</lastmod>
     </url>
     <url>
+        <loc>https://agilesysadmin.github.io/2023/07/08/gentoo-guru-now-includes-vale/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2023-07-08</lastmod>
+    </url>
+    <url>
         <loc>https://agilesysadmin.github.io/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2023-04-26</lastmod>
+        <lastmod>2023-07-08</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/page/3/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2023-07-08</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/pages/about.html</loc>
@@ -100,7 +112,13 @@
         <loc>https://agilesysadmin.github.io/tag/ebuild/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2023-04-26</lastmod>
+        <lastmod>2023-07-08</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/tag/ebuild/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2023-07-08</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/tag/final-term/</loc>
@@ -112,19 +130,25 @@
         <loc>https://agilesysadmin.github.io/tag/gentoo/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2023-04-26</lastmod>
+        <lastmod>2023-07-08</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/tag/gentoo/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2023-04-26</lastmod>
+        <lastmod>2023-07-08</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/tag/github/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2023-04-24</lastmod>
+    </url>
+    <url>
+        <loc>https://agilesysadmin.github.io/tag/guru/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2023-07-08</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/tag/kvm/</loc>
@@ -172,7 +196,7 @@
         <loc>https://agilesysadmin.github.io/tag/vale/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2023-04-25</lastmod>
+        <lastmod>2023-07-08</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/tag/xsel/</loc>

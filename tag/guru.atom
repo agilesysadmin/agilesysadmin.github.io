@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://agilesysadmin.github.io/tag/guru/</id>
+    <title>agile sysadmin</title>
+    <updated>2023-07-08T00:00:00Z</updated>
+    <link href="https://agilesysadmin.github.io/tag/guru.atom" rel="self" />
+    <link href="https://agilesysadmin.github.io/tag/guru/" rel="alternate" />
+    <author>
+        <name>Ferenc Erki</name>
+    </author>
+    <generator version="0.098">Statocles</generator>
+
+    <entry>
+        <id>https://agilesysadmin.github.io/2023/07/08/gentoo-guru-now-includes-vale/</id>
+        <title>Gentoo GURU now includes Vale</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://agilesysadmin.github.io/2023/07/08/gentoo-guru-now-includes-vale/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://vale.sh/">Vale</a> describes itself as a “syntax-aware linter for prose
+built with speed and extensibility in mind”. The official Gentoo
+<a href="https://wiki.gentoo.org/wiki/Project:GURU">GURU</a> overlay now makes the
+<a href="https://github.com/errata-ai/vale/releases/tag/v2.27.0">v2.27.0 release</a>
+available for the wider community.</p>
+
+                <p><a href="https://agilesysadmin.github.io/2023/07/08/gentoo-guru-now-includes-vale/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                    <a href="https://agilesysadmin.github.io/tag/guru/">GURU</a>
+                    <a href="https://agilesysadmin.github.io/tag/vale/">vale</a>
+                </p>
+
+        ]]></content>
+        <updated>2023-07-08T00:00:00Z</updated>
+        <category term="Gentoo" />
+        <category term="ebuild" />
+        <category term="GURU" />
+        <category term="vale" />
+    </entry>
+</feed>
+
