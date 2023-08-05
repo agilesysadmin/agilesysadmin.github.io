@@ -7,6 +7,33 @@
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Releasing Rex-1.14.3</title>
+            <link>https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/</link>
+            <guid>https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/</guid>
+            <description><![CDATA[
+                <p>I released Rex-1.14.3 today, making it available both on
+<a href="https://metacpan.org/release/FERKI/Rex-1.14.3">CPAN</a> and in <a href="https://github.com/ferki/gentoo-overlay">my Gentoo
+overlay</a>.</p>
+
+<p>This version of the friendly automation framework contains bug fixes for local
+package installation, command existence checks, and git tests.</p>
+
+                    <p><a href="https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://agilesysadmin.github.io/tag/rex/">rex</a>
+                        <a href="https://agilesysadmin.github.io/tag/release/">release</a>
+                        <a href="https://agilesysadmin.github.io/tag/gentoo/">gentoo</a>
+                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                        <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 05 Aug 2023 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>OpenWrt support in (R)?ex</title>
             <link>https://agilesysadmin.github.io/2013/07/16/openwrt-support-in-r-ex/</link>
             <guid>https://agilesysadmin.github.io/2013/07/16/openwrt-support-in-r-ex/</guid>

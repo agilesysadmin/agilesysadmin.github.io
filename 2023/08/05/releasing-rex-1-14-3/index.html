@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="Ferenc Erki - agile sysadmin" name="description">
+        <meta content="Ferenc Erki" name="author">
+        <meta content="4KzbYclokErOfwrKiBpX8XCu8ckJ9A7zwueL9VAbAYE" name="google-site-verification">
+        <link href="/theme/images/favicon.svg" rel="icon">
+        <link href="/theme/css/selenized.css" rel="stylesheet">
+        <script data-domain="blog.ferki.it" defer src="https://plausible.io/js/script.js"></script>
+        <title>Releasing Rex-1.14.3</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">agile sysadmin</a></h1>
+            <p>by Ferenc Erki</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/">Posts</a></li>
+                <li><a href="https://ferki.it" target="_blank">Homepage</a></li>
+                <li><a href="https://cal.com/ferki" target="_blank">Booking</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+
+    <header>
+    <h1><a href="/2023/08/05/releasing-rex-1-14-3/">Releasing Rex-1.14.3</a></h1>
+
+    <aside>
+        <time datetime="2023-08-05">
+            📅 2023-08-05
+        </time>
+            <a href="/tag/rex/">#rex</a>
+            <a href="/tag/release/">#release</a>
+            <a href="/tag/gentoo/">#gentoo</a>
+            <a href="/tag/ebuild/">#ebuild</a>
+            <a href="/tag/overlay/">#overlay</a>
+    </aside>
+
+</header>
+
+
+    <section id="section-1">
+        <p>I released Rex-1.14.3 today, making it available both on
+<a href="https://metacpan.org/release/FERKI/Rex-1.14.3">CPAN</a> and in <a href="https://github.com/ferki/gentoo-overlay">my Gentoo
+overlay</a>.</p>
+
+<p>This version of the friendly automation framework contains bug fixes for local
+package installation, command existence checks, and git tests.</p>
+
+    </section>
+    <section id="section-2">
+        <h2 id="fixlocalpackageinstallation">Fix local package installation</h2>
+
+<p>An older contribution aimed at improving OpenBSD management capabilities had
+unintended side effects, and – depending on other circumstances – caused
+warnings or errors during local package management tasks.</p>
+
+<p>Various command execution built-ins support passing a set of environment
+variables in a form of key value pairs as a hash reference. The problem came
+from lack of tests in the original changeset, and then mistakenly setting the
+default set of environment variable to an empty array instead of an empty hash
+reference.</p>
+
+<p>I added relevant tests and fixed the default value.</p>
+
+<h2 id="fixcheckingcommandexistence">Fix checking command existence</h2>
+
+<p>In rare cases, command existence checks return an exit code indicating success,
+while actually reporting an error in their output.</p>
+
+<p>Rex already could recognize such a case for Solaris systems, and cross-checked
+the output if the command output contains the “no command in” string. This time
+a similar situation happened with a Windows system apparently set to use the
+German language.</p>
+
+<p>It made clear that such a string matching strategy would not scale far: even if
+we could reliably control the language of the messages across all operating
+systems, we would have to maintain a list of possible messages for these corner
+cases.</p>
+
+<p>Instead, Rex now double-checks whether the command candidate actually exists in
+the file system or not.</p>
+
+<h2 id="fixtestsrelatedtogitfunctionality">Fix tests related to Git functionality</h2>
+
+<p>The previous Rex-1.14.2 came with a new set of tests for Git functionality, and
+it all looked fine in our GitHub Actions workflows exercising the test suite on
+Linux, Mac OS, and Windows for several Perl versions.</p>
+
+<p>Often we make a trial release of Rex before making it final, and wait for
+further input from CPAN Testers. Before Rex-1.14.2 I made a mistake by deciding
+to skip the trial release, as we learned about several corner cases needing
+follow-up fixes.</p>
+
+<ul>
+<li>The test suite checked for the presence of the <code>git</code> command, but attempted
+to declare a plan twice instead of properly skipping. This essentially made
+Git a hard test-time dependency instead of an optional one.</li>
+<li>Global and system Git configuration could affect git behavior during tests.</li>
+<li>Git versions before 1.8.5 did not have a <code>-C</code> command line flag to change
+into the specified directory before executing their subcommands.</li>
+</ul>
+
+<p>I fixed all the above, and made several TRIAL releases before Rex-1.14.3 again.</p>
+
+    </section>
+
+</article>
+
+<ul class="pager">
+    <li class="prev">
+            <a href="/2023/07/08/gentoo-guru-now-includes-vale/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+    </li>
+</ul>
+
+
+        </main>
+
+        <footer>
+            
+            <ul>
+                <li><a href="https://github.com/ferki" rel="me" target="_blank">GitHub</a></li>
+                <li><a href="https://profile.codersrank.io/user/ferki" rel="me" target="_blank">CodersRank</a></li>
+                <li><a href="https://www.linkedin.com/in/ferki" rel="me" target="_blank">LinkedIn</a></li>
+                <li><a href="https://twitter.com/erkiferenc" rel="me" target="_blank">Twitter</a></li>
+                <li><a href="https://fosstodon.org/@ferki" rel="me" target="_blank">Mastodon</a></li>
+                <li><a href="mailto:ferki@ferki.it">Email</a></li>
+                <li><a href="/pages/impressum.html">Impressum</a></li>
+                <li><a href="/pages/privacy_policy.html">Privacy policy</a></li>
+            </ul>
+            <ul>
+                <li>© 2023 Ferenc Erki</li>
+            </ul>
+
+        </footer>
+    </body>
+</html>

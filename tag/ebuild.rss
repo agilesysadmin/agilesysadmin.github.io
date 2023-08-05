@@ -7,6 +7,33 @@
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Releasing Rex-1.14.3</title>
+            <link>https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/</link>
+            <guid>https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/</guid>
+            <description><![CDATA[
+                <p>I released Rex-1.14.3 today, making it available both on
+<a href="https://metacpan.org/release/FERKI/Rex-1.14.3">CPAN</a> and in <a href="https://github.com/ferki/gentoo-overlay">my Gentoo
+overlay</a>.</p>
+
+<p>This version of the friendly automation framework contains bug fixes for local
+package installation, command existence checks, and git tests.</p>
+
+                    <p><a href="https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://agilesysadmin.github.io/tag/rex/">rex</a>
+                        <a href="https://agilesysadmin.github.io/tag/release/">release</a>
+                        <a href="https://agilesysadmin.github.io/tag/gentoo/">gentoo</a>
+                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                        <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 05 Aug 2023 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Gentoo GURU now includes Vale</title>
             <link>https://agilesysadmin.github.io/2023/07/08/gentoo-guru-now-includes-vale/</link>
             <guid>https://agilesysadmin.github.io/2023/07/08/gentoo-guru-now-includes-vale/</guid>
@@ -115,36 +142,6 @@ like proxied maintainer, GURU contributor, or overlay maintainer.</p>
             ]]></description>
             <pubDate>
                 Mon, 24 Apr 2023 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Final Term is available in Gentoo Sunrise</title>
-            <link>https://agilesysadmin.github.io/2013/07/16/final-term-is-available-in-gentoo-sunrise/</link>
-            <guid>https://agilesysadmin.github.io/2013/07/16/final-term-is-available-in-gentoo-sunrise/</guid>
-            <description><![CDATA[
-                <p><a href="http://finalterm.org/">Final Term</a> is an interesting and promising terminal emulator with advanced interactive features like semantic text menus, smart command completion, GUI terminal controls, reflow support and more.</p>
-
-<p>I contributed an initial Hungarian translation for the project just to soon find myself hacking on an ebuild, and on minor features. All in all, as of 2013-07-11, Final Term is now available in Gentoo’s Sunrise overlay. You can find <a href="http://overlays.gentoo.org/proj/sunrise/">usage instructions here</a>.</p>
-
-<p>Thanks to:</p>
-
-<ul>
-<li>Philipp Emanuel Weidmann for creating Final Term and <a href="http://blog.finalterm.org/">blogging about it</a></li>
-<li>GitHub user Richard-W for letting me know that I’m not the only one who would like to use Final Term on Gentoo</li>
-<li>Julian Ospald (hasufell) for reviewing my ebuilds, suggesting a modification to the build system, and finally merging the ebuild into Sunrise</li>
-<li>the always helpful people on #gentoo-dev-help and #gentoo-sunrise</li>
-</ul>
-
-
-                    <p>Tags:
-                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                        <a href="https://agilesysadmin.github.io/tag/final-term/">Final Term</a>
-                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Tue, 16 Jul 2013 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

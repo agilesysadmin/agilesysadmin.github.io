@@ -7,6 +7,33 @@
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Releasing Rex-1.14.3</title>
+            <link>https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/</link>
+            <guid>https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/</guid>
+            <description><![CDATA[
+                <p>I released Rex-1.14.3 today, making it available both on
+<a href="https://metacpan.org/release/FERKI/Rex-1.14.3">CPAN</a> and in <a href="https://github.com/ferki/gentoo-overlay">my Gentoo
+overlay</a>.</p>
+
+<p>This version of the friendly automation framework contains bug fixes for local
+package installation, command existence checks, and git tests.</p>
+
+                    <p><a href="https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://agilesysadmin.github.io/tag/rex/">rex</a>
+                        <a href="https://agilesysadmin.github.io/tag/release/">release</a>
+                        <a href="https://agilesysadmin.github.io/tag/gentoo/">gentoo</a>
+                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                        <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 05 Aug 2023 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Gentoo GURU now includes Vale</title>
             <link>https://agilesysadmin.github.io/2023/07/08/gentoo-guru-now-includes-vale/</link>
             <guid>https://agilesysadmin.github.io/2023/07/08/gentoo-guru-now-includes-vale/</guid>
@@ -115,34 +142,6 @@ like proxied maintainer, GURU contributor, or overlay maintainer.</p>
             ]]></description>
             <pubDate>
                 Mon, 24 Apr 2023 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>New blog, who dis?</title>
-            <link>https://agilesysadmin.github.io/2023/04/20/new-blog-who-dis/</link>
-            <guid>https://agilesysadmin.github.io/2023/04/20/new-blog-who-dis/</guid>
-            <description><![CDATA[
-                <p>In the past months I kept tailoring essentially identical updates to various
-platforms, like LinkedIn, Mastodon, and project-specific media. I also often
-found myself explaining the same concepts and answering the same questions over
-and over again.</p>
-
-<p>It felt better to have a canonical source for my content, and keep the other
-solutions as distribution channels. I also wished for a place to accommodate my
-preferred authoring workflow for longer formats.</p>
-
-<p>As a fresh start, I decided to migrate all the content from my previous <a href="https://agilesysadmin.wordpress.com/">Agile
-sysadmin</a> blog to this site.</p>
-
-<p>I expect to post soon more about the topics I’m most involved in or tools and
-approaches I find most useful for my use cases. For example Rex, Perl, and
-Gentoo, as well as automation, software delivery, testing, and open source.</p>
-
-
-
-            ]]></description>
-            <pubDate>
-                Thu, 20 Apr 2023 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
