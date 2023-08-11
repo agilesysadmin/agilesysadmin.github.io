@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="Ferenc Erki - agile sysadmin" name="description">
+        <meta content="Ferenc Erki" name="author">
+        <meta content="4KzbYclokErOfwrKiBpX8XCu8ckJ9A7zwueL9VAbAYE" name="google-site-verification">
+        <link href="/theme/images/favicon.svg" rel="icon">
+        <link href="/theme/css/selenized.css" rel="stylesheet">
+        <script data-domain="blog.ferki.it" defer src="https://plausible.io/js/script.js"></script>
+        <title>Local management with Rex</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">agile sysadmin</a></h1>
+            <p>by Ferenc Erki</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/">Posts</a></li>
+                <li><a href="https://ferki.it" target="_blank">Homepage</a></li>
+                <li><a href="https://cal.com/ferki" target="_blank">Booking</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+
+    <header>
+    <h1><a href="/2023/08/11/local-management-with-rex/">Local management with Rex</a></h1>
+
+    <aside>
+        <time datetime="2023-08-11">
+            📅 2023-08-11
+        </time>
+            <a href="/tag/rex/">#rex</a>
+    </aside>
+
+</header>
+
+
+    <section id="section-1">
+        <p>Automation challenges often focus on remote endpoints, while several use cases
+require automating locally as well. Typical situations range from managing
+a personal machine, through setups where the managed fleet includes the host
+managing the whole, to pull-style models where each node manages itself.</p>
+
+<p><a href="https://www.rexify.org/">Rex, the friendly automation framework</a> supports any
+combination of local and remote execution. This post summarizes the main
+orientation points about local management.</p>
+
+<h2 id="tldr">TL;DR</h2>
+
+<p>Rex provides several options for local management to choose from, allowing
+authors to express their intent explicitly according to their use case at hand:</p>
+
+<ol>
+<li><a href="#taskswithoutanexplicittarget">Tasks without an explicit target</a></li>
+<li><a href="#taskstargetinglocalexplicitly">Tasks targeting <code>&lt;local&gt;</code> explicitly</a></li>
+<li><a href="#overridethetaskstargettolocal">Override the task’s target to <code>&lt;local&gt;</code></a></li>
+<li><a href="#disablesshpertaskwithno_sshtask">Disable SSH per task with <code>no_ssh task</code></a></li>
+<li><a href="#disablesshgloballywithno_ssh">Disable SSH globally with <code>no_ssh</code></a></li>
+<li><a href="#runningpartsofataskwithinlocalblocks">Running parts of a task within <code>LOCAL{}</code> blocks</a></li>
+<li><a href="#connecttolocalhostoverssh">Connect to local host over SSH</a></li>
+</ol>
+
+    </section>
+    <section id="section-2">
+        <h2 id="basicanatomyofrextaskdefinitions">Basic anatomy of Rex task definitions</h2>
+
+<p>For the majority of use cases, I find it best to think about the most important
+parts of task definitions like this:</p>
+
+<pre><code class="highlight"><span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synIdentifier">@targets</span>, <span class="synKeyword">sub </span>{
+    ... <span class="synComment"># task steps</span>
+};
+</code></pre>
+
+<p>The above uses the <code>task</code> command to create a task named <code>$task_name</code>, intended
+to manage a list of <code>@targets</code>, and the anonymous subroutine attached at the
+end contains the steps to execute.</p>
+
+<p>For the sake of completeness, the full situation looks more like this, though:</p>
+
+<pre><code class="highlight">optional_modifier <span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synIdentifier">@target_hosts_or_host_groups</span>, <span class="synKeyword">sub </span>{
+    ... <span class="synComment"># task steps</span>
+}, { <span class="synString">task_option</span> =&gt; <span class="synIdentifier">$value</span> };
+</code></pre>
+
+<p>I’ll not go into all details here to allow us staying aware of further
+internals while focusing on the general approach.</p>
+
+<h2 id="taskswithoutanexplicittarget">Tasks without an explicit target</h2>
+
+<p>Tasks without any explicit target get executed on the local machine directly:</p>
+
+<pre><code class="highlight"><span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
+    ... <span class="synComment"># task steps</span>
+};
+</code></pre>
+
+<p>In my experience this pattern works great in situations with unknown targets at
+the time of writing. For example when publishing automation solutions for
+consumption by others in- or outside of your organization.</p>
+
+<p>It allows users to choose their intended target according to their situation by
+passing their targets via the <code>-H</code> or <code>-G</code> options on the command line, or the
+<code>on</code> option of <a href="https://metacpan.org/pod/Rex::Commands#run_task"><code>run_task</code></a>
+from code.</p>
+
+<p>Users may need protection against accidental local usage, for example when the
+task manages disk partitions. In this case the task can check for that
+situation and abort the operation either at the beginning of the steps, or as
+a <a href="https://metacpan.org/pod/Rex::Commands#before_task_start"><code>before_task_start</code></a>
+hook.</p>
+
+<p>See also the <a href="https://metacpan.org/pod/Rex::Commands#Create-a-local-task-(a-server-independent-task)">Create a local task (a server independent
+task)</a>
+section in the documentation.</p>
+
+<h2 id="taskstargetinglocalexplicitly">Tasks targeting <code>&lt;local&gt;</code> explicitly</h2>
+
+<p>One may intentionally design a task to manage the local machine by using the
+special <code>&lt;local&gt;</code> hostname recognized by Rex:</p>
+
+<pre><code class="highlight"><span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synString">&#39;&lt;local&gt;&#39;</span>, <span class="synKeyword">sub </span>{
+    ... <span class="synComment"># task steps</span>
+};
+</code></pre>
+
+<p>This works because Rex internally represents local targets as the otherwise
+invalid hostname of <code>&lt;local&gt;</code>.</p>
+
+<p>Users may still override their intended target on the command line with the
+<code>-H</code> or <code>-G</code> options, or with the <code>on</code> option of
+<a href="https://metacpan.org/pod/Rex::Commands#run_task"><code>run_task</code></a> from code.</p>
+
+<h2 id="overridethetaskstargettolocal">Override the task’s target to <code>&lt;local&gt;</code></h2>
+
+<p>The <code>-H</code> command line option supports the same special <code>&lt;local&gt;</code> hostname:</p>
+
+<pre><code class="highlight">$ rex <span class="synSpecial">-H</span> <span class="synOperator">&#39;</span><span class="synString">&lt;local&gt;</span><span class="synOperator">&#39;</span> task_name
+</code></pre>
+
+<p>and it’s also supported by the <code>on</code> option of
+<a href="https://metacpan.org/pod/Rex::Commands#run_task"><code>run_task</code></a> from code:</p>
+
+<pre><code class="highlight"><span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
+    ... <span class="synComment"># task steps</span>
+};
+
+<span class="synStatement">task</span> <span class="synIdentifier">$other_task</span>, <span class="synKeyword">sub </span>{
+    ... <span class="synComment"># task steps</span>
+    <span class="synStatement">run_task</span> <span class="synIdentifier">$task_name</span>, <span class="synString">on</span> =&gt; <span class="synString">&#39;&lt;local&gt;&#39;</span>;
+    ... <span class="synComment"># task steps</span>
+};
+</code></pre>
+
+<p>This approach allows users to intentionally choose local execution, regardless
+of a task having an explicit target or not.</p>
+
+<h2 id="disablesshpertaskwithno_sshtask">Disable SSH per task with <code>no_ssh task</code></h2>
+
+<p>The <code>no_ssh</code> command hints individual tasks to not use SSH:</p>
+
+<pre><code class="highlight">no_ssh <span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
+    ... <span class="synComment"># task steps</span>
+};
+</code></pre>
+
+<p>This command serves as a convenience wrapper to append <code>{ no_ssh =&gt; 1 }</code> as
+a task option, making the above the same as:</p>
+
+<pre><code class="highlight"><span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
+    ... <span class="synComment"># task steps</span>
+}, { <span class="synString">no_ssh</span> =&gt; <span class="synNumber">1</span> };
+</code></pre>
+
+<p>This approach works great when some tasks apply solely to the local machine, or
+when the task interacts solely with external APIs. For example with systems
+such as monitoring, inventory, libvirt, or cloud providers.</p>
+
+<p>See also the <a href="https://metacpan.org/pod/Rex::Commands#no_ssh">no_ssh</a>
+documentation.</p>
+
+<h2 id="disablesshgloballywithno_ssh">Disable SSH globally with <code>no_ssh</code></h2>
+
+<p>In case none of the tasks need SSH to connect to their targets, the <code>no_ssh</code>
+command can disable it globally:</p>
+
+<pre><code class="highlight">no_ssh;
+
+<span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
+    ... <span class="synComment"># task steps</span>
+};
+</code></pre>
+
+<p>Again, it serves as a convenience wrapper to append <code>{ no_ssh =&gt; 1 }</code> to all
+tasks.</p>
+
+<p>This approach works great when all tasks interact solely with external APIs as
+above, or when all steps should strictly apply to the node executing the code
+alone.</p>
+
+<p>See also the <a href="https://metacpan.org/pod/Rex::Commands#no_ssh">no_ssh</a>
+documentation.</p>
+
+<h2 id="runningpartsofataskwithinlocalblocks">Running parts of a task within <code>LOCAL{}</code> blocks</h2>
+
+<p>Wrapping parts of the task steps in a <code>LOCAL{}</code> block forces these to run on
+the local machine instead of on the target in effect otherwise:</p>
+
+<pre><code class="highlight"><span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synIdentifier">$target</span>, <span class="synKeyword">sub </span>{
+    <span class="synStatement">say</span> <span class="synStatement">run</span> <span class="synString">&#39;hostname&#39;</span>;     <span class="synComment"># say output of `hostname` from $target</span>
+
+    <span class="synStatement">LOCAL</span> {
+        <span class="synStatement">say</span> <span class="synStatement">run</span> <span class="synString">&#39;hostname&#39;</span>; <span class="synComment"># say output of `hostname` from local</span>
+    }
+};
+</code></pre>
+
+<p>This works great when a task needs to check something locally to make decisions
+about the remote management. For example retrieving some local state or value
+to use in the rest of the steps.</p>
+
+<p>See also the <a href="https://metacpan.org/pod/Rex::Commands#LOCAL">LOCAL</a>
+documentation.</p>
+
+<h2 id="connecttolocalhostoverssh">Connect to local host over SSH</h2>
+
+<p>Using the identity of the local machine as target makes it possible to treat it
+the same way as remotes, including connecting to it using SSH like to any
+remote.</p>
+
+<p>This works great to ensure taking the same code path during execution for all
+hosts, or when all hosts in the fleet requires the capability to manage the
+whole.</p>
+
+    </section>
+
+</article>
+
+<ul class="pager">
+    <li class="prev">
+            <a href="/2023/08/05/releasing-rex-1-14-3/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+    </li>
+</ul>
+
+
+        </main>
+
+        <footer>
+            
+            <ul>
+                <li><a href="https://github.com/ferki" rel="me" target="_blank">GitHub</a></li>
+                <li><a href="https://profile.codersrank.io/user/ferki" rel="me" target="_blank">CodersRank</a></li>
+                <li><a href="https://www.linkedin.com/in/ferki" rel="me" target="_blank">LinkedIn</a></li>
+                <li><a href="https://twitter.com/erkiferenc" rel="me" target="_blank">Twitter</a></li>
+                <li><a href="https://fosstodon.org/@ferki" rel="me" target="_blank">Mastodon</a></li>
+                <li><a href="mailto:ferki@ferki.it">Email</a></li>
+                <li><a href="/pages/impressum.html">Impressum</a></li>
+                <li><a href="/pages/privacy_policy.html">Privacy policy</a></li>
+            </ul>
+            <ul>
+                <li>© 2023 Ferenc Erki</li>
+            </ul>
+
+        </footer>
+    </body>
+</html>

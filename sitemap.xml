@@ -4,7 +4,7 @@
         <loc>https://agilesysadmin.github.io/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2023-08-05</lastmod>
+        <lastmod>2023-08-11</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/2013/03/28/unattended-ubuntu-install-in-a-vm/</loc>
@@ -79,16 +79,22 @@
         <lastmod>2023-08-05</lastmod>
     </url>
     <url>
+        <loc>https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2023-08-11</lastmod>
+    </url>
+    <url>
         <loc>https://agilesysadmin.github.io/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2023-08-05</lastmod>
+        <lastmod>2023-08-11</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2023-08-05</lastmod>
+        <lastmod>2023-08-11</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/pages/about.html</loc>
@@ -196,7 +202,7 @@
         <loc>https://agilesysadmin.github.io/tag/rex/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2023-08-05</lastmod>
+        <lastmod>2023-08-11</lastmod>
     </url>
     <url>
         <loc>https://agilesysadmin.github.io/tag/ubuntu/</loc>

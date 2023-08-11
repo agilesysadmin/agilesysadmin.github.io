@@ -30,6 +30,49 @@
             <article>
 
     <header>
+    <h1><a href="/2023/08/11/local-management-with-rex/">Local management with Rex</a></h1>
+
+    <aside>
+        <time datetime="2023-08-11">
+            📅 2023-08-11
+        </time>
+            <a href="/tag/rex/">#rex</a>
+    </aside>
+
+</header>
+
+
+    <p>Automation challenges often focus on remote endpoints, while several use cases
+require automating locally as well. Typical situations range from managing
+a personal machine, through setups where the managed fleet includes the host
+managing the whole, to pull-style models where each node manages itself.</p>
+
+<p><a href="https://www.rexify.org/">Rex, the friendly automation framework</a> supports any
+combination of local and remote execution. This post summarizes the main
+orientation points about local management.</p>
+
+<h2 id="tldr">TL;DR</h2>
+
+<p>Rex provides several options for local management to choose from, allowing
+authors to express their intent explicitly according to their use case at hand:</p>
+
+<ol>
+<li><a href="/2023/08/11/local-management-with-rex/#taskswithoutanexplicittarget">Tasks without an explicit target</a></li>
+<li><a href="/2023/08/11/local-management-with-rex/#taskstargetinglocalexplicitly">Tasks targeting <code>&lt;local&gt;</code> explicitly</a></li>
+<li><a href="/2023/08/11/local-management-with-rex/#overridethetaskstargettolocal">Override the task’s target to <code>&lt;local&gt;</code></a></li>
+<li><a href="/2023/08/11/local-management-with-rex/#disablesshpertaskwithno_sshtask">Disable SSH per task with <code>no_ssh task</code></a></li>
+<li><a href="/2023/08/11/local-management-with-rex/#disablesshgloballywithno_ssh">Disable SSH globally with <code>no_ssh</code></a></li>
+<li><a href="/2023/08/11/local-management-with-rex/#runningpartsofataskwithinlocalblocks">Running parts of a task within <code>LOCAL{}</code> blocks</a></li>
+<li><a href="/2023/08/11/local-management-with-rex/#connecttolocalhostoverssh">Connect to local host over SSH</a></li>
+</ol>
+
+
+    <p><a href="/2023/08/11/local-management-with-rex/#section-2">Continue reading …</a></p>
+
+</article>
+<article>
+
+    <header>
     <h1><a href="/2023/08/05/releasing-rex-1-14-3/">Releasing Rex-1.14.3</a></h1>
 
     <aside>
@@ -146,38 +189,6 @@ fellow Gentoo users.</p>
 
 
     <p><a href="/2023/04/25/packaging-vale-2-24-4-for-gentoo/#section-2">Continue reading …</a></p>
-
-</article>
-<article>
-
-    <header>
-    <h1><a href="/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/">Host Gentoo dependency tarballs as GitHub releases</a></h1>
-
-    <aside>
-        <time datetime="2023-04-24">
-            📅 2023-04-24
-        </time>
-            <a href="/tag/gentoo/">#Gentoo</a>
-            <a href="/tag/ebuild/">#ebuild</a>
-            <a href="/tag/github/">#GitHub</a>
-    </aside>
-
-</header>
-
-
-    <p>People who create Gentoo ebuilds for software written in Go probably noticed
-deprecation notices and discussion <a href="https://archives.gentoo.org/gentoo-dev/message/1a64a8e7694c3ee11cd48a58a95f2faa">About
-EGO_SUM</a>,
-and also about a <a href="https://archives.gentoo.org/gentoo-dev/message/d78af7f168cef24bfa302f7f75c3ef11">Proposal to undeprecate
-EGO_SUM</a>.</p>
-
-<p>While the mailing lists and IRC channels provide plenty of opportunity to
-discuss how to supply dependencies for Go software, here I share a way to use
-GitHub releases to host dependency tarballs as an external Gentoo contributor,
-like proxied maintainer, GURU contributor, or overlay maintainer.</p>
-
-
-    <p><a href="/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/#section-2">Continue reading …</a></p>
 
 </article>
 
