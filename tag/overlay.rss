@@ -7,6 +7,34 @@
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Packaging vale-2.28.3 for Gentoo</title>
+            <link>https://agilesysadmin.github.io/2023/09/07/packaging-vale-2-28-3-for-gentoo/</link>
+            <guid>https://agilesysadmin.github.io/2023/09/07/packaging-vale-2-28-3-for-gentoo/</guid>
+            <description><![CDATA[
+                <p><a href="https://vale.sh">Vale</a>, the “syntax-aware linter for prose built with speed
+and extensibility in mind”, has a new <a href="https://github.com/errata-ai/vale/releases/tag/v2.28.3">v2.28.3
+release</a>.</p>
+
+<p><a href="https://github.com/ferki/gentoo-overlay">My overlay</a> already makes it
+available for fellow Gentoo users. I also contributed the same ebuild to the
+official Gentoo <a href="https://wiki.gentoo.org/wiki/Project:GURU">GURU overlay</a>,
+where it should reach the reviewed branch soon.</p>
+
+
+                    <p>Tags:
+                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                        <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
+                        <a href="https://agilesysadmin.github.io/tag/guru/">GURU</a>
+                        <a href="https://agilesysadmin.github.io/tag/vale/">vale</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Thu, 07 Sep 2023 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Releasing Rex-1.14.3</title>
             <link>https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/</link>
             <guid>https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/</guid>

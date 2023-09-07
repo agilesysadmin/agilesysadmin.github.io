@@ -7,6 +7,34 @@
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Packaging vale-2.28.3 for Gentoo</title>
+            <link>https://agilesysadmin.github.io/2023/09/07/packaging-vale-2-28-3-for-gentoo/</link>
+            <guid>https://agilesysadmin.github.io/2023/09/07/packaging-vale-2-28-3-for-gentoo/</guid>
+            <description><![CDATA[
+                <p><a href="https://vale.sh">Vale</a>, the “syntax-aware linter for prose built with speed
+and extensibility in mind”, has a new <a href="https://github.com/errata-ai/vale/releases/tag/v2.28.3">v2.28.3
+release</a>.</p>
+
+<p><a href="https://github.com/ferki/gentoo-overlay">My overlay</a> already makes it
+available for fellow Gentoo users. I also contributed the same ebuild to the
+official Gentoo <a href="https://wiki.gentoo.org/wiki/Project:GURU">GURU overlay</a>,
+where it should reach the reviewed branch soon.</p>
+
+
+                    <p>Tags:
+                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                        <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
+                        <a href="https://agilesysadmin.github.io/tag/guru/">GURU</a>
+                        <a href="https://agilesysadmin.github.io/tag/vale/">vale</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Thu, 07 Sep 2023 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Releasing Rex-1.14.3</title>
             <link>https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/</link>
             <guid>https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/</guid>
@@ -113,35 +141,6 @@ fellow Gentoo users.</p>
             ]]></description>
             <pubDate>
                 Tue, 25 Apr 2023 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Host Gentoo dependency tarballs as GitHub releases</title>
-            <link>https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/</link>
-            <guid>https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/</guid>
-            <description><![CDATA[
-                <p>People who create Gentoo ebuilds for software written in Go probably noticed
-deprecation notices and discussion <a href="https://archives.gentoo.org/gentoo-dev/message/1a64a8e7694c3ee11cd48a58a95f2faa">About
-EGO_SUM</a>,
-and also about a <a href="https://archives.gentoo.org/gentoo-dev/message/d78af7f168cef24bfa302f7f75c3ef11">Proposal to undeprecate
-EGO_SUM</a>.</p>
-
-<p>While the mailing lists and IRC channels provide plenty of opportunity to
-discuss how to supply dependencies for Go software, here I share a way to use
-GitHub releases to host dependency tarballs as an external Gentoo contributor,
-like proxied maintainer, GURU contributor, or overlay maintainer.</p>
-
-                    <p><a href="https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
-                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                        <a href="https://agilesysadmin.github.io/tag/github/">GitHub</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Mon, 24 Apr 2023 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
