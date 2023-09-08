@@ -35,6 +35,31 @@ where it should reach the reviewed branch soon.</p>
             </pubDate>
         </item>
         <item>
+            <title>Gentoo GURU now includes Laminar</title>
+            <link>https://agilesysadmin.github.io/2023/07/25/gentoo-guru-now-includes-laminar/</link>
+            <guid>https://agilesysadmin.github.io/2023/07/25/gentoo-guru-now-includes-laminar/</guid>
+            <description><![CDATA[
+                <p><a href="https://laminar.ohwg.net/">Laminar</a> describes itself as a fast, lightweight,
+and modular Continuous Integration service for Linux. The official Gentoo
+<a href="https://wiki.gentoo.org/wiki/Project:GURU">GURU</a> overlay now makes the latest
+<a href="https://github.com/ohwgiles/laminar/releases/tag/1.3">1.3 release</a> available
+for the wider community.</p>
+
+                    <p><a href="https://agilesysadmin.github.io/2023/07/25/gentoo-guru-now-includes-laminar/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                        <a href="https://agilesysadmin.github.io/tag/guru/">GURU</a>
+                        <a href="https://agilesysadmin.github.io/tag/laminar/">laminar</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Tue, 25 Jul 2023 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Gentoo GURU now includes Vale</title>
             <link>https://agilesysadmin.github.io/2023/07/08/gentoo-guru-now-includes-vale/</link>
             <guid>https://agilesysadmin.github.io/2023/07/08/gentoo-guru-now-includes-vale/</guid>

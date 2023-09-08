@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://agilesysadmin.github.io/tag/laminar/</id>
+    <title>agile sysadmin</title>
+    <updated>2023-07-25T00:00:00Z</updated>
+    <link href="https://agilesysadmin.github.io/tag/laminar.atom" rel="self" />
+    <link href="https://agilesysadmin.github.io/tag/laminar/" rel="alternate" />
+    <author>
+        <name>Ferenc Erki</name>
+    </author>
+    <generator version="0.098">Statocles</generator>
+
+    <entry>
+        <id>https://agilesysadmin.github.io/2023/07/25/gentoo-guru-now-includes-laminar/</id>
+        <title>Gentoo GURU now includes Laminar</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://agilesysadmin.github.io/2023/07/25/gentoo-guru-now-includes-laminar/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://laminar.ohwg.net/">Laminar</a> describes itself as a fast, lightweight,
+and modular Continuous Integration service for Linux. The official Gentoo
+<a href="https://wiki.gentoo.org/wiki/Project:GURU">GURU</a> overlay now makes the latest
+<a href="https://github.com/ohwgiles/laminar/releases/tag/1.3">1.3 release</a> available
+for the wider community.</p>
+
+                <p><a href="https://agilesysadmin.github.io/2023/07/25/gentoo-guru-now-includes-laminar/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                    <a href="https://agilesysadmin.github.io/tag/guru/">GURU</a>
+                    <a href="https://agilesysadmin.github.io/tag/laminar/">laminar</a>
+                </p>
+
+        ]]></content>
+        <updated>2023-07-25T00:00:00Z</updated>
+        <category term="Gentoo" />
+        <category term="ebuild" />
+        <category term="GURU" />
+        <category term="laminar" />
+    </entry>
+</feed>
+

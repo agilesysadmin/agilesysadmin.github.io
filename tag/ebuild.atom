@@ -74,6 +74,34 @@ package installation, command existence checks, and git tests.</p>
         <category term="overlay" />
     </entry>
     <entry>
+        <id>https://agilesysadmin.github.io/2023/07/25/gentoo-guru-now-includes-laminar/</id>
+        <title>Gentoo GURU now includes Laminar</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://agilesysadmin.github.io/2023/07/25/gentoo-guru-now-includes-laminar/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://laminar.ohwg.net/">Laminar</a> describes itself as a fast, lightweight,
+and modular Continuous Integration service for Linux. The official Gentoo
+<a href="https://wiki.gentoo.org/wiki/Project:GURU">GURU</a> overlay now makes the latest
+<a href="https://github.com/ohwgiles/laminar/releases/tag/1.3">1.3 release</a> available
+for the wider community.</p>
+
+                <p><a href="https://agilesysadmin.github.io/2023/07/25/gentoo-guru-now-includes-laminar/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                    <a href="https://agilesysadmin.github.io/tag/guru/">GURU</a>
+                    <a href="https://agilesysadmin.github.io/tag/laminar/">laminar</a>
+                </p>
+
+        ]]></content>
+        <updated>2023-07-25T00:00:00Z</updated>
+        <category term="Gentoo" />
+        <category term="ebuild" />
+        <category term="GURU" />
+        <category term="laminar" />
+    </entry>
+    <entry>
         <id>https://agilesysadmin.github.io/2023/07/08/gentoo-guru-now-includes-vale/</id>
         <title>Gentoo GURU now includes Vale</title>
         <author><name>Ferenc Erki</name></author>
@@ -133,36 +161,6 @@ ships the latest version — among the first distros, according to
         <category term="proxied" />
         <category term="ebuild" />
         <category term="xsel" />
-    </entry>
-    <entry>
-        <id>https://agilesysadmin.github.io/2023/04/25/packaging-vale-2-24-4-for-gentoo/</id>
-        <title>Packaging vale-2.24.4 for Gentoo</title>
-        <author><name>Ferenc Erki</name></author>
-        <link href="https://agilesysadmin.github.io/2023/04/25/packaging-vale-2-24-4-for-gentoo/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><a href="https://vale.sh">Vale</a> describes itself as a “syntax-aware linter for prose
-built with speed and extensibility in mind”. <a href="https://github.com/ferki/gentoo-overlay">My
-overlay</a> has the latest <a href="https://github.com/errata-ai/vale/releases/tag/v2.24.4">v2.24.4
-release</a> available for
-fellow Gentoo users.</p>
-
-<p>I recommend previous users to continue reading about ebuild changes.</p>
-
-                <p><a href="https://agilesysadmin.github.io/2023/04/25/packaging-vale-2-24-4-for-gentoo/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
-                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                    <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
-                    <a href="https://agilesysadmin.github.io/tag/vale/">vale</a>
-                </p>
-
-        ]]></content>
-        <updated>2023-04-25T00:00:00Z</updated>
-        <category term="Gentoo" />
-        <category term="ebuild" />
-        <category term="overlay" />
-        <category term="vale" />
     </entry>
 </feed>
 

@@ -102,6 +102,31 @@ package installation, command existence checks, and git tests.</p>
             </pubDate>
         </item>
         <item>
+            <title>Gentoo GURU now includes Laminar</title>
+            <link>https://agilesysadmin.github.io/2023/07/25/gentoo-guru-now-includes-laminar/</link>
+            <guid>https://agilesysadmin.github.io/2023/07/25/gentoo-guru-now-includes-laminar/</guid>
+            <description><![CDATA[
+                <p><a href="https://laminar.ohwg.net/">Laminar</a> describes itself as a fast, lightweight,
+and modular Continuous Integration service for Linux. The official Gentoo
+<a href="https://wiki.gentoo.org/wiki/Project:GURU">GURU</a> overlay now makes the latest
+<a href="https://github.com/ohwgiles/laminar/releases/tag/1.3">1.3 release</a> available
+for the wider community.</p>
+
+                    <p><a href="https://agilesysadmin.github.io/2023/07/25/gentoo-guru-now-includes-laminar/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                        <a href="https://agilesysadmin.github.io/tag/guru/">GURU</a>
+                        <a href="https://agilesysadmin.github.io/tag/laminar/">laminar</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Tue, 25 Jul 2023 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Gentoo GURU now includes Vale</title>
             <link>https://agilesysadmin.github.io/2023/07/08/gentoo-guru-now-includes-vale/</link>
             <guid>https://agilesysadmin.github.io/2023/07/08/gentoo-guru-now-includes-vale/</guid>
@@ -124,36 +149,6 @@ available for the wider community.</p>
             ]]></description>
             <pubDate>
                 Sat, 08 Jul 2023 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Gentoo has xsel-1.2.1 among the firsts</title>
-            <link>https://agilesysadmin.github.io/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/</link>
-            <guid>https://agilesysadmin.github.io/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/</guid>
-            <description><![CDATA[
-                <p><a href="https://github.com/kfish/xsel">xsel</a> works great to “manipulate the
-X selection”. Last week I stepped up as proxied maintainer to help bring
-already merged improvements to Gentoo users despite lack of new releases since
-2008.</p>
-
-<p>Thanks to support from <a href="https://wiki.gentoo.org/wiki/User:Soap">soap</a> during
-the past week, upstream has merged all ebuild patches, <a href="https://github.com/kfish/xsel/releases/tag/1.2.1">tagged
-1.2.1</a>, and Gentoo already
-ships the latest version — among the first distros, according to
-<a href="https://repology.org/project/xsel/history">repology</a>.</p>
-
-                    <p><a href="https://agilesysadmin.github.io/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
-                        <a href="https://agilesysadmin.github.io/tag/proxied/">proxied</a>
-                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                        <a href="https://agilesysadmin.github.io/tag/xsel/">xsel</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Wed, 26 Apr 2023 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
