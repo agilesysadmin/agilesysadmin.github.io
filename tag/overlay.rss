@@ -7,6 +7,30 @@
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Packaging clight-4.11 for Gentoo</title>
+            <link>https://agilesysadmin.github.io/2024/05/01/packaging-clight-4-11-for-gentoo/</link>
+            <guid>https://agilesysadmin.github.io/2024/05/01/packaging-clight-4-11-for-gentoo/</guid>
+            <description><![CDATA[
+                <p><a href="https://github.com/FedeDP/Clight">Clight</a> describes itself as a “C daemon that
+turns your webcam into a light sensor”. <a href="https://github.com/ferki/gentoo-overlay">My
+overlay</a> has the latest
+<a href="https://github.com/FedeDP/Clight/releases/tag/4.11">v4.11</a> release available
+for fellow Gentoo users.</p>
+
+
+                    <p>Tags:
+                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                        <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
+                        <a href="https://agilesysadmin.github.io/tag/clight/">clight</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Wed, 01 May 2024 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Packaging vale-2.28.3 for Gentoo</title>
             <link>https://agilesysadmin.github.io/2023/09/07/packaging-vale-2-28-3-for-gentoo/</link>
             <guid>https://agilesysadmin.github.io/2023/09/07/packaging-vale-2-28-3-for-gentoo/</guid>

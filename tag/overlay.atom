@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://agilesysadmin.github.io/tag/overlay/</id>
     <title>agile sysadmin</title>
-    <updated>2023-09-07T00:00:00Z</updated>
+    <updated>2024-05-01T00:00:00Z</updated>
     <link href="https://agilesysadmin.github.io/tag/overlay.atom" rel="self" />
     <link href="https://agilesysadmin.github.io/tag/overlay/" rel="alternate" />
     <author>
@@ -10,6 +10,33 @@
     </author>
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://agilesysadmin.github.io/2024/05/01/packaging-clight-4-11-for-gentoo/</id>
+        <title>Packaging clight-4.11 for Gentoo</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://agilesysadmin.github.io/2024/05/01/packaging-clight-4-11-for-gentoo/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://github.com/FedeDP/Clight">Clight</a> describes itself as a “C daemon that
+turns your webcam into a light sensor”. <a href="https://github.com/ferki/gentoo-overlay">My
+overlay</a> has the latest
+<a href="https://github.com/FedeDP/Clight/releases/tag/4.11">v4.11</a> release available
+for fellow Gentoo users.</p>
+
+
+                <p>Tags:
+                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                    <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
+                    <a href="https://agilesysadmin.github.io/tag/clight/">clight</a>
+                </p>
+
+        ]]></content>
+        <updated>2024-05-01T00:00:00Z</updated>
+        <category term="Gentoo" />
+        <category term="ebuild" />
+        <category term="overlay" />
+        <category term="clight" />
+    </entry>
     <entry>
         <id>https://agilesysadmin.github.io/2023/09/07/packaging-vale-2-28-3-for-gentoo/</id>
         <title>Packaging vale-2.28.3 for Gentoo</title>

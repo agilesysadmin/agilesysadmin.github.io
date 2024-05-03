@@ -30,37 +30,44 @@
             <article>
 
     <header>
-    <h1><a href="/2013/07/16/final-term-is-available-in-gentoo-sunrise/">Final Term is available in Gentoo Sunrise</a></h1>
+    <h1><a href="/2013/03/28/unattended-ubuntu-install-in-a-vm/">Unattended Ubuntu install in a VM</a></h1>
 
     <aside>
-        <time datetime="2013-07-16">
-            📅 2013-07-16
+        <time datetime="2013-03-28">
+            📅 2013-03-28
         </time>
-            <a href="/tag/ebuild/">#ebuild</a>
-            <a href="/tag/final-term/">#Final Term</a>
-            <a href="/tag/gentoo/">#Gentoo</a>
+            <a href="/tag/kvm/">#KVM</a>
+            <a href="/tag/qemu/">#QEMU</a>
+            <a href="/tag/ubuntu/">#Ubuntu</a>
     </aside>
 
 </header>
 
 
-    <p><a href="http://finalterm.org/">Final Term</a> is an interesting and promising terminal emulator with advanced interactive features like semantic text menus, smart command completion, GUI terminal controls, reflow support and more.</p>
+    <p><strong>Edit: you may want to check out my <a href="/2013/09/09/simple-unattended-ubuntu-install-in-a-vm/index.html">updated post</a> in this topic.</strong></p>
 
-<p>I contributed an initial Hungarian translation for the project just to soon find myself hacking on an ebuild, and on minor features. All in all, as of 2013-07-11, Final Term is now available in Gentoo’s Sunrise overlay. You can find <a href="http://overlays.gentoo.org/proj/sunrise/">usage instructions here</a>.</p>
-
-<p>Thanks to:</p>
+<p>In one of my projects I needed to quickly install and/or reproduce virtual Ubuntu servers using QEMU+KVM. It’s nothing difficult but I decided to record the required steps here so I don’t have to remember it all the time. The overall process is the following:</p>
 
 <ul>
-<li>Philipp Emanuel Weidmann for creating Final Term and <a href="http://blog.finalterm.org/">blogging about it</a></li>
-<li>GitHub user Richard-W for letting me know that I’m not the only one who would like to use Final Term on Gentoo</li>
-<li>Julian Ospald (hasufell) for reviewing my ebuilds, suggesting a modification to the build system, and finally merging the ebuild into Sunrise</li>
-<li>the always helpful people on #gentoo-dev-help and #gentoo-sunrise</li>
+<li>download an installation image, mount it and make a writable copy</li>
+<li>modify/replace isolinux.cfg and preseed files</li>
+<li>recreate ISO and test by booting from it</li>
 </ul>
 
 
+    <p><a href="/2013/03/28/unattended-ubuntu-install-in-a-vm/#section-2">Continue reading …</a></p>
 
 </article>
 
+<ul class="pager">
+    <li class="prev">
+    </li>
+    <li class="next">
+            <a href="/page/3/" rel="next">
+                Newer →
+            </a>
+    </li>
+</ul>
 
 
         </main>
