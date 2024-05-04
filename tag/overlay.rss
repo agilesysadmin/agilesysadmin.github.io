@@ -7,6 +7,33 @@
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Packaging st-0.9.2 for Gentoo</title>
+            <link>https://agilesysadmin.github.io/2024/05/03/packaging-st-0-9-2-for-gentoo/</link>
+            <guid>https://agilesysadmin.github.io/2024/05/03/packaging-st-0-9-2-for-gentoo/</guid>
+            <description><![CDATA[
+                <p><a href="https://st.suckless.org/">st</a>, “a simple terminal implementation for X”, has a
+new 0.9.2 release.</p>
+
+<p><a href="https://github.com/ferki/gentoo-overlay">My overlay</a> already makes it
+available for fellow Gentoo users. I also opened
+<a href="https://github.com/gentoo/gentoo/pull/36534">PR#36534</a> in the official Gentoo
+ebuild repository as proxied maintainer.</p>
+
+
+                    <p>Tags:
+                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                        <a href="https://agilesysadmin.github.io/tag/proxied/">proxied</a>
+                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
+                        <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
+                        <a href="https://agilesysadmin.github.io/tag/st/">st</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Fri, 03 May 2024 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Packaging clight-4.11 for Gentoo</title>
             <link>https://agilesysadmin.github.io/2024/05/01/packaging-clight-4-11-for-gentoo/</link>
             <guid>https://agilesysadmin.github.io/2024/05/01/packaging-clight-4-11-for-gentoo/</guid>
