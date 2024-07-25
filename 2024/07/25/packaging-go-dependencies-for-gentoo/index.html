@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="Ferenc Erki - agile sysadmin" name="description">
+        <meta content="Ferenc Erki" name="author">
+        <meta content="4KzbYclokErOfwrKiBpX8XCu8ckJ9A7zwueL9VAbAYE" name="google-site-verification">
+        <link href="/theme/images/favicon.svg" rel="icon">
+        <link href="/theme/css/selenized.css" rel="stylesheet">
+        <script data-domain="blog.ferki.it" defer src="https://plausible.io/js/script.js"></script>
+        <title>Packaging Go dependencies for Gentoo</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">agile sysadmin</a></h1>
+            <p>by Ferenc Erki</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/">Posts</a></li>
+                <li><a href="https://ferki.it" target="_blank">Homepage</a></li>
+                <li><a href="https://cal.com/ferki" target="_blank">Booking</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+
+    <header>
+    <h1><a href="/2024/07/25/packaging-go-dependencies-for-gentoo/">Packaging Go dependencies for Gentoo</a></h1>
+
+    <aside>
+        <time datetime="2024-07-25">
+            📅 2024-07-25
+        </time>
+            <a href="/tag/golang/">#golang</a>
+            <a href="/tag/gentoo/">#gentoo</a>
+    </aside>
+
+</header>
+
+
+    <section id="section-1">
+        <p>While I don’t write Go code, I do package Go projects for Gentoo Linux. My
+previous post about how to <a href="/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/">Host Gentoo dependency tarballs as GitHub
+releases</a> got
+me invited to give a talk at the <a href="https://www.meetup.com/golang-users-berlin/events/300809374/">Google Developer Group Berlin Golang
+meetup</a>, to host
+a community round table discussion at GopherCon Europe 2024, and to hold an
+online workshop for <a href="https://gentoo-ev.org/">Gentoo e.V.</a></p>
+
+<p>My presentation expands on the above post, and I decided to share the extra
+parts in this follow-up, including an idea for Go project maintainers who wish
+to streamline the distribution of their work.</p>
+
+    </section>
+    <section id="section-2">
+        <h2 id="introductiontogentoopackaging">Introduction to Gentoo packaging</h2>
+
+<p>While I won’t go into great detail about Gentoo packaging here, one aspect
+stands out as relevant: requiring all the source packages already available
+before starting the build process.</p>
+
+<p>Gentoo empowers users to build software from source according to their needs.
+<a href="https://devmanual.gentoo.org/ebuild-writing/file-format/index.html">Ebuild
+files</a>
+describe how to build a given software, including where to find its sources
+(<code>SRC_URI</code>), and executable build instructions. An auxiliary
+<a href="https://devmanual.gentoo.org/general-concepts/manifest/index.html"><code>Manifest</code></a>
+file contains the name, size, and checksum of the sources.</p>
+
+<p>The package manager works in
+<a href="https://devmanual.gentoo.org/ebuild-writing/functions/index.html">phases</a>. A
+set of sandbox features protect the system during the build process from any
+unexpected operations, like accessing the network.</p>
+
+<p>What’s wrong with accessing the network during the build process?</p>
+
+<ul>
+<li>leads to higher risk for bugs and security issues, through increased
+complexity of proper implementation, review, and verification</li>
+<li>impossible to know resource usage in advance, so it may fill up disks, or
+cause high cost on expensive network connections</li>
+<li>hurts reproducibility, since sources may change, or may become unavailable on
+the network between two builds</li>
+<li>raises privacy concerns, for example possible data exfiltration</li>
+<li>does not work on air-gapped systems</li>
+</ul>
+
+<p>Due to the above, having all the sources available <em>before</em> starting the build
+process has a lot advantages.</p>
+
+<p>As a consequence, the package manager may not directly get dependencies with
+<code>go get</code>, <code>go mod download</code> or similar commands while building Go projects.
+Instead, the ebuild must list any supplementary sources, allowing the package
+manager to download and verify these in advance as usual.</p>
+
+<h2 id="threewaystoapproachgodependencies">Three ways to approach Go dependencies</h2>
+
+<p>Go projects have different ways available to them to describe and manage their
+dependencies. This also affects downstream packaging when distributing the
+software towards end users. Let’s take a closer look at these methods.</p>
+
+<h3 id="vendordirectory">Vendor directory</h3>
+
+<p>Some projects include their dependencies in a <code>vendor</code> directory in their
+repository. This feels great from a reproducibility perspective, since the
+source code already includes all dependencies as well. It also means the build
+system already has everything it needs from a single source of truth.</p>
+
+<p>What’s wrong with <code>vendor</code> directories?</p>
+
+<ul>
+<li>does not fit well for libraries that other projects may import</li>
+<li>bloats the repository</li>
+<li>makes it more difficult to contribute and review changes</li>
+</ul>
+
+<p>Because of the above, projects often won’t or can’t have a <code>vendor</code> directory,
+since they may consider it inefficient or even ineffective.</p>
+
+<h3 id="gomodules">Go modules</h3>
+
+<p>Go modules describe their dependencies in a <code>go.mod</code> file, accompanied by their
+checksums in a <code>go.sum</code> file.</p>
+
+<p>Gentoo can make use of the latter by slightly transforming it into an <code>EGO_SUM</code>
+variable for ebuilds. This allows generating the list of extra source files,
+and storing them along their checksums in the <code>Manifest</code> files as usual,
+ultimately allowing to download and verify them in advance.</p>
+
+<p>What’s wrong with <code>EGO_SUM</code>?</p>
+
+<ul>
+<li>bloats ebuilds and <code>Manifest</code> files, because each dependency means an extra
+line in both of these files <em>for each version of the software</em></li>
+<li>leads to disproportionate resource usage in the package repository, through a
+small number of packages requiring a considerable share of storage share,
+bandwidth, and so on</li>
+<li>multiplies the effects of the overhead, since the bloat gets synchronized as
+part of the package repository to every Gentoo system even if it does not
+install any Go projects</li>
+<li>breaks the installation process in worst cases, since the list of
+dependencies may grow larger than the underlying platform’s allowed largest
+variable size of 128 kB</li>
+</ul>
+
+<p>As a result, Gentoo decided to deprecate this approach in favor of dependency
+tarballs, and using <code>EGO_SUM</code> in ebuilds leads to QA warnings.</p>
+
+<h3 id="prepackageddependencies">Prepackaged dependencies</h3>
+
+<p>What if we could download all dependencies, create a (compressed) tarball
+archive out of them, and use it as an auxiliary source for the project getting
+packaged? It would mean only two entries to describe the list of sources, thus
+much less bloat for the ebuild and <code>Manifest</code> files.</p>
+
+<p>Apparently we have at least two ways to get the dependencies:</p>
+
+<ol>
+<li><p>Vendor tarballs</p>
+
+<p>In general, the <code>go mod vendor</code> command makes a copy of all packages
+required to build the given project, and places them in the <code>vendor</code>
+directory, which then can go into a compressed vendor tarball.</p>
+
+<p>Unfortunately this approach may miss some of the dependencies because it
+<a href="https://github.com/golang/go/issues/26366">prunes non-package
+directories</a>, for example when
+dependencies relying on compiling C or C++ code. While this approach does
+worth a try, it does not work in all situations.</p></li>
+<li><p>Dependency tarballs</p>
+
+<p>Using the <code>go mod download</code> command instead guarantees to download all
+modules into the module cache directory, which then can serve as the source
+for a compressed dependency tarball.</p></li>
+</ol>
+
+<p>What’s wrong with prepackaged dependencies?</p>
+
+<ul>
+<li>lacks deduplication of dependencies shared between packaged projects, since
+each packaged project includes a copy in its own dependency tarball</li>
+<li>pushes hosting responsibilities downstream, which may pose a
+<a href="/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/#thechallenge">challenge</a>,
+especially for external contributors like proxied maintainers and GURU
+contributors</li>
+<li>tarballs may grow large, even hundreds of megabytes, complicating hosting
+challenges further through increased storage and traffic requirements</li>
+<li>changes the security trust model to include not only the upstream developers
+of the software and its dependencies, but also whoever creates and hosts
+these tarballs</li>
+</ul>
+
+<p>I consider the last point the most important, because that stands out as a
+security issue, rather than resource usage overhead. I find it worthwhile to
+take a closer look at that.</p>
+
+<p>Direct end users of a software need to trust the upstream developers, including
+the creators of its dependencies. Sounds fair.</p>
+
+<p>Consumers of the same software via the package managers of their operating
+system need to also trust the package maintainers. Sounds acceptable.</p>
+
+<p>Users of packages maintained by external contributors have to also trust the
+external maintainers and their chosen hosting solution. Sounds risky in any
+security-conscious environment.</p>
+
+<h2 id="howcanwedobetter">How can we do better?</h2>
+
+<p>At this point I have two approach in mind which would potentially solve the
+security and hosting challenges I encountered while packaging.</p>
+
+<ol>
+<li><p>Include the dependency directory in upstream’s normal release tarballs.</p>
+
+<p>In this case upstream does not have to pollute its source repository with
+all the dependencies, while still providing an official set of dependencies
+as part of their normal releases. I expect this would improve
+reproducibility for all downstream users.</p></li>
+<li><p>Include the dependencies in a separate tarball as an extra artifact in
+upstream’s normal releases.</p>
+
+<p>As a slight variation of the previous approach, this would enable
+separating the canonical sources from the dependencies, by providing a
+separate release artifact. I expect this allows downstream users to choose
+their preferred way of getting dependencies.</p></li>
+</ol>
+
+<p>In both cases the hosting challenge gets addressed where hosting already
+happens, which streamlines distribution for the project. More importantly, end
+users would get everything they need to build the project from the already most
+trusted source: the canonical upstream.</p>
+
+<p>Most upstream projects have a well-documented, or even automated release
+process, which appears as a great candidate for contributions in your favorite
+project.</p>
+
+<p>Do you maintain a Go project where this sounds useful and compatible? Let’s
+collaborate on it as a proof of concept experiment! I can even offer attempting
+to package your project for Gentoo, if we can try out one of the proposed
+approaches in the official releases.</p>
+
+<p>Please reach out on one of my contact options if you consider this interesting.</p>
+
+    </section>
+
+</article>
+
+<ul class="pager">
+    <li class="prev">
+            <a href="/2024/05/03/packaging-st-0-9-2-for-gentoo/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+    </li>
+</ul>
+
+
+        </main>
+
+        <footer>
+            
+            <ul>
+                <li><a href="https://github.com/ferki" rel="me" target="_blank">GitHub</a></li>
+                <li><a href="https://profile.codersrank.io/user/ferki" rel="me" target="_blank">CodersRank</a></li>
+                <li><a href="https://www.linkedin.com/in/ferki" rel="me" target="_blank">LinkedIn</a></li>
+                <li><a href="https://fosstodon.org/@ferki" rel="me" target="_blank">Mastodon</a></li>
+                <li><a href="mailto:ferki@ferki.it">Email</a></li>
+                <li><a href="/pages/impressum.html">Impressum</a></li>
+                <li><a href="/pages/privacy_policy.html">Privacy policy</a></li>
+            </ul>
+            <ul>
+                <li>© 2023–2024 Ferenc Erki</li>
+            </ul>
+
+        </footer>
+    </body>
+</html>

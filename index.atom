@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://agilesysadmin.github.io/</id>
     <title>agile sysadmin</title>
-    <updated>2024-05-03T00:00:00Z</updated>
+    <updated>2024-07-25T00:00:00Z</updated>
     <link href="https://agilesysadmin.github.io/index.atom" rel="self" />
     <link href="https://agilesysadmin.github.io/" rel="alternate" />
     <author>
@@ -10,6 +10,36 @@
     </author>
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://agilesysadmin.github.io/2024/07/25/packaging-go-dependencies-for-gentoo/</id>
+        <title>Packaging Go dependencies for Gentoo</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://agilesysadmin.github.io/2024/07/25/packaging-go-dependencies-for-gentoo/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>While I don’t write Go code, I do package Go projects for Gentoo Linux. My
+previous post about how to <a href="https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/">Host Gentoo dependency tarballs as GitHub
+releases</a> got
+me invited to give a talk at the <a href="https://www.meetup.com/golang-users-berlin/events/300809374/">Google Developer Group Berlin Golang
+meetup</a>, to host
+a community round table discussion at GopherCon Europe 2024, and to hold an
+online workshop for <a href="https://gentoo-ev.org/">Gentoo e.V.</a></p>
+
+<p>My presentation expands on the above post, and I decided to share the extra
+parts in this follow-up, including an idea for Go project maintainers who wish
+to streamline the distribution of their work.</p>
+
+                <p><a href="https://agilesysadmin.github.io/2024/07/25/packaging-go-dependencies-for-gentoo/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://agilesysadmin.github.io/tag/golang/">golang</a>
+                    <a href="https://agilesysadmin.github.io/tag/gentoo/">gentoo</a>
+                </p>
+
+        ]]></content>
+        <updated>2024-07-25T00:00:00Z</updated>
+        <category term="golang" />
+        <category term="gentoo" />
+    </entry>
     <entry>
         <id>https://agilesysadmin.github.io/2024/05/03/packaging-st-0-9-2-for-gentoo/</id>
         <title>Packaging st-0.9.2 for Gentoo</title>
@@ -131,46 +161,6 @@ where it should reach the reviewed branch soon.</p>
         <category term="overlay" />
         <category term="GURU" />
         <category term="vale" />
-    </entry>
-    <entry>
-        <id>https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/</id>
-        <title>Local management with Rex</title>
-        <author><name>Ferenc Erki</name></author>
-        <link href="https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>Automation challenges often focus on remote endpoints, while several use cases
-require automating locally as well. Typical situations range from managing
-a personal machine, through setups where the managed fleet includes the host
-managing the whole, to pull-style models where each node manages itself.</p>
-
-<p><a href="https://www.rexify.org/">Rex, the friendly automation framework</a> supports any
-combination of local and remote execution. This post summarizes the main
-orientation points about local management.</p>
-
-<h2 id="tldr">TL;DR</h2>
-
-<p>Rex provides several options for local management to choose from, allowing
-authors to express their intent explicitly according to their use case at hand:</p>
-
-<ol>
-<li><a href="https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/#taskswithoutanexplicittarget">Tasks without an explicit target</a></li>
-<li><a href="https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/#taskstargetinglocalexplicitly">Tasks targeting <code>&lt;local&gt;</code> explicitly</a></li>
-<li><a href="https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/#overridethetaskstargettolocal">Override the task’s target to <code>&lt;local&gt;</code></a></li>
-<li><a href="https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/#disablesshpertaskwithno_sshtask">Disable SSH per task with <code>no_ssh task</code></a></li>
-<li><a href="https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/#disablesshgloballywithno_ssh">Disable SSH globally with <code>no_ssh</code></a></li>
-<li><a href="https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/#runningpartsofataskwithinlocalblocks">Running parts of a task within <code>LOCAL{}</code> blocks</a></li>
-<li><a href="https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/#connecttolocalhostoverssh">Connect to local host over SSH</a></li>
-</ol>
-
-                <p><a href="https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://agilesysadmin.github.io/tag/rex/">rex</a>
-                </p>
-
-        ]]></content>
-        <updated>2023-08-11T00:00:00Z</updated>
-        <category term="rex" />
     </entry>
 </feed>
 

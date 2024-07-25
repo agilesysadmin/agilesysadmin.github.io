@@ -30,6 +30,38 @@
             <article>
 
     <header>
+    <h1><a href="/2024/07/25/packaging-go-dependencies-for-gentoo/">Packaging Go dependencies for Gentoo</a></h1>
+
+    <aside>
+        <time datetime="2024-07-25">
+            📅 2024-07-25
+        </time>
+            <a href="/tag/golang/">#golang</a>
+            <a href="/tag/gentoo/">#gentoo</a>
+    </aside>
+
+</header>
+
+
+    <p>While I don’t write Go code, I do package Go projects for Gentoo Linux. My
+previous post about how to <a href="/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/">Host Gentoo dependency tarballs as GitHub
+releases</a> got
+me invited to give a talk at the <a href="https://www.meetup.com/golang-users-berlin/events/300809374/">Google Developer Group Berlin Golang
+meetup</a>, to host
+a community round table discussion at GopherCon Europe 2024, and to hold an
+online workshop for <a href="https://gentoo-ev.org/">Gentoo e.V.</a></p>
+
+<p>My presentation expands on the above post, and I decided to share the extra
+parts in this follow-up, including an idea for Go project maintainers who wish
+to streamline the distribution of their work.</p>
+
+
+    <p><a href="/2024/07/25/packaging-go-dependencies-for-gentoo/#section-2">Continue reading …</a></p>
+
+</article>
+<article>
+
+    <header>
     <h1><a href="/2024/05/03/packaging-st-0-9-2-for-gentoo/">Packaging st-0.9.2 for Gentoo</a></h1>
 
     <aside>
@@ -144,49 +176,6 @@ official Gentoo <a href="https://wiki.gentoo.org/wiki/Project:GURU">GURU overlay
 where it should reach the reviewed branch soon.</p>
 
 
-
-</article>
-<article>
-
-    <header>
-    <h1><a href="/2023/08/11/local-management-with-rex/">Local management with Rex</a></h1>
-
-    <aside>
-        <time datetime="2023-08-11">
-            📅 2023-08-11
-        </time>
-            <a href="/tag/rex/">#rex</a>
-    </aside>
-
-</header>
-
-
-    <p>Automation challenges often focus on remote endpoints, while several use cases
-require automating locally as well. Typical situations range from managing
-a personal machine, through setups where the managed fleet includes the host
-managing the whole, to pull-style models where each node manages itself.</p>
-
-<p><a href="https://www.rexify.org/">Rex, the friendly automation framework</a> supports any
-combination of local and remote execution. This post summarizes the main
-orientation points about local management.</p>
-
-<h2 id="tldr">TL;DR</h2>
-
-<p>Rex provides several options for local management to choose from, allowing
-authors to express their intent explicitly according to their use case at hand:</p>
-
-<ol>
-<li><a href="/2023/08/11/local-management-with-rex/#taskswithoutanexplicittarget">Tasks without an explicit target</a></li>
-<li><a href="/2023/08/11/local-management-with-rex/#taskstargetinglocalexplicitly">Tasks targeting <code>&lt;local&gt;</code> explicitly</a></li>
-<li><a href="/2023/08/11/local-management-with-rex/#overridethetaskstargettolocal">Override the task’s target to <code>&lt;local&gt;</code></a></li>
-<li><a href="/2023/08/11/local-management-with-rex/#disablesshpertaskwithno_sshtask">Disable SSH per task with <code>no_ssh task</code></a></li>
-<li><a href="/2023/08/11/local-management-with-rex/#disablesshgloballywithno_ssh">Disable SSH globally with <code>no_ssh</code></a></li>
-<li><a href="/2023/08/11/local-management-with-rex/#runningpartsofataskwithinlocalblocks">Running parts of a task within <code>LOCAL{}</code> blocks</a></li>
-<li><a href="/2023/08/11/local-management-with-rex/#connecttolocalhostoverssh">Connect to local host over SSH</a></li>
-</ol>
-
-
-    <p><a href="/2023/08/11/local-management-with-rex/#section-2">Continue reading …</a></p>
 
 </article>
 

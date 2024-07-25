@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://agilesysadmin.github.io/tag/golang/</id>
+    <title>agile sysadmin</title>
+    <updated>2024-07-25T00:00:00Z</updated>
+    <link href="https://agilesysadmin.github.io/tag/golang.atom" rel="self" />
+    <link href="https://agilesysadmin.github.io/tag/golang/" rel="alternate" />
+    <author>
+        <name>Ferenc Erki</name>
+    </author>
+    <generator version="0.098">Statocles</generator>
+
+    <entry>
+        <id>https://agilesysadmin.github.io/2024/07/25/packaging-go-dependencies-for-gentoo/</id>
+        <title>Packaging Go dependencies for Gentoo</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://agilesysadmin.github.io/2024/07/25/packaging-go-dependencies-for-gentoo/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>While I don’t write Go code, I do package Go projects for Gentoo Linux. My
+previous post about how to <a href="https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/">Host Gentoo dependency tarballs as GitHub
+releases</a> got
+me invited to give a talk at the <a href="https://www.meetup.com/golang-users-berlin/events/300809374/">Google Developer Group Berlin Golang
+meetup</a>, to host
+a community round table discussion at GopherCon Europe 2024, and to hold an
+online workshop for <a href="https://gentoo-ev.org/">Gentoo e.V.</a></p>
+
+<p>My presentation expands on the above post, and I decided to share the extra
+parts in this follow-up, including an idea for Go project maintainers who wish
+to streamline the distribution of their work.</p>
+
+                <p><a href="https://agilesysadmin.github.io/2024/07/25/packaging-go-dependencies-for-gentoo/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://agilesysadmin.github.io/tag/golang/">golang</a>
+                    <a href="https://agilesysadmin.github.io/tag/gentoo/">gentoo</a>
+                </p>
+
+        ]]></content>
+        <updated>2024-07-25T00:00:00Z</updated>
+        <category term="golang" />
+        <category term="gentoo" />
+    </entry>
+</feed>
+
