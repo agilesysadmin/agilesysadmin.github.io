@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="Lint early, lint often" name="title" property="og:title">
+        <meta content="article" name="type" property="og:type">
+        <meta content="/theme/images/agile_sysadmin.webp" name="type" property="og:image">
+        <meta content="https://blog.ferki.it/2025/02/03/lint-early-lint-often/index.html" name="url" property="og:url">
+        <meta content="Ferenc Erki - agile sysadmin" name="description">
+        <meta content="Ferenc Erki" name="author">
+        <meta content="4KzbYclokErOfwrKiBpX8XCu8ckJ9A7zwueL9VAbAYE" name="google-site-verification">
+        <link href="/theme/images/favicon.svg" rel="icon">
+        <link href="/theme/css/selenized.css" rel="stylesheet">
+        <script data-domain="blog.ferki.it" defer src="https://plausible.io/js/script.js"></script>
+        <title>Lint early, lint often</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">🧑‍💻 agile sysadmin</a></h1>
+            <p>by Ferenc Erki</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/">Posts</a></li>
+                <li><a href="https://ferki.it" target="_blank">Homepage</a></li>
+                <li><a href="https://cal.com/ferki" target="_blank">Booking</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+
+    <header>
+    <h1><a href="/2025/02/03/lint-early-lint-often/">Lint early, lint often</a></h1>
+
+    <aside>
+        <time datetime="2025-02-03" title="published">
+            🗓 2025-02-03
+        </time>
+            <a href="/tag/linting/">#linting</a>
+            <a href="/tag/static-analysis/">#static analysis</a>
+    </aside>
+
+</header>
+
+
+    <section id="section-1">
+        <p>Wikipedia defines <a href="https://en.wikipedia.org/wiki/Lint_(software)">linting
+software</a> as:</p>
+
+<blockquote>
+  <p>a static code analysis tool used to flag programming errors, bugs, stylistic
+  errors and suspicious constructs.</p>
+</blockquote>
+
+<p>Linters play an important role to detect common mistakes fast. I often find
+that running them first in the build pipelines happens already too late,
+reducing their usefulness.</p>
+
+<p>When to lint to maximize their value?</p>
+
+    </section>
+    <section id="section-2">
+        <p>Software change processes commonly involve the following steps before
+triggering a pipeline for automated tests:</p>
+
+<ul>
+<li>change some code</li>
+<li>save the file</li>
+<li>run local tests</li>
+<li>commit changes to version control</li>
+<li>push the changes to the main repository</li>
+</ul>
+
+<p>When linters find a problem during the pipeline steps, it leads to considerable
+delays: I already done the work, I have to get back to context, apply a fix,
+save the changes, run local tests, make new commits, and start the pipeline
+again.</p>
+
+<p>Let’s find a way to do it earlier then.</p>
+
+<p>How about before pushing changes? Or before making commits? As part of the
+local tests? Upon saving files? We can do even better!</p>
+
+<p>I prefer to configure my editor to run linters asynchronously as I type, and
+show the results in its UI. That way I get instant feedback about my work. At
+my fingertips. In most cases even before saving the file I work with.</p>
+
+<p>For example I use Vim with the <a href="https://github.com/dense-analysis/ale">Asynchronous Lint
+Engine</a> plugin. Which <a href="https://github.com/dense-analysis/ale/blob/master/supported-tools.md">supports many
+languages</a>
+and their linting tools.</p>
+
+<p>Having such frictionless and immediate feedback about what I type helps
+tremendously.</p>
+
+<p>I recommend to lint as early and as often as possible.</p>
+
+<p>Shift left.</p>
+
+    </section>
+
+</article>
+
+<ul class="pager">
+    <li class="prev">
+            <a href="/2024/07/25/packaging-go-dependencies-for-gentoo/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+    </li>
+</ul>
+
+
+        </main>
+
+        <footer>
+            
+            <ul>
+                <li><a href="https://blog.ferki.it/index.rss" target="_blank">RSS</a></li>
+                <li><a href="https://blog.ferki.it/index.atom" target="_blank">Atom</a></li>
+                <li><a href="https://github.com/ferki" rel="me" target="_blank">GitHub</a></li>
+                <li><a href="https://profile.codersrank.io/user/ferki" rel="me" target="_blank">CodersRank</a></li>
+                <li><a href="https://www.linkedin.com/in/ferki" rel="me" target="_blank">LinkedIn</a></li>
+                <li><a href="https://fosstodon.org/@ferki" rel="me" target="_blank">Mastodon</a></li>
+                <li><a href="mailto:ferki@ferki.it">Email</a></li>
+                <li><a href="/pages/impressum.html">Impressum</a></li>
+                <li><a href="/pages/privacy_policy.html">Privacy policy</a></li>
+            </ul>
+            <ul>
+                <li>© 2023–2025 Ferenc Erki</li>
+            </ul>
+
+        </footer>
+    </body>
+</html>

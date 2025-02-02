@@ -4,7 +4,7 @@
         <loc>https://blog.ferki.it/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-07-25</lastmod>
+        <lastmod>2025-02-03</lastmod>
     </url>
     <url>
         <loc>https://blog.ferki.it/2013/03/28/unattended-ubuntu-install-in-a-vm/</loc>
@@ -121,22 +121,28 @@
         <lastmod>2024-07-25</lastmod>
     </url>
     <url>
+        <loc>https://blog.ferki.it/2025/02/03/lint-early-lint-often/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2025-02-03</lastmod>
+    </url>
+    <url>
         <loc>https://blog.ferki.it/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-07-25</lastmod>
+        <lastmod>2025-02-03</lastmod>
     </url>
     <url>
         <loc>https://blog.ferki.it/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-07-25</lastmod>
+        <lastmod>2025-02-03</lastmod>
     </url>
     <url>
         <loc>https://blog.ferki.it/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-07-25</lastmod>
+        <lastmod>2025-02-03</lastmod>
     </url>
     <url>
         <loc>https://blog.ferki.it/pages/about.html</loc>
@@ -241,6 +247,12 @@
         <lastmod>2023-07-25</lastmod>
     </url>
     <url>
+        <loc>https://blog.ferki.it/tag/linting/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2025-02-03</lastmod>
+    </url>
+    <url>
         <loc>https://blog.ferki.it/tag/openwrt/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -287,6 +299,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2024-05-03</lastmod>
+    </url>
+    <url>
+        <loc>https://blog.ferki.it/tag/static-analysis/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2025-02-03</lastmod>
     </url>
     <url>
         <loc>https://blog.ferki.it/tag/ubuntu/</loc>
