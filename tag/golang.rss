@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>agile sysadmin</title>
-        <link>https://agilesysadmin.github.io/tag/golang/</link>
-        <atom:link href="https://agilesysadmin.github.io/tag/golang.rss" rel="self" type="application/rss+xml" />
+        <link>https://blog.ferki.it/tag/golang/</link>
+        <atom:link href="https://blog.ferki.it/tag/golang.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
             <title>Packaging Go dependencies for Gentoo</title>
-            <link>https://agilesysadmin.github.io/2024/07/25/packaging-go-dependencies-for-gentoo/</link>
-            <guid>https://agilesysadmin.github.io/2024/07/25/packaging-go-dependencies-for-gentoo/</guid>
+            <link>https://blog.ferki.it/2024/07/25/packaging-go-dependencies-for-gentoo/</link>
+            <guid>https://blog.ferki.it/2024/07/25/packaging-go-dependencies-for-gentoo/</guid>
             <description><![CDATA[
                 <p>While I don’t write Go code, I do package Go projects for Gentoo Linux. My
-previous post about how to <a href="https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/">Host Gentoo dependency tarballs as GitHub
+previous post about how to <a href="https://blog.ferki.it/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/">Host Gentoo dependency tarballs as GitHub
 releases</a> got
 me invited to give a talk at the <a href="https://www.meetup.com/golang-users-berlin/events/300809374/">Google Developer Group Berlin Golang
 meetup</a>, to host
@@ -23,11 +23,11 @@ online workshop for <a href="https://gentoo-ev.org/">Gentoo e.V.</a></p>
 parts in this follow-up, including an idea for Go project maintainers who wish
 to streamline the distribution of their work.</p>
 
-                    <p><a href="https://agilesysadmin.github.io/2024/07/25/packaging-go-dependencies-for-gentoo/#section-2">Continue reading...</a></p>
+                    <p><a href="https://blog.ferki.it/2024/07/25/packaging-go-dependencies-for-gentoo/#section-2">Continue reading...</a></p>
 
                     <p>Tags:
-                        <a href="https://agilesysadmin.github.io/tag/golang/">golang</a>
-                        <a href="https://agilesysadmin.github.io/tag/gentoo/">gentoo</a>
+                        <a href="https://blog.ferki.it/tag/golang/">golang</a>
+                        <a href="https://blog.ferki.it/tag/gentoo/">gentoo</a>
                     </p>
 
             ]]></description>

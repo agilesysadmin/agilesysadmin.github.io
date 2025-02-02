@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>agile sysadmin</title>
-        <link>https://agilesysadmin.github.io/tag/github/</link>
-        <atom:link href="https://agilesysadmin.github.io/tag/github.rss" rel="self" type="application/rss+xml" />
+        <link>https://blog.ferki.it/tag/github/</link>
+        <atom:link href="https://blog.ferki.it/tag/github.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
             <title>Host Gentoo dependency tarballs as GitHub releases</title>
-            <link>https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/</link>
-            <guid>https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/</guid>
+            <link>https://blog.ferki.it/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/</link>
+            <guid>https://blog.ferki.it/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/</guid>
             <description><![CDATA[
                 <p>People who create Gentoo ebuilds for software written in Go probably noticed
 deprecation notices and discussion <a href="https://archives.gentoo.org/gentoo-dev/message/1a64a8e7694c3ee11cd48a58a95f2faa">About
@@ -22,16 +22,16 @@ discuss how to supply dependencies for Go software, here I share a way to use
 GitHub releases to host dependency tarballs as an external Gentoo contributor,
 like proxied maintainer, GURU contributor, or overlay maintainer.</p>
 
-<p><strong>Update</strong>: see also <a href="https://agilesysadmin.github.io/2024/07/25/packaging-go-dependencies-for-gentoo">Packaging Go dependencies for
+<p><strong>Update</strong>: see also <a href="https://blog.ferki.it/2024/07/25/packaging-go-dependencies-for-gentoo">Packaging Go dependencies for
 Gentoo</a> as a follow-up post
 expanding on this topic.</p>
 
-                    <p><a href="https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/#section-2">Continue reading...</a></p>
+                    <p><a href="https://blog.ferki.it/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/#section-2">Continue reading...</a></p>
 
                     <p>Tags:
-                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
-                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                        <a href="https://agilesysadmin.github.io/tag/github/">GitHub</a>
+                        <a href="https://blog.ferki.it/tag/gentoo/">Gentoo</a>
+                        <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
+                        <a href="https://blog.ferki.it/tag/github/">GitHub</a>
                     </p>
 
             ]]></description>

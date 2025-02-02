@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://agilesysadmin.github.io/tag/final-term/</id>
+    <id>https://blog.ferki.it/tag/final-term/</id>
     <title>agile sysadmin</title>
     <updated>2013-07-16T00:00:00Z</updated>
-    <link href="https://agilesysadmin.github.io/tag/final-term.atom" rel="self" />
-    <link href="https://agilesysadmin.github.io/tag/final-term/" rel="alternate" />
+    <link href="https://blog.ferki.it/tag/final-term.atom" rel="self" />
+    <link href="https://blog.ferki.it/tag/final-term/" rel="alternate" />
     <author>
         <name>Ferenc Erki</name>
     </author>
     <generator version="0.098">Statocles</generator>
 
     <entry>
-        <id>https://agilesysadmin.github.io/2013/07/16/final-term-is-available-in-gentoo-sunrise/</id>
+        <id>https://blog.ferki.it/2013/07/16/final-term-is-available-in-gentoo-sunrise/</id>
         <title>Final Term is available in Gentoo Sunrise</title>
         <author><name>Ferenc Erki</name></author>
-        <link href="https://agilesysadmin.github.io/2013/07/16/final-term-is-available-in-gentoo-sunrise/" rel="alternate" />
+        <link href="https://blog.ferki.it/2013/07/16/final-term-is-available-in-gentoo-sunrise/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="http://finalterm.org/">Final Term</a> is an interesting and promising terminal emulator with advanced interactive features like semantic text menus, smart command completion, GUI terminal controls, reflow support and more.</p>
 
@@ -31,9 +31,9 @@
 
 
                 <p>Tags:
-                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                    <a href="https://agilesysadmin.github.io/tag/final-term/">Final Term</a>
-                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                    <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
+                    <a href="https://blog.ferki.it/tag/final-term/">Final Term</a>
+                    <a href="https://blog.ferki.it/tag/gentoo/">Gentoo</a>
                 </p>
 
         ]]></content>

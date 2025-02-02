@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>agile sysadmin</title>
-        <link>https://agilesysadmin.github.io/tag/clight/</link>
-        <atom:link href="https://agilesysadmin.github.io/tag/clight.rss" rel="self" type="application/rss+xml" />
+        <link>https://blog.ferki.it/tag/clight/</link>
+        <atom:link href="https://blog.ferki.it/tag/clight.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
             <title>Packaging clight-4.11 for Gentoo</title>
-            <link>https://agilesysadmin.github.io/2024/05/01/packaging-clight-4-11-for-gentoo/</link>
-            <guid>https://agilesysadmin.github.io/2024/05/01/packaging-clight-4-11-for-gentoo/</guid>
+            <link>https://blog.ferki.it/2024/05/01/packaging-clight-4-11-for-gentoo/</link>
+            <guid>https://blog.ferki.it/2024/05/01/packaging-clight-4-11-for-gentoo/</guid>
             <description><![CDATA[
                 <p><a href="https://github.com/FedeDP/Clight">Clight</a> describes itself as a “C daemon that
 turns your webcam into a light sensor”. <a href="https://github.com/ferki/gentoo-overlay">My
@@ -19,10 +19,10 @@ for fellow Gentoo users.</p>
 
 
                     <p>Tags:
-                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
-                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                        <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
-                        <a href="https://agilesysadmin.github.io/tag/clight/">clight</a>
+                        <a href="https://blog.ferki.it/tag/gentoo/">Gentoo</a>
+                        <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
+                        <a href="https://blog.ferki.it/tag/overlay/">overlay</a>
+                        <a href="https://blog.ferki.it/tag/clight/">clight</a>
                     </p>
 
             ]]></description>

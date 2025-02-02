@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://agilesysadmin.github.io/tag/aif/</id>
+    <id>https://blog.ferki.it/tag/aif/</id>
     <title>agile sysadmin</title>
     <updated>2013-05-22T00:00:00Z</updated>
-    <link href="https://agilesysadmin.github.io/tag/aif.atom" rel="self" />
-    <link href="https://agilesysadmin.github.io/tag/aif/" rel="alternate" />
+    <link href="https://blog.ferki.it/tag/aif.atom" rel="self" />
+    <link href="https://blog.ferki.it/tag/aif/" rel="alternate" />
     <author>
         <name>Ferenc Erki</name>
     </author>
     <generator version="0.098">Statocles</generator>
 
     <entry>
-        <id>https://agilesysadmin.github.io/2013/05/22/improved-ebuild-for-arnos-iptables-firewall/</id>
+        <id>https://blog.ferki.it/2013/05/22/improved-ebuild-for-arnos-iptables-firewall/</id>
         <title>Improved ebuild for Arno’s iptables firewall</title>
         <author><name>Ferenc Erki</name></author>
-        <link href="https://agilesysadmin.github.io/2013/05/22/improved-ebuild-for-arnos-iptables-firewall/" rel="alternate" />
+        <link href="https://blog.ferki.it/2013/05/22/improved-ebuild-for-arnos-iptables-firewall/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Back in December 2012 I was frustrated by a few issues about using net-firewall/arno-iptables-firewall on Gentoo. Only an old version was available through portage and that had its problems working with recent versions of iptables as state matching module’s functionality was being replaced by conntrack module – among other problems like ancient homepage and initscript.</p>
 
@@ -36,9 +36,9 @@
 
 
                 <p>Tags:
-                    <a href="https://agilesysadmin.github.io/tag/aif/">AIF</a>
-                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
+                    <a href="https://blog.ferki.it/tag/aif/">AIF</a>
+                    <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
+                    <a href="https://blog.ferki.it/tag/gentoo/">Gentoo</a>
                 </p>
 
         ]]></content>

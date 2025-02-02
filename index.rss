@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>agile sysadmin</title>
-        <link>https://agilesysadmin.github.io/</link>
-        <atom:link href="https://agilesysadmin.github.io/index.rss" rel="self" type="application/rss+xml" />
+        <link>https://blog.ferki.it/</link>
+        <atom:link href="https://blog.ferki.it/index.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
             <title>Packaging Go dependencies for Gentoo</title>
-            <link>https://agilesysadmin.github.io/2024/07/25/packaging-go-dependencies-for-gentoo/</link>
-            <guid>https://agilesysadmin.github.io/2024/07/25/packaging-go-dependencies-for-gentoo/</guid>
+            <link>https://blog.ferki.it/2024/07/25/packaging-go-dependencies-for-gentoo/</link>
+            <guid>https://blog.ferki.it/2024/07/25/packaging-go-dependencies-for-gentoo/</guid>
             <description><![CDATA[
                 <p>While I don’t write Go code, I do package Go projects for Gentoo Linux. My
-previous post about how to <a href="https://agilesysadmin.github.io/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/">Host Gentoo dependency tarballs as GitHub
+previous post about how to <a href="https://blog.ferki.it/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/">Host Gentoo dependency tarballs as GitHub
 releases</a> got
 me invited to give a talk at the <a href="https://www.meetup.com/golang-users-berlin/events/300809374/">Google Developer Group Berlin Golang
 meetup</a>, to host
@@ -23,11 +23,11 @@ online workshop for <a href="https://gentoo-ev.org/">Gentoo e.V.</a></p>
 parts in this follow-up, including an idea for Go project maintainers who wish
 to streamline the distribution of their work.</p>
 
-                    <p><a href="https://agilesysadmin.github.io/2024/07/25/packaging-go-dependencies-for-gentoo/#section-2">Continue reading...</a></p>
+                    <p><a href="https://blog.ferki.it/2024/07/25/packaging-go-dependencies-for-gentoo/#section-2">Continue reading...</a></p>
 
                     <p>Tags:
-                        <a href="https://agilesysadmin.github.io/tag/golang/">golang</a>
-                        <a href="https://agilesysadmin.github.io/tag/gentoo/">gentoo</a>
+                        <a href="https://blog.ferki.it/tag/golang/">golang</a>
+                        <a href="https://blog.ferki.it/tag/gentoo/">gentoo</a>
                     </p>
 
             ]]></description>
@@ -37,8 +37,8 @@ to streamline the distribution of their work.</p>
         </item>
         <item>
             <title>Packaging st-0.9.2 for Gentoo</title>
-            <link>https://agilesysadmin.github.io/2024/05/03/packaging-st-0-9-2-for-gentoo/</link>
-            <guid>https://agilesysadmin.github.io/2024/05/03/packaging-st-0-9-2-for-gentoo/</guid>
+            <link>https://blog.ferki.it/2024/05/03/packaging-st-0-9-2-for-gentoo/</link>
+            <guid>https://blog.ferki.it/2024/05/03/packaging-st-0-9-2-for-gentoo/</guid>
             <description><![CDATA[
                 <p><a href="https://st.suckless.org/">st</a>, “a simple terminal implementation for X”, has a
 new 0.9.2 release.</p>
@@ -50,11 +50,11 @@ ebuild repository as proxied maintainer.</p>
 
 
                     <p>Tags:
-                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
-                        <a href="https://agilesysadmin.github.io/tag/proxied/">proxied</a>
-                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                        <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
-                        <a href="https://agilesysadmin.github.io/tag/st/">st</a>
+                        <a href="https://blog.ferki.it/tag/gentoo/">Gentoo</a>
+                        <a href="https://blog.ferki.it/tag/proxied/">proxied</a>
+                        <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
+                        <a href="https://blog.ferki.it/tag/overlay/">overlay</a>
+                        <a href="https://blog.ferki.it/tag/st/">st</a>
                     </p>
 
             ]]></description>
@@ -64,8 +64,8 @@ ebuild repository as proxied maintainer.</p>
         </item>
         <item>
             <title>Packaging clight-4.11 for Gentoo</title>
-            <link>https://agilesysadmin.github.io/2024/05/01/packaging-clight-4-11-for-gentoo/</link>
-            <guid>https://agilesysadmin.github.io/2024/05/01/packaging-clight-4-11-for-gentoo/</guid>
+            <link>https://blog.ferki.it/2024/05/01/packaging-clight-4-11-for-gentoo/</link>
+            <guid>https://blog.ferki.it/2024/05/01/packaging-clight-4-11-for-gentoo/</guid>
             <description><![CDATA[
                 <p><a href="https://github.com/FedeDP/Clight">Clight</a> describes itself as a “C daemon that
 turns your webcam into a light sensor”. <a href="https://github.com/ferki/gentoo-overlay">My
@@ -75,10 +75,10 @@ for fellow Gentoo users.</p>
 
 
                     <p>Tags:
-                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
-                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                        <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
-                        <a href="https://agilesysadmin.github.io/tag/clight/">clight</a>
+                        <a href="https://blog.ferki.it/tag/gentoo/">Gentoo</a>
+                        <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
+                        <a href="https://blog.ferki.it/tag/overlay/">overlay</a>
+                        <a href="https://blog.ferki.it/tag/clight/">clight</a>
                     </p>
 
             ]]></description>
@@ -88,8 +88,8 @@ for fellow Gentoo users.</p>
         </item>
         <item>
             <title>Packaging vale-3.4.2 for Gentoo</title>
-            <link>https://agilesysadmin.github.io/2024/05/01/packaging-vale-3-4-2-for-gentoo/</link>
-            <guid>https://agilesysadmin.github.io/2024/05/01/packaging-vale-3-4-2-for-gentoo/</guid>
+            <link>https://blog.ferki.it/2024/05/01/packaging-vale-3-4-2-for-gentoo/</link>
+            <guid>https://blog.ferki.it/2024/05/01/packaging-vale-3-4-2-for-gentoo/</guid>
             <description><![CDATA[
                 <p><a href="https://vale.sh">Vale</a>, the “syntax-aware linter for prose built with speed
 and extensibility in mind”, has a new <a href="https://github.com/errata-ai/vale/releases/tag/v3.4.2">v3.4.2
@@ -102,11 +102,11 @@ where it should reach the reviewed branch soon.</p>
 
 
                     <p>Tags:
-                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
-                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                        <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
-                        <a href="https://agilesysadmin.github.io/tag/guru/">GURU</a>
-                        <a href="https://agilesysadmin.github.io/tag/vale/">vale</a>
+                        <a href="https://blog.ferki.it/tag/gentoo/">Gentoo</a>
+                        <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
+                        <a href="https://blog.ferki.it/tag/overlay/">overlay</a>
+                        <a href="https://blog.ferki.it/tag/guru/">GURU</a>
+                        <a href="https://blog.ferki.it/tag/vale/">vale</a>
                     </p>
 
             ]]></description>
@@ -116,8 +116,8 @@ where it should reach the reviewed branch soon.</p>
         </item>
         <item>
             <title>Packaging vale-2.28.3 for Gentoo</title>
-            <link>https://agilesysadmin.github.io/2023/09/07/packaging-vale-2-28-3-for-gentoo/</link>
-            <guid>https://agilesysadmin.github.io/2023/09/07/packaging-vale-2-28-3-for-gentoo/</guid>
+            <link>https://blog.ferki.it/2023/09/07/packaging-vale-2-28-3-for-gentoo/</link>
+            <guid>https://blog.ferki.it/2023/09/07/packaging-vale-2-28-3-for-gentoo/</guid>
             <description><![CDATA[
                 <p><a href="https://vale.sh">Vale</a>, the “syntax-aware linter for prose built with speed
 and extensibility in mind”, has a new <a href="https://github.com/errata-ai/vale/releases/tag/v2.28.3">v2.28.3
@@ -130,11 +130,11 @@ where it should reach the reviewed branch soon.</p>
 
 
                     <p>Tags:
-                        <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
-                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                        <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
-                        <a href="https://agilesysadmin.github.io/tag/guru/">GURU</a>
-                        <a href="https://agilesysadmin.github.io/tag/vale/">vale</a>
+                        <a href="https://blog.ferki.it/tag/gentoo/">Gentoo</a>
+                        <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
+                        <a href="https://blog.ferki.it/tag/overlay/">overlay</a>
+                        <a href="https://blog.ferki.it/tag/guru/">GURU</a>
+                        <a href="https://blog.ferki.it/tag/vale/">vale</a>
                     </p>
 
             ]]></description>

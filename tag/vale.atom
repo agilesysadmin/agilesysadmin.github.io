@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://agilesysadmin.github.io/tag/vale/</id>
+    <id>https://blog.ferki.it/tag/vale/</id>
     <title>agile sysadmin</title>
     <updated>2024-05-01T00:00:00Z</updated>
-    <link href="https://agilesysadmin.github.io/tag/vale.atom" rel="self" />
-    <link href="https://agilesysadmin.github.io/tag/vale/" rel="alternate" />
+    <link href="https://blog.ferki.it/tag/vale.atom" rel="self" />
+    <link href="https://blog.ferki.it/tag/vale/" rel="alternate" />
     <author>
         <name>Ferenc Erki</name>
     </author>
     <generator version="0.098">Statocles</generator>
 
     <entry>
-        <id>https://agilesysadmin.github.io/2024/05/01/packaging-vale-3-4-2-for-gentoo/</id>
+        <id>https://blog.ferki.it/2024/05/01/packaging-vale-3-4-2-for-gentoo/</id>
         <title>Packaging vale-3.4.2 for Gentoo</title>
         <author><name>Ferenc Erki</name></author>
-        <link href="https://agilesysadmin.github.io/2024/05/01/packaging-vale-3-4-2-for-gentoo/" rel="alternate" />
+        <link href="https://blog.ferki.it/2024/05/01/packaging-vale-3-4-2-for-gentoo/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="https://vale.sh">Vale</a>, the “syntax-aware linter for prose built with speed
 and extensibility in mind”, has a new <a href="https://github.com/errata-ai/vale/releases/tag/v3.4.2">v3.4.2
@@ -27,11 +27,11 @@ where it should reach the reviewed branch soon.</p>
 
 
                 <p>Tags:
-                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
-                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                    <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
-                    <a href="https://agilesysadmin.github.io/tag/guru/">GURU</a>
-                    <a href="https://agilesysadmin.github.io/tag/vale/">vale</a>
+                    <a href="https://blog.ferki.it/tag/gentoo/">Gentoo</a>
+                    <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
+                    <a href="https://blog.ferki.it/tag/overlay/">overlay</a>
+                    <a href="https://blog.ferki.it/tag/guru/">GURU</a>
+                    <a href="https://blog.ferki.it/tag/vale/">vale</a>
                 </p>
 
         ]]></content>
@@ -43,10 +43,10 @@ where it should reach the reviewed branch soon.</p>
         <category term="vale" />
     </entry>
     <entry>
-        <id>https://agilesysadmin.github.io/2023/09/07/packaging-vale-2-28-3-for-gentoo/</id>
+        <id>https://blog.ferki.it/2023/09/07/packaging-vale-2-28-3-for-gentoo/</id>
         <title>Packaging vale-2.28.3 for Gentoo</title>
         <author><name>Ferenc Erki</name></author>
-        <link href="https://agilesysadmin.github.io/2023/09/07/packaging-vale-2-28-3-for-gentoo/" rel="alternate" />
+        <link href="https://blog.ferki.it/2023/09/07/packaging-vale-2-28-3-for-gentoo/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="https://vale.sh">Vale</a>, the “syntax-aware linter for prose built with speed
 and extensibility in mind”, has a new <a href="https://github.com/errata-ai/vale/releases/tag/v2.28.3">v2.28.3
@@ -59,11 +59,11 @@ where it should reach the reviewed branch soon.</p>
 
 
                 <p>Tags:
-                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
-                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                    <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
-                    <a href="https://agilesysadmin.github.io/tag/guru/">GURU</a>
-                    <a href="https://agilesysadmin.github.io/tag/vale/">vale</a>
+                    <a href="https://blog.ferki.it/tag/gentoo/">Gentoo</a>
+                    <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
+                    <a href="https://blog.ferki.it/tag/overlay/">overlay</a>
+                    <a href="https://blog.ferki.it/tag/guru/">GURU</a>
+                    <a href="https://blog.ferki.it/tag/vale/">vale</a>
                 </p>
 
         ]]></content>
@@ -75,10 +75,10 @@ where it should reach the reviewed branch soon.</p>
         <category term="vale" />
     </entry>
     <entry>
-        <id>https://agilesysadmin.github.io/2023/07/08/gentoo-guru-now-includes-vale/</id>
+        <id>https://blog.ferki.it/2023/07/08/gentoo-guru-now-includes-vale/</id>
         <title>Gentoo GURU now includes Vale</title>
         <author><name>Ferenc Erki</name></author>
-        <link href="https://agilesysadmin.github.io/2023/07/08/gentoo-guru-now-includes-vale/" rel="alternate" />
+        <link href="https://blog.ferki.it/2023/07/08/gentoo-guru-now-includes-vale/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="https://vale.sh/">Vale</a> describes itself as a “syntax-aware linter for prose
 built with speed and extensibility in mind”. The official Gentoo
@@ -86,13 +86,13 @@ built with speed and extensibility in mind”. The official Gentoo
 <a href="https://github.com/errata-ai/vale/releases/tag/v2.27.0">v2.27.0 release</a>
 available for the wider community.</p>
 
-                <p><a href="https://agilesysadmin.github.io/2023/07/08/gentoo-guru-now-includes-vale/#section-2">Continue reading...</a></p>
+                <p><a href="https://blog.ferki.it/2023/07/08/gentoo-guru-now-includes-vale/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
-                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                    <a href="https://agilesysadmin.github.io/tag/guru/">GURU</a>
-                    <a href="https://agilesysadmin.github.io/tag/vale/">vale</a>
+                    <a href="https://blog.ferki.it/tag/gentoo/">Gentoo</a>
+                    <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
+                    <a href="https://blog.ferki.it/tag/guru/">GURU</a>
+                    <a href="https://blog.ferki.it/tag/vale/">vale</a>
                 </p>
 
         ]]></content>
@@ -103,10 +103,10 @@ available for the wider community.</p>
         <category term="vale" />
     </entry>
     <entry>
-        <id>https://agilesysadmin.github.io/2023/04/25/packaging-vale-2-24-4-for-gentoo/</id>
+        <id>https://blog.ferki.it/2023/04/25/packaging-vale-2-24-4-for-gentoo/</id>
         <title>Packaging vale-2.24.4 for Gentoo</title>
         <author><name>Ferenc Erki</name></author>
-        <link href="https://agilesysadmin.github.io/2023/04/25/packaging-vale-2-24-4-for-gentoo/" rel="alternate" />
+        <link href="https://blog.ferki.it/2023/04/25/packaging-vale-2-24-4-for-gentoo/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="https://vale.sh">Vale</a> describes itself as a “syntax-aware linter for prose
 built with speed and extensibility in mind”. <a href="https://github.com/ferki/gentoo-overlay">My
@@ -116,13 +116,13 @@ fellow Gentoo users.</p>
 
 <p>I recommend previous users to continue reading about ebuild changes.</p>
 
-                <p><a href="https://agilesysadmin.github.io/2023/04/25/packaging-vale-2-24-4-for-gentoo/#section-2">Continue reading...</a></p>
+                <p><a href="https://blog.ferki.it/2023/04/25/packaging-vale-2-24-4-for-gentoo/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
-                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                    <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
-                    <a href="https://agilesysadmin.github.io/tag/vale/">vale</a>
+                    <a href="https://blog.ferki.it/tag/gentoo/">Gentoo</a>
+                    <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
+                    <a href="https://blog.ferki.it/tag/overlay/">overlay</a>
+                    <a href="https://blog.ferki.it/tag/vale/">vale</a>
                 </p>
 
         ]]></content>

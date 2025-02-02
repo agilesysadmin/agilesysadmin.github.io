@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://agilesysadmin.github.io/tag/xsel/</id>
+    <id>https://blog.ferki.it/tag/xsel/</id>
     <title>agile sysadmin</title>
     <updated>2023-04-26T00:00:00Z</updated>
-    <link href="https://agilesysadmin.github.io/tag/xsel.atom" rel="self" />
-    <link href="https://agilesysadmin.github.io/tag/xsel/" rel="alternate" />
+    <link href="https://blog.ferki.it/tag/xsel.atom" rel="self" />
+    <link href="https://blog.ferki.it/tag/xsel/" rel="alternate" />
     <author>
         <name>Ferenc Erki</name>
     </author>
     <generator version="0.098">Statocles</generator>
 
     <entry>
-        <id>https://agilesysadmin.github.io/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/</id>
+        <id>https://blog.ferki.it/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/</id>
         <title>Gentoo has xsel-1.2.1 among the firsts</title>
         <author><name>Ferenc Erki</name></author>
-        <link href="https://agilesysadmin.github.io/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/" rel="alternate" />
+        <link href="https://blog.ferki.it/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><a href="https://github.com/kfish/xsel">xsel</a> works great to “manipulate the
 X selection”. Last week I stepped up as proxied maintainer to help bring
@@ -27,13 +27,13 @@ the past week, upstream has merged all ebuild patches, <a href="https://github.c
 ships the latest version — among the first distros, according to
 <a href="https://repology.org/project/xsel/history">repology</a>.</p>
 
-                <p><a href="https://agilesysadmin.github.io/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/#section-2">Continue reading...</a></p>
+                <p><a href="https://blog.ferki.it/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="https://agilesysadmin.github.io/tag/gentoo/">Gentoo</a>
-                    <a href="https://agilesysadmin.github.io/tag/proxied/">proxied</a>
-                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                    <a href="https://agilesysadmin.github.io/tag/xsel/">xsel</a>
+                    <a href="https://blog.ferki.it/tag/gentoo/">Gentoo</a>
+                    <a href="https://blog.ferki.it/tag/proxied/">proxied</a>
+                    <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
+                    <a href="https://blog.ferki.it/tag/xsel/">xsel</a>
                 </p>
 
         ]]></content>

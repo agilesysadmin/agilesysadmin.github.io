@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://agilesysadmin.github.io/tag/release/</id>
+    <id>https://blog.ferki.it/tag/release/</id>
     <title>agile sysadmin</title>
     <updated>2023-08-05T00:00:00Z</updated>
-    <link href="https://agilesysadmin.github.io/tag/release.atom" rel="self" />
-    <link href="https://agilesysadmin.github.io/tag/release/" rel="alternate" />
+    <link href="https://blog.ferki.it/tag/release.atom" rel="self" />
+    <link href="https://blog.ferki.it/tag/release/" rel="alternate" />
     <author>
         <name>Ferenc Erki</name>
     </author>
     <generator version="0.098">Statocles</generator>
 
     <entry>
-        <id>https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/</id>
+        <id>https://blog.ferki.it/2023/08/05/releasing-rex-1-14-3/</id>
         <title>Releasing Rex-1.14.3</title>
         <author><name>Ferenc Erki</name></author>
-        <link href="https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/" rel="alternate" />
+        <link href="https://blog.ferki.it/2023/08/05/releasing-rex-1-14-3/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>I released Rex-1.14.3 today, making it available both on
 <a href="https://metacpan.org/release/FERKI/Rex-1.14.3">CPAN</a> and in <a href="https://github.com/ferki/gentoo-overlay">my Gentoo
@@ -23,14 +23,14 @@ overlay</a>.</p>
 <p>This version of the friendly automation framework contains bug fixes for local
 package installation, command existence checks, and git tests.</p>
 
-                <p><a href="https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/#section-2">Continue reading...</a></p>
+                <p><a href="https://blog.ferki.it/2023/08/05/releasing-rex-1-14-3/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="https://agilesysadmin.github.io/tag/rex/">rex</a>
-                    <a href="https://agilesysadmin.github.io/tag/release/">release</a>
-                    <a href="https://agilesysadmin.github.io/tag/gentoo/">gentoo</a>
-                    <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                    <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
+                    <a href="https://blog.ferki.it/tag/rex/">rex</a>
+                    <a href="https://blog.ferki.it/tag/release/">release</a>
+                    <a href="https://blog.ferki.it/tag/gentoo/">gentoo</a>
+                    <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
+                    <a href="https://blog.ferki.it/tag/overlay/">overlay</a>
                 </p>
 
         ]]></content>

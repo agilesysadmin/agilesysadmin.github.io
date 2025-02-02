@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>agile sysadmin</title>
-        <link>https://agilesysadmin.github.io/tag/rex/</link>
-        <atom:link href="https://agilesysadmin.github.io/tag/rex.rss" rel="self" type="application/rss+xml" />
+        <link>https://blog.ferki.it/tag/rex/</link>
+        <atom:link href="https://blog.ferki.it/tag/rex.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
             <title>Local management with Rex</title>
-            <link>https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/</link>
-            <guid>https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/</guid>
+            <link>https://blog.ferki.it/2023/08/11/local-management-with-rex/</link>
+            <guid>https://blog.ferki.it/2023/08/11/local-management-with-rex/</guid>
             <description><![CDATA[
                 <p>Automation challenges often focus on remote endpoints, while several use cases
 require automating locally as well. Typical situations range from managing
@@ -26,19 +26,19 @@ orientation points about local management.</p>
 authors to express their intent explicitly according to their use case at hand:</p>
 
 <ol>
-<li><a href="https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/#taskswithoutanexplicittarget">Tasks without an explicit target</a></li>
-<li><a href="https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/#taskstargetinglocalexplicitly">Tasks targeting <code>&lt;local&gt;</code> explicitly</a></li>
-<li><a href="https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/#overridethetaskstargettolocal">Override the task’s target to <code>&lt;local&gt;</code></a></li>
-<li><a href="https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/#disablesshpertaskwithno_sshtask">Disable SSH per task with <code>no_ssh task</code></a></li>
-<li><a href="https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/#disablesshgloballywithno_ssh">Disable SSH globally with <code>no_ssh</code></a></li>
-<li><a href="https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/#runningpartsofataskwithinlocalblocks">Running parts of a task within <code>LOCAL{}</code> blocks</a></li>
-<li><a href="https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/#connecttolocalhostoverssh">Connect to local host over SSH</a></li>
+<li><a href="https://blog.ferki.it/2023/08/11/local-management-with-rex/#taskswithoutanexplicittarget">Tasks without an explicit target</a></li>
+<li><a href="https://blog.ferki.it/2023/08/11/local-management-with-rex/#taskstargetinglocalexplicitly">Tasks targeting <code>&lt;local&gt;</code> explicitly</a></li>
+<li><a href="https://blog.ferki.it/2023/08/11/local-management-with-rex/#overridethetaskstargettolocal">Override the task’s target to <code>&lt;local&gt;</code></a></li>
+<li><a href="https://blog.ferki.it/2023/08/11/local-management-with-rex/#disablesshpertaskwithno_sshtask">Disable SSH per task with <code>no_ssh task</code></a></li>
+<li><a href="https://blog.ferki.it/2023/08/11/local-management-with-rex/#disablesshgloballywithno_ssh">Disable SSH globally with <code>no_ssh</code></a></li>
+<li><a href="https://blog.ferki.it/2023/08/11/local-management-with-rex/#runningpartsofataskwithinlocalblocks">Running parts of a task within <code>LOCAL{}</code> blocks</a></li>
+<li><a href="https://blog.ferki.it/2023/08/11/local-management-with-rex/#connecttolocalhostoverssh">Connect to local host over SSH</a></li>
 </ol>
 
-                    <p><a href="https://agilesysadmin.github.io/2023/08/11/local-management-with-rex/#section-2">Continue reading...</a></p>
+                    <p><a href="https://blog.ferki.it/2023/08/11/local-management-with-rex/#section-2">Continue reading...</a></p>
 
                     <p>Tags:
-                        <a href="https://agilesysadmin.github.io/tag/rex/">rex</a>
+                        <a href="https://blog.ferki.it/tag/rex/">rex</a>
                     </p>
 
             ]]></description>
@@ -48,8 +48,8 @@ authors to express their intent explicitly according to their use case at hand:<
         </item>
         <item>
             <title>Releasing Rex-1.14.3</title>
-            <link>https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/</link>
-            <guid>https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/</guid>
+            <link>https://blog.ferki.it/2023/08/05/releasing-rex-1-14-3/</link>
+            <guid>https://blog.ferki.it/2023/08/05/releasing-rex-1-14-3/</guid>
             <description><![CDATA[
                 <p>I released Rex-1.14.3 today, making it available both on
 <a href="https://metacpan.org/release/FERKI/Rex-1.14.3">CPAN</a> and in <a href="https://github.com/ferki/gentoo-overlay">my Gentoo
@@ -58,14 +58,14 @@ overlay</a>.</p>
 <p>This version of the friendly automation framework contains bug fixes for local
 package installation, command existence checks, and git tests.</p>
 
-                    <p><a href="https://agilesysadmin.github.io/2023/08/05/releasing-rex-1-14-3/#section-2">Continue reading...</a></p>
+                    <p><a href="https://blog.ferki.it/2023/08/05/releasing-rex-1-14-3/#section-2">Continue reading...</a></p>
 
                     <p>Tags:
-                        <a href="https://agilesysadmin.github.io/tag/rex/">rex</a>
-                        <a href="https://agilesysadmin.github.io/tag/release/">release</a>
-                        <a href="https://agilesysadmin.github.io/tag/gentoo/">gentoo</a>
-                        <a href="https://agilesysadmin.github.io/tag/ebuild/">ebuild</a>
-                        <a href="https://agilesysadmin.github.io/tag/overlay/">overlay</a>
+                        <a href="https://blog.ferki.it/tag/rex/">rex</a>
+                        <a href="https://blog.ferki.it/tag/release/">release</a>
+                        <a href="https://blog.ferki.it/tag/gentoo/">gentoo</a>
+                        <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
+                        <a href="https://blog.ferki.it/tag/overlay/">overlay</a>
                     </p>
 
             ]]></description>
@@ -75,16 +75,16 @@ package installation, command existence checks, and git tests.</p>
         </item>
         <item>
             <title>OpenWrt support in (R)?ex</title>
-            <link>https://agilesysadmin.github.io/2013/07/16/openwrt-support-in-r-ex/</link>
-            <guid>https://agilesysadmin.github.io/2013/07/16/openwrt-support-in-r-ex/</guid>
+            <link>https://blog.ferki.it/2013/07/16/openwrt-support-in-r-ex/</link>
+            <guid>https://blog.ferki.it/2013/07/16/openwrt-support-in-r-ex/</guid>
             <description><![CDATA[
                 <p><a href="http://rexify.org/">(R)?ex</a> is a configuration management framework written in Perl which can be used to simplify and automate various system administrator tasks from deployment management to data center automation. <a href="https://openwrt.org/">OpenWrt</a> is a Linux distribution for embedded devices and it is widely used on different network equipment by replacing their original firmware. Soon you can combine the power of these two as OpenWrt support is coming into Rex!</p>
 
-                    <p><a href="https://agilesysadmin.github.io/2013/07/16/openwrt-support-in-r-ex/#section-2">Continue reading...</a></p>
+                    <p><a href="https://blog.ferki.it/2013/07/16/openwrt-support-in-r-ex/#section-2">Continue reading...</a></p>
 
                     <p>Tags:
-                        <a href="https://agilesysadmin.github.io/tag/openwrt/">OpenWrt</a>
-                        <a href="https://agilesysadmin.github.io/tag/rex/">Rex</a>
+                        <a href="https://blog.ferki.it/tag/openwrt/">OpenWrt</a>
+                        <a href="https://blog.ferki.it/tag/rex/">Rex</a>
                     </p>
 
             ]]></description>
