@@ -70,6 +70,10 @@
     }
 }
 
+html {
+    hanging-punctuation: first allow-end last;
+}
+
 body {
     background-color: var(--background);
     color: var(--primary);
@@ -228,6 +232,12 @@ aside {
 
 aside a {
     color: var(--secondary);
+}
+
+blockquote {
+    border-left: solid var(--primary);
+    margin-left: -1em;
+    padding-left: 1em;
 }
 
 :not(pre) > code {
