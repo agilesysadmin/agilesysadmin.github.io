@@ -62,7 +62,7 @@ to streamline the distribution of their work.</p>
 
     </section>
     <section id="section-2">
-        <h2 id="introductiontogentoopackaging">Introduction to Gentoo packaging</h2>
+        <h2 id="introduction-to-gentoo-packaging"><a href="#introduction-to-gentoo-packaging">Introduction to Gentoo packaging</a></h2>
 
 <p>While I won’t go into great detail about Gentoo packaging here, one aspect
 stands out as relevant: requiring all the source packages already available
@@ -102,13 +102,13 @@ process has a lot advantages.</p>
 Instead, the ebuild must list any supplementary sources, allowing the package
 manager to download and verify these in advance as usual.</p>
 
-<h2 id="threewaystoapproachgodependencies">Three ways to approach Go dependencies</h2>
+<h2 id="three-ways-to-approach-go-dependencies"><a href="#three-ways-to-approach-go-dependencies">Three ways to approach Go dependencies</a></h2>
 
 <p>Go projects have different ways available to them to describe and manage their
 dependencies. This also affects downstream packaging when distributing the
 software towards end users. Let’s take a closer look at these methods.</p>
 
-<h3 id="vendordirectory">Vendor directory</h3>
+<h3 id="vendor-directory"><a href="#vendor-directory">Vendor directory</a></h3>
 
 <p>Some projects include their dependencies in a <code>vendor</code> directory in their
 repository. This feels great from a reproducibility perspective, since the
@@ -126,7 +126,7 @@ system already has everything it needs from a single source of truth.</p>
 <p>Because of the above, projects often won’t or can’t have a <code>vendor</code> directory,
 since they may consider it inefficient or even ineffective.</p>
 
-<h3 id="gomodules">Go modules</h3>
+<h3 id="go-modules"><a href="#go-modules">Go modules</a></h3>
 
 <p>Go modules describe their dependencies in a <code>go.mod</code> file, accompanied by their
 checksums in a <code>go.sum</code> file.</p>
@@ -155,7 +155,7 @@ variable size of 128 kB</li>
 <p>As a result, Gentoo decided to deprecate this approach in favor of dependency
 tarballs, and using <code>EGO_SUM</code> in ebuilds leads to QA warnings.</p>
 
-<h3 id="prepackageddependencies">Prepackaged dependencies</h3>
+<h3 id="prepackaged-dependencies"><a href="#prepackaged-dependencies">Prepackaged dependencies</a></h3>
 
 <p>What if we could download all dependencies, create a (compressed) tarball
 archive out of them, and use it as an auxiliary source for the project getting
@@ -213,7 +213,7 @@ system need to also trust the package maintainers. Sounds acceptable.</p>
 external maintainers and their chosen hosting solution. Sounds risky in any
 security-conscious environment.</p>
 
-<h2 id="howcanwedobetter">How can we do better?</h2>
+<h2 id="how-can-we-do-better"><a href="#how-can-we-do-better">How can we do better?</a></h2>
 
 <p>At this point I have two approach in mind which would potentially solve the
 security and hosting challenges I encountered while packaging.</p>

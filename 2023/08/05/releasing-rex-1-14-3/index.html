@@ -60,7 +60,7 @@ package installation, command existence checks, and git tests.</p>
 
     </section>
     <section id="section-2">
-        <h2 id="fixlocalpackageinstallation">Fix local package installation</h2>
+        <h2 id="fix-local-package-installation"><a href="#fix-local-package-installation">Fix local package installation</a></h2>
 
 <p>An older contribution aimed at improving OpenBSD management capabilities had
 unintended side effects, and – depending on other circumstances – caused
@@ -74,7 +74,7 @@ reference.</p>
 
 <p>I added relevant tests and fixed the default value.</p>
 
-<h2 id="fixcheckingcommandexistence">Fix checking command existence</h2>
+<h2 id="fix-checking-command-existence"><a href="#fix-checking-command-existence">Fix checking command existence</a></h2>
 
 <p>In rare cases, command existence checks return an exit code indicating success,
 while actually reporting an error in their output.</p>
@@ -92,7 +92,7 @@ cases.</p>
 <p>Instead, Rex now double-checks whether the command candidate actually exists in
 the file system or not.</p>
 
-<h2 id="fixtestsrelatedtogitfunctionality">Fix tests related to Git functionality</h2>
+<h2 id="fix-tests-related-to-git-functionality"><a href="#fix-tests-related-to-git-functionality">Fix tests related to Git functionality</a></h2>
 
 <p>The previous Rex-1.14.2 came with a new set of tests for Git functionality, and
 it all looked fine in our GitHub Actions workflows exercising the test suite on

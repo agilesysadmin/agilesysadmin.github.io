@@ -69,7 +69,7 @@ expanding on this topic.</p>
 
     </section>
     <section id="section-2">
-        <h2 id="thechallenge">The challenge</h2>
+        <h2 id="the-challenge"><a href="#the-challenge">The challenge</a></h2>
 
 <p>Official Gentoo developers have a personal space on dev.gentoo.org, and
 mirroring provided by the Gentoo Infrastructure project. They may decide to
@@ -89,7 +89,7 @@ the community need to find a hosting solution that fits various criteria, like:<
 <li>has no cost or at least an affordable price</li>
 </ul>
 
-<h2 id="discardedalternatives">Discarded alternatives</h2>
+<h2 id="discarded-alternatives"><a href="#discarded-alternatives">Discarded alternatives</a></h2>
 
 <p>On my business domain it would cost extra money to host tarballs, and traffic
 limit might become a problem already around 350 downloads given the total
@@ -106,7 +106,7 @@ Git Large File Storage (LFS) or git-annex would fit better in this direction.
 GitHub limits free storage to 1 GB, and traffic to 1 GB/month for the former,
 and the latter would require an external store to host blobs, though.</p>
 
-<h2 id="theidea">The idea</h2>
+<h2 id="the-idea"><a href="#the-idea">The idea</a></h2>
 
 <p>I’m always interested to find the simplest solution that could work for the
 given situation, and then iterate from there gradually.</p>
@@ -124,18 +124,18 @@ and workflows in place to efficiently interact with them.</p>
 <li>create a GitHub release in my fork which includes the tarball</li>
 </ul>
 
-<h2 id="anexample">An example</h2>
+<h2 id="an-example"><a href="#an-example">An example</a></h2>
 
 <p>I have <a href="https://cli.github.com">GitHub CLI</a> installed and configured, so I will use that as an example below along with the app-text/vale ebuild I worked on last time. Similar tools could work as well, like <a href="https://hub.github.com/">hub</a>, or even a mix of browser interactions and plain git commands.</p>
 
-<h3 id="preparetherepository">Prepare the repository</h3>
+<h3 id="prepare-the-repository"><a href="#prepare-the-repository">Prepare the repository</a></h3>
 
 <pre><code class="highlight">$ gh repo fork errata-ai/vale
 $ cd vale
 $ git checkout v2.24.4
 </code></pre>
 
-<h3 id="generatetarball">Generate tarball</h3>
+<h3 id="generate-tarball"><a href="#generate-tarball">Generate tarball</a></h3>
 
 <p>The <a href="https://devmanual.gentoo.org/eclass-reference/go-module.eclass/index.html">go-module eclass
 documentation</a>
@@ -158,7 +158,7 @@ to streamline creating such tarballs, as pointed out by <a href="https://fosstod
 Hoffstätte</a> via
 <a href="https://fosstodon.org/@asynchronaut/112809755664826257">Mastodon</a>.</p>
 
-<h3 id="creategithubrelease">Create GitHub release</h3>
+<h3 id="create-github-release"><a href="#create-github-release">Create GitHub release</a></h3>
 
 <p>First, mark the forked repository as default for this directory. Then create
 a GitHub release including our tarball, with clear references to Gentoo usage
@@ -172,7 +172,7 @@ $ gh release create --notes &#39;dependency tarball for Gentoo v2.24.4&#39; v2.2
 version and the purpose. The notes make the purpose of the release clear for
 humans to read.</p>
 
-<h3 id="useitinanebuild">Use it in an ebuild</h3>
+<h3 id="use-it-in-an-ebuild"><a href="#use-it-in-an-ebuild">Use it in an ebuild</a></h3>
 
 <p>With the GitHub release in place in the fork, add the tarball as an extra
 distfile to the <code>SRC_URI</code> in the ebuild:</p>
@@ -180,7 +180,7 @@ distfile to the <code>SRC_URI</code> in the ebuild:</p>
 <pre><code class="highlight">SRC_URI<span class="synOperator">+=&quot;</span><span class="synString"> https://github.com/ferki/vale/releases/download/v</span><span class="synPreProc">${PV}</span><span class="synString">-gentoo-deps/</span><span class="synPreProc">${P}</span><span class="synString">-gentoo-deps.tar.xz</span><span class="synOperator">&quot;</span>
 </code></pre>
 
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="conclusion"><a href="#conclusion">Conclusion</a></h2>
 
 <p>GitHub releases can host dependency tarballs when packaging Go software for Gentoo as an external contributor.</p>
 
