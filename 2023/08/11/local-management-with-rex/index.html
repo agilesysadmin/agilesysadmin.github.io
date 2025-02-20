@@ -78,7 +78,7 @@ authors to express their intent explicitly according to their use case at hand:<
 <p>For the majority of use cases, I find it best to think about the most important
 parts of task definitions like this:</p>
 
-<pre><code class="highlight">task <span class="synIdentifier">$task_name</span>, <span class="synIdentifier">@targets</span>, <span class="synKeyword">sub </span>{
+<pre><code class="highlight"><span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synIdentifier">@targets</span>, <span class="synKeyword">sub </span>{
     ... <span class="synComment"># task steps</span>
 };
 </code></pre>
@@ -89,7 +89,7 @@ end contains the steps to execute.</p>
 
 <p>For the sake of completeness, the full situation looks more like this, though:</p>
 
-<pre><code class="highlight">optional_modifier task <span class="synIdentifier">$task_name</span>, <span class="synIdentifier">@target_hosts_or_host_groups</span>, <span class="synKeyword">sub </span>{
+<pre><code class="highlight">optional_modifier <span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synIdentifier">@target_hosts_or_host_groups</span>, <span class="synKeyword">sub </span>{
     ... <span class="synComment"># task steps</span>
 }, { <span class="synString">task_option</span> =&gt; <span class="synIdentifier">$value</span> };
 </code></pre>
@@ -101,7 +101,7 @@ internals while focusing on the general approach.</p>
 
 <p>Tasks without any explicit target get executed on the local machine directly:</p>
 
-<pre><code class="highlight">task <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
+<pre><code class="highlight"><span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
     ... <span class="synComment"># task steps</span>
 };
 </code></pre>
@@ -130,7 +130,7 @@ section in the documentation.</p>
 <p>One may intentionally design a task to manage the local machine by using the
 special <code>&lt;local&gt;</code> hostname recognized by Rex:</p>
 
-<pre><code class="highlight">task <span class="synIdentifier">$task_name</span>, <span class="synString">&#39;&lt;local&gt;&#39;</span>, <span class="synKeyword">sub </span>{
+<pre><code class="highlight"><span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synString">&#39;&lt;local&gt;&#39;</span>, <span class="synKeyword">sub </span>{
     ... <span class="synComment"># task steps</span>
 };
 </code></pre>
@@ -152,13 +152,13 @@ invalid hostname of <code>&lt;local&gt;</code>.</p>
 <p>and it’s also supported by the <code>on</code> option of
 <a href="https://metacpan.org/pod/Rex::Commands#run_task"><code>run_task</code></a> from code:</p>
 
-<pre><code class="highlight">task <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
+<pre><code class="highlight"><span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
     ... <span class="synComment"># task steps</span>
 };
 
-task <span class="synIdentifier">$other_task</span>, <span class="synKeyword">sub </span>{
+<span class="synStatement">task</span> <span class="synIdentifier">$other_task</span>, <span class="synKeyword">sub </span>{
     ... <span class="synComment"># task steps</span>
-    run_task <span class="synIdentifier">$task_name</span>, <span class="synString">on</span> =&gt; <span class="synString">&#39;&lt;local&gt;&#39;</span>;
+    <span class="synStatement">run_task</span> <span class="synIdentifier">$task_name</span>, <span class="synString">on</span> =&gt; <span class="synString">&#39;&lt;local&gt;&#39;</span>;
     ... <span class="synComment"># task steps</span>
 };
 </code></pre>
@@ -170,7 +170,7 @@ of a task having an explicit target or not.</p>
 
 <p>The <code>no_ssh</code> command hints individual tasks to not use SSH:</p>
 
-<pre><code class="highlight">no_ssh task <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
+<pre><code class="highlight">no_ssh <span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
     ... <span class="synComment"># task steps</span>
 };
 </code></pre>
@@ -178,7 +178,7 @@ of a task having an explicit target or not.</p>
 <p>This command serves as a convenience wrapper to append <code>{ no_ssh =&gt; 1 }</code> as
 a task option, making the above the same as:</p>
 
-<pre><code class="highlight">task <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
+<pre><code class="highlight"><span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
     ... <span class="synComment"># task steps</span>
 }, { <span class="synString">no_ssh</span> =&gt; <span class="synNumber">1</span> };
 </code></pre>
@@ -197,7 +197,7 @@ command can disable it globally:</p>
 
 <pre><code class="highlight">no_ssh;
 
-task <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
+<span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
     ... <span class="synComment"># task steps</span>
 };
 </code></pre>
@@ -217,11 +217,11 @@ documentation.</p>
 <p>Wrapping parts of the task steps in a <code>LOCAL{}</code> block forces these to run on
 the local machine instead of on the target in effect otherwise:</p>
 
-<pre><code class="highlight">task <span class="synIdentifier">$task_name</span>, <span class="synIdentifier">$target</span>, <span class="synKeyword">sub </span>{
-    <span class="synStatement">say</span> run <span class="synString">&#39;hostname&#39;</span>;     <span class="synComment"># say output of `hostname` from $target</span>
+<pre><code class="highlight"><span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synIdentifier">$target</span>, <span class="synKeyword">sub </span>{
+    <span class="synStatement">say</span> <span class="synStatement">run</span> <span class="synString">&#39;hostname&#39;</span>;     <span class="synComment"># say output of `hostname` from $target</span>
 
-    LOCAL {
-        <span class="synStatement">say</span> run <span class="synString">&#39;hostname&#39;</span>; <span class="synComment"># say output of `hostname` from local</span>
+    <span class="synStatement">LOCAL</span> {
+        <span class="synStatement">say</span> <span class="synStatement">run</span> <span class="synString">&#39;hostname&#39;</span>; <span class="synComment"># say output of `hostname` from local</span>
     }
 };
 </code></pre>
