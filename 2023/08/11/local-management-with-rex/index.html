@@ -170,7 +170,7 @@ of a task having an explicit target or not.</p>
 
 <p>The <code>no_ssh</code> command hints individual tasks to not use SSH:</p>
 
-<pre><code class="highlight">no_ssh <span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
+<pre><code class="highlight"><span class="synStatement">no_ssh</span> <span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
     ... <span class="synComment"># task steps</span>
 };
 </code></pre>
@@ -180,7 +180,7 @@ a task option, making the above the same as:</p>
 
 <pre><code class="highlight"><span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
     ... <span class="synComment"># task steps</span>
-}, { <span class="synString">no_ssh</span> =&gt; <span class="synNumber">1</span> };
+}, { <span class="synStatement">no_ssh</span> =&gt; <span class="synNumber">1</span> };
 </code></pre>
 
 <p>This approach works great when some tasks apply solely to the local machine, or
@@ -195,7 +195,7 @@ documentation.</p>
 <p>In case none of the tasks need SSH to connect to their targets, the <code>no_ssh</code>
 command can disable it globally:</p>
 
-<pre><code class="highlight">no_ssh;
+<pre><code class="highlight"><span class="synStatement">no_ssh</span>;
 
 <span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synKeyword">sub </span>{
     ... <span class="synComment"># task steps</span>
