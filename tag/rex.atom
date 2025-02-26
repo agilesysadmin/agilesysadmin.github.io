@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.ferki.it/tag/rex/</id>
     <title>agile sysadmin</title>
-    <updated>2023-08-11T00:00:00Z</updated>
+    <updated>2025-02-26T00:00:00Z</updated>
     <link href="https://blog.ferki.it/tag/rex.atom" rel="self" />
     <link href="https://blog.ferki.it/tag/rex/" rel="alternate" />
     <author>
@@ -10,6 +10,37 @@
     </author>
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://blog.ferki.it/2025/02/26/virtues-of-rex/</id>
+        <title>Virtues of Rex</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://blog.ferki.it/2025/02/26/virtues-of-rex/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>We follow a set of guiding principles while developing <a href="https://metacpan.org/pod/Rex">Rex, the friendly
+automation framework</a>:</p>
+
+<ol>
+<li>Use a programming language as DSL</li>
+<li>Empower users through trust</li>
+<li>Enable graceful bootstrapping</li>
+</ol>
+
+<p>While we summarize these concepts briefly on <a href="https://www.rexify.org/">our
+website</a>, I consider it worthwhile to elaborate on the
+underlying details.</p>
+
+<p>Let’s take a closer look at why we find these choices important.</p>
+
+                <p><a href="https://blog.ferki.it/2025/02/26/virtues-of-rex/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://blog.ferki.it/tag/rex/">rex</a>
+                </p>
+
+        ]]></content>
+        <updated>2025-02-26T00:00:00Z</updated>
+        <category term="rex" />
+    </entry>
     <entry>
         <id>https://blog.ferki.it/2023/08/11/local-management-with-rex/</id>
         <title>Local management with Rex</title>

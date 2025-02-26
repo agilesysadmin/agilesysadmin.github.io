@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="Virtues of Rex" name="title" property="og:title">
+        <meta content="article" name="type" property="og:type">
+        <meta content="/theme/images/agile_sysadmin.webp" name="type" property="og:image">
+        <meta content="https://blog.ferki.it/2025/02/26/virtues-of-rex/index.html" name="url" property="og:url">
+        <meta content="Ferenc Erki - agile sysadmin" name="description">
+        <meta content="Ferenc Erki" name="author">
+        <meta content="4KzbYclokErOfwrKiBpX8XCu8ckJ9A7zwueL9VAbAYE" name="google-site-verification">
+        <link href="/theme/images/favicon.svg" rel="icon">
+        <link href="/theme/css/selenized.css" rel="stylesheet">
+        <script data-domain="blog.ferki.it" defer src="https://plausible.io/js/script.js"></script>
+        <title>Virtues of Rex</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">🧑‍💻 agile sysadmin</a></h1>
+            <p>by Ferenc Erki</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/">Posts</a></li>
+                <li><a href="https://ferki.it" target="_blank">Homepage</a></li>
+                <li><a href="https://cal.com/ferki" target="_blank">Booking</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+
+    <header>
+    <h1><a href="/2025/02/26/virtues-of-rex/">Virtues of Rex</a></h1>
+
+    <aside>
+        <time datetime="2025-02-26" title="published">
+            🗓 2025-02-26
+        </time>
+            <a href="/tag/rex/">#rex</a>
+    </aside>
+
+</header>
+
+
+    <section id="section-1">
+        <p>We follow a set of guiding principles while developing <a href="https://metacpan.org/pod/Rex">Rex, the friendly
+automation framework</a>:</p>
+
+<ol>
+<li>Use a programming language as DSL</li>
+<li>Empower users through trust</li>
+<li>Enable graceful bootstrapping</li>
+</ol>
+
+<p>While we summarize these concepts briefly on <a href="https://www.rexify.org/">our
+website</a>, I consider it worthwhile to elaborate on the
+underlying details.</p>
+
+<p>Let’s take a closer look at why we find these choices important.</p>
+
+    </section>
+    <section id="section-2">
+        <h2 id="use-a-programming-language-as-dsl"><a href="#use-a-programming-language-as-dsl">Use a programming language as DSL</a></h2>
+
+<p>Most automation projects develop their own approach to describe the desired
+state of managed endpoints through their custom Domain-specific language (DSL).</p>
+
+<p>This often means either using a readily available data serialization format
+(like YAML), or inventing their own configuration language. Sooner or later
+these approaches tend to reach their limitations, and to better accommodate
+real-world use cases, need to start supporting programming concepts like:</p>
+
+<ul>
+<li>variables and templates to dynamically calculate variations based on
+information retrieved from elsewhere</li>
+<li>loops to repeat similar steps with different inputs</li>
+<li>conditions to make decisions dynamically based on information available
+during runtime</li>
+</ul>
+
+<p>Adding these concepts to the chosen format often means essentially creating an
+accidental programming language – with all related details and tooling: custom
+syntax, parsers, linters, formatters, style guides, formatters, documentation,
+packaging, dependency management, and so on.</p>
+
+<p>These add-ons often feel like an afterthought introduced late in the maturing
+process of the project, instead of treating them as an integral part of the
+solution from the beginning.</p>
+
+<p>In contrast, using a general-purpose programming language may prove a valuable
+alternative to this approach. Preventing the challenges of inventing our own
+language allows the project focus on its core competencies.</p>
+
+<p>For these reasons, Rex uses Perl as its DSL – a battle-tested, mature
+programming language. This grants considerable advantages to both contributors
+and users, for example:</p>
+
+<ul>
+<li>whenever reaching the limitations of the built-in Rex features, seamlessly
+extend it with a powerful language and its ecosystem, through one’s own code
+or modules from CPAN</li>
+<li>transparent access to well-established tools and workflows while working on
+solutions, such as IDE integration, syntax highlighting, linting, formatting,
+testing, authoring, publishing, and so on</li>
+<li>Rex can run wherever Perl can run, and Rex supports whatever Perl supports,
+including the ability to (re)use code written in other languages</li>
+</ul>
+
+<p>Compared to commercial projects, these capabilities prove especially valuable
+for volunteer-driven projects such as Rex. Building on top of existing
+solutions allows us to invest our effort only into relevant details.</p>
+
+<p>Staying friendly to real-world use cases through using proven technologies
+enables us to focus on delivering more value to users sooner.</p>
+
+<h3 id="concerned-about-using-perl"><a href="#concerned-about-using-perl">Concerned about using Perl?</a></h3>
+
+<p>We know it appears fashionable to parrot common assumptions about Perl, which
+may sound worrying. Rex encourages users to form their own opinion through
+their own experience, rather than readily accepting others’ opinions.</p>
+
+<p>Rex does not expect prior experience with Perl. Check out our <a href="https://www.rexify.org/docs/guides/just_enough_perl_for_rex.html">Just enough Perl
+for Rex</a> page
+for a quick tutorial.</p>
+
+<p>To establish and maintain consistent results, we recommend using
+<a href="https://metacpan.org/dist/Perl-Tidy/view/bin/perltidy#DESCRIPTION">perltidy</a>
+for code layout,
+<a href="https://metacpan.org/dist/Perl-Critic/view/bin/perlcritic#DESCRIPTION">perlcritic</a>
+for code standards, and
+<a href="https://metacpan.org/pod/App::perlbrew#DESCRIPTION">perlbrew</a> for development
+environments.</p>
+
+<p>The above combination helps setting the stage for a delightful Modern Perl
+experience.</p>
+
+<p>More importantly, though, different situations require different choices.
+I happily share why I use Perl when it fits my situations:</p>
+
+<ul>
+<li>powerful flexibility, which allows choosing the solution and approach that
+best matches the situation at hand</li>
+<li>actively maintained, with regular new releases bringing new features</li>
+<li>still keeping ages of backwards compatibility</li>
+<li>great community</li>
+<li>culture infused with decades of learning lessons about best practices</li>
+<li>especially strong traditions of testing and quality, including crowdsourced
+testing via CPAN Testers, which appears unique to the Perl ecosystem</li>
+<li>diverse and relevant library of shared modules on CPAN</li>
+<li>great multi-platform and Unicode support</li>
+<li>allows rapid prototyping and proof of concepts, thus finding product-market
+fit sooner through iterating on experiments, and then growing what works</li>
+</ul>
+
+<p>And as Perl’s own latest v5.40.1 release
+<a href="https://perldoc.perl.org/perl5401delta#Acknowledgements">acknowledgments</a>
+summarize it on 2025‑01‑18:</p>
+
+<blockquote>
+  <p>Perl continues to flourish into its fourth decade thanks to a vibrant
+  community of users and developers.</p>
+</blockquote>
+
+<h2 id="empower-users-through-trust"><a href="#empower-users-through-trust">Empower users through trust</a></h2>
+
+<p>Silver bullets work best when the challenge involves fighting werewolves. Other
+situations tend to have more effective and less expensive solutions.</p>
+
+<p>Typical automation situations require managing remote endpoints, while others
+need to do the same locally. Some setups prefer to push changes to managed
+endpoints, while pulling the same changes by the managed nodes fit others. Many
+prefer using a declarative approach, though sometimes an imperative style fits
+too.</p>
+
+<p>Most projects tend to have a strong opinion about their preferred approach, and
+sometimes later may add support for the alternatives. This often feels having
+to follow someone else’s decisions and preferences, which may or may not apply
+to our own case.</p>
+
+<p>Rex strives to have as few opinions as possible about these details, and lets
+its users make decisions about what fits their situations at hand. In the
+spirit of Perl, we acknowledge that “there’s more than one way to do it”
+(TIMTOWTDI, pronounced <em>Tim Toady</em>.)</p>
+
+<p>Aiming to create a universal solution for all imaginable scenarios would lead
+to extreme complexity, though. Solving only the subset relevant to the given
+user case often proves much simpler.</p>
+
+<p>Hence, Rex provides lightweight building blocks to choose from according to the
+actual requirements. Because, again in the spirit of Perl, ”easy things should
+be easy and hard things should be possible.”</p>
+
+<p>Ultimately this approach:</p>
+
+<ul>
+<li>allows building the automation tool the given use case requires, leading to
+less waste</li>
+<li>promotes fitting the solution to the challenge, instead of the other way
+around</li>
+<li>encourages discovering the true requirements, instead of following someone
+else’s opinion, avoiding cargo culting</li>
+</ul>
+
+<p>Rex celebrates such freedom of choice, and stays friendly to its users by
+trusting their judgment about what and how to automate in their own specific
+situation.</p>
+
+<h3 id="examples-of-different-approaches"><a href="#examples-of-different-approaches">Examples of different approaches</a></h3>
+
+<h4 id="imperative-and-declarative"><a href="#imperative-and-declarative">Imperative and declarative</a></h4>
+
+<p>Imperative means giving commands about how to achieve an expected result, while
+declarative means specifying the expected result without all the details of how
+to achieve it.</p>
+
+<p>Also consider idempotency to have the same results when running the same code
+repeatedly.</p>
+
+<p>Rex offers different abstractions accordingly, for example:</p>
+
+<pre><code class="highlight"><span class="synStatement">task</span> <span class="synString">&#39;create_directory_imperative&#39;</span>, <span class="synKeyword">sub </span>{
+    <span class="synStatement">mkdir</span> <span class="synString">&#39;/path/to/my/directory&#39;</span>;
+};
+
+<span class="synStatement">task</span> <span class="synString">&#39;create_directory_declarative&#39;</span>, <span class="synKeyword">sub </span>{
+    <span class="synStatement">file</span> <span class="synString">&#39;/path/to/my/directory&#39;</span>,
+      <span class="synStatement">ensure</span> =&gt; <span class="synString">&#39;directory&#39;</span>;
+};
+</code></pre>
+
+<p>Need to ensure idempotency around imperative commands? Add custom logic:</p>
+
+<pre><code class="highlight"><span class="synStatement">my</span> <span class="synIdentifier">$path</span> = <span class="synString">&#39;/path/to/my/directory&#39;</span>;
+
+<span class="synConditional">if</span> ( <span class="synOperator">not</span> <span class="synStatement">is_dir</span>(<span class="synIdentifier">$path</span>) <span class="synOperator">and</span> <span class="synOperator">not</span> <span class="synStatement">is_file</span>(<span class="synIdentifier">$path</span>) ) {
+    <span class="synStatement">mkdir</span> <span class="synIdentifier">$path</span>;
+}
+</code></pre>
+
+<p>No declarative abstraction for a given use case yet? Use <code>Rex::Resource</code> to
+implement its details.</p>
+
+<h4 id="local-and-remote"><a href="#local-and-remote">Local and remote</a></h4>
+
+<p>Consider the following task to print the output of the <code>hostname</code> command from
+the managed endpoint:</p>
+
+<pre><code class="highlight"><span class="synStatement">task</span> <span class="synString">&#39;show_hostname&#39;</span>, <span class="synKeyword">sub </span>{
+    <span class="synStatement">say</span> <span class="synStatement">run</span> <span class="synString">&#39;hostname&#39;</span>;
+};
+</code></pre>
+
+<p>Running <code>rex show_hostname</code> on the command line executes this task locally.
+Running <code>rex ‑H myserver show_hostname</code> executes the same on <code>myserver</code> over
+SSH.</p>
+
+<p>Need to run it on <code>myserver</code> by default? Specify the default target for a task
+like this:</p>
+
+<pre><code class="highlight"><span class="synStatement">task</span> <span class="synString">&#39;show_hostname&#39;</span> =&gt; <span class="synString">&#39;myserver&#39;</span>, <span class="synKeyword">sub </span>{
+    ...
+};
+</code></pre>
+
+<p>Then override the default target either on the command line as above, or
+programmatically when calling from other tasks.</p>
+
+<p>Need to mix both local and remote execution in a single solution? Target the
+local machine conventionally as <code>&lt;local&gt;</code>, or use SSH to connect to it just
+like a remote endpoint.</p>
+
+<p>See also my previous post about <a href="/2023/08/11/local-management-with-rex/">Local management with Rex</a>.</p>
+
+<h4 id="push-and-pull"><a href="#push-and-pull">Push and pull</a></h4>
+
+<p>Push approach means reaching out to the managed endpoint and carry out
+operations there. Pull approach means obtaining the code and configuration from
+a shared source of truth, and then carry out operations locally.</p>
+
+<p>While pushing changes seem popular, some use cases prefer or require pulling.</p>
+
+<p>For a pull approach example, consider storing the task definitions in a version
+control system, like Git, and having a <code>converge</code> task in Rex which calls other
+necessary tasks:</p>
+
+<pre><code class="highlight"><span class="synStatement">task</span> <span class="synString">&#39;converge&#39;</span>, <span class="synKeyword">sub </span>{
+    <span class="synStatement">run_task</span> <span class="synString">&#39;manage_webserver&#39;</span>;
+    <span class="synStatement">run_task</span> <span class="synString">&#39;manage_database&#39;</span>;
+    <span class="synStatement">run_task</span> <span class="synString">&#39;deploy_appliction&#39;</span>;
+};
+</code></pre>
+
+<p>In this case we can add a cronjob to execute <code>git pull &amp;&amp; rex converge</code>
+periodically, for example every 30 minutes.</p>
+
+<p>Or consider using a task which keeps running, like an agent, and waits for an
+event before triggering actions. The following example waits for a certain
+amount of elapsed time:</p>
+
+<pre><code class="highlight"><span class="synStatement">task</span> <span class="synString">&#39;agent&#39;</span>, <span class="synKeyword">sub </span>{
+    <span class="synRepeat">while</span> (<span class="synString">TRUE</span>) {
+        <span class="synStatement">sleep</span> <span class="synNumber">30</span> * <span class="synNumber">60</span>;
+        <span class="synStatement">run</span> <span class="synString">&#39;git pull&#39;</span>;
+        <span class="synStatement">run_task</span> <span class="synString">&#39;converge&#39;</span>;
+    }
+};
+</code></pre>
+
+<p>Need to mix both push and pull? Use either of the above together with a Git
+receive hook, which executes <code>rex converge</code> upon <code>git push</code>. Don’t forget to
+use some locking to avoid overlapping execution of both, though.</p>
+
+<h2 id="enable-graceful-bootstrapping"><a href="#enable-graceful-bootstrapping">Enable graceful bootstrapping</a></h2>
+
+<p>Getting started with automation initiatives may feel cumbersome or
+intimidating. It often involves having to convince team members and decisions
+makers, deploy and configure supporting software on managed endpoints, then
+implement or convert all the current processes.</p>
+
+<p>Rex itself runs locally, and only requires Perl, which many systems have
+readily available. It also detects the presence of optional dependencies, and
+may use them for some advanced or enhanced operations.</p>
+
+<p>It normally connects to remote endpoints via SSH, which teams often already use
+to manage their systems. When required, Rex stands ready to support other
+connection methods, thanks to its modular connection layer.</p>
+
+<p>On the remotes, it checks the availability of Perl and other software to
+decides what to use while carrying out its tasks.</p>
+
+<p>By having so few requirements and opinions, Rex enables incremental automation,
+and allows treating such projects like any other software development.</p>
+
+<p>This approach provides a straightforward way to rapidly map typical processes
+into executable code – without having to convince anyone else, or to install
+anything special on the managed endpoints.</p>
+
+<p>Friendly sharing of such code also enables others to get onboard conveniently
+by reusing the results – and kindly pointing them to our <a href="https://www.rexify.org/docs/guides/start_using__r__ex.html">How to start using
+Rex</a> page.</p>
+
+<h3 id="my-personal-getting-started-story"><a href="#my-personal-getting-started-story">My personal getting started story</a></h3>
+
+<p>Long time ago my team looked for automation opportunities for our
+infrastructure operations. Providing solutions for the foreign exchange market
+meant both strict regulations, and extreme performance requirements, especially
+low latency.</p>
+
+<p>Many of today’s popular automation projects either did not exist yet, or just
+started out around that time. The initially considered alternatives required
+running extra software on our servers, along with bulky dependencies, which
+concerned us about their viability for our requirements.</p>
+
+<p>A colleague of mine recommended checking out Rex, and its capabilities
+surprised me when I gave it a try. It also built on top of the existing
+technologies we already used in production, making rapid adoption possible for
+us.</p>
+
+<p>Rex has proved valuable for our situation. Using it for everyday operations
+enabled our entire team to improve.</p>
+
+<p>It also made me want to understand how it could deliver such powerful
+solutions, while staying so lightweight compared to alternatives. Ultimately
+that experience drove me to learn Modern Perl properly, and start contributing.</p>
+
+<h2 id="epilogue"><a href="#epilogue">Epilogue</a></h2>
+
+<p>These principles establish Rex, the friendly automation framework as a powerful
+alternative among infrastructure automation and configuration management
+projects.</p>
+
+<p>In the Programming Perl book (the “Camel Book”), Larry Wall describes the three
+great virtues of programmers as: laziness, impatience, and hubris.</p>
+
+<p>I leave matching those virtues with the above ones as an exercise to readers –
+after all, TIMTOWTDI.</p>
+
+    </section>
+
+</article>
+
+<ul class="pager">
+    <li class="prev">
+            <a href="/2025/02/03/lint-early-lint-often/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+    </li>
+</ul>
+
+
+        </main>
+
+        <footer>
+            
+            <ul>
+                <li><a href="https://blog.ferki.it/index.rss" target="_blank">RSS</a></li>
+                <li><a href="https://blog.ferki.it/index.atom" target="_blank">Atom</a></li>
+                <li><a href="https://github.com/ferki" rel="me" target="_blank">GitHub</a></li>
+                <li><a href="https://profile.codersrank.io/user/ferki" rel="me" target="_blank">CodersRank</a></li>
+                <li><a href="https://www.linkedin.com/in/ferki" rel="me" target="_blank">LinkedIn</a></li>
+                <li><a href="https://fosstodon.org/@ferki" rel="me" target="_blank">Mastodon</a></li>
+                <li><a href="mailto:ferki@ferki.it">Email</a></li>
+                <li><a href="/pages/impressum.html">Impressum</a></li>
+                <li><a href="/pages/privacy_policy.html">Privacy policy</a></li>
+            </ul>
+            <ul>
+                <li>© 2023–2025 Ferenc Erki</li>
+            </ul>
+
+        </footer>
+    </body>
+</html>

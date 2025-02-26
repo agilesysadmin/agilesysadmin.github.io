@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.ferki.it/</id>
     <title>agile sysadmin</title>
-    <updated>2025-02-03T00:00:00Z</updated>
+    <updated>2025-02-26T00:00:00Z</updated>
     <link href="https://blog.ferki.it/index.atom" rel="self" />
     <link href="https://blog.ferki.it/" rel="alternate" />
     <author>
@@ -10,6 +10,37 @@
     </author>
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://blog.ferki.it/2025/02/26/virtues-of-rex/</id>
+        <title>Virtues of Rex</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://blog.ferki.it/2025/02/26/virtues-of-rex/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>We follow a set of guiding principles while developing <a href="https://metacpan.org/pod/Rex">Rex, the friendly
+automation framework</a>:</p>
+
+<ol>
+<li>Use a programming language as DSL</li>
+<li>Empower users through trust</li>
+<li>Enable graceful bootstrapping</li>
+</ol>
+
+<p>While we summarize these concepts briefly on <a href="https://www.rexify.org/">our
+website</a>, I consider it worthwhile to elaborate on the
+underlying details.</p>
+
+<p>Let’s take a closer look at why we find these choices important.</p>
+
+                <p><a href="https://blog.ferki.it/2025/02/26/virtues-of-rex/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://blog.ferki.it/tag/rex/">rex</a>
+                </p>
+
+        ]]></content>
+        <updated>2025-02-26T00:00:00Z</updated>
+        <category term="rex" />
+    </entry>
     <entry>
         <id>https://blog.ferki.it/2025/02/03/lint-early-lint-often/</id>
         <title>Lint early, lint often</title>
@@ -129,38 +160,6 @@ for fellow Gentoo users.</p>
         <category term="ebuild" />
         <category term="overlay" />
         <category term="clight" />
-    </entry>
-    <entry>
-        <id>https://blog.ferki.it/2024/05/01/packaging-vale-3-4-2-for-gentoo/</id>
-        <title>Packaging vale-3.4.2 for Gentoo</title>
-        <author><name>Ferenc Erki</name></author>
-        <link href="https://blog.ferki.it/2024/05/01/packaging-vale-3-4-2-for-gentoo/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><a href="https://vale.sh">Vale</a>, the “syntax-aware linter for prose built with speed
-and extensibility in mind”, has a new <a href="https://github.com/errata-ai/vale/releases/tag/v3.4.2">v3.4.2
-release</a>.</p>
-
-<p><a href="https://github.com/ferki/gentoo-overlay">My overlay</a> already makes it
-available for fellow Gentoo users. I also contributed the same ebuild to the
-official Gentoo <a href="https://wiki.gentoo.org/wiki/Project:GURU">GURU overlay</a>,
-where it should reach the reviewed branch soon.</p>
-
-
-                <p>Tags:
-                    <a href="https://blog.ferki.it/tag/gentoo/">Gentoo</a>
-                    <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
-                    <a href="https://blog.ferki.it/tag/overlay/">overlay</a>
-                    <a href="https://blog.ferki.it/tag/guru/">GURU</a>
-                    <a href="https://blog.ferki.it/tag/vale/">vale</a>
-                </p>
-
-        ]]></content>
-        <updated>2024-05-01T00:00:00Z</updated>
-        <category term="Gentoo" />
-        <category term="ebuild" />
-        <category term="overlay" />
-        <category term="GURU" />
-        <category term="vale" />
     </entry>
 </feed>
 
