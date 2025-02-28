@@ -260,6 +260,10 @@ pre code {
     border: 1px solid var(--secondary);
 }
 
+p code {
+    white-space: nowrap;
+}
+
 .highlight {
     padding: 1em;
     display: block;

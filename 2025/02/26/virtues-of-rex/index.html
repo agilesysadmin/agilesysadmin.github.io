@@ -254,8 +254,8 @@ the managed endpoint:</p>
 };
 </code></pre>
 
-<p>Running <code>rex show_hostname</code> on the command line executes this task locally.
-Running <code>rex ‑H myserver show_hostname</code> executes the same on <code>myserver</code> over
+<p>Running <code>rex show_hostname</code> on the command line executes this task locally.
+Running <code>rex -H myserver show_hostname</code> executes the same on <code>myserver</code> over
 SSH.</p>
 
 <p>Need to run it on <code>myserver</code> by default? Specify the default target for a task
@@ -294,7 +294,7 @@ necessary tasks:</p>
 };
 </code></pre>
 
-<p>In this case we can add a cronjob to execute <code>git pull &amp;&amp; rex converge</code>
+<p>In this case we can add a cronjob to execute <code>git pull &amp;&amp; rex converge</code>
 periodically, for example every 30 minutes.</p>
 
 <p>Or consider using a task which keeps running, like an agent, and waits for an
