@@ -7,6 +7,40 @@
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Installing Rex</title>
+            <link>https://blog.ferki.it/2025/03/05/installing-rex/</link>
+            <guid>https://blog.ferki.it/2025/03/05/installing-rex/</guid>
+            <description><![CDATA[
+                <p>We briefly describe the different ways to install Rex, the friendly automation
+framework on the <a href="https://www.rexify.org/get/">Get Rex</a> page of our website, as
+well as in the
+<a href="https://github.com/RexOps/Rex?tab=readme-ov-file#installation">Installation</a>
+section of our README:</p>
+
+<ol>
+<li>Install from the Comprehensive Perl Archive Network (CPAN)</li>
+<li>Use standard, native package managers</li>
+<li>Build from source code</li>
+</ol>
+
+<p>Depending on the situation at hand, one of these often fit better than the
+rest.</p>
+
+<p>Let’s go through the available options in more detail to help choosing the best
+match.</p>
+
+                    <p><a href="https://blog.ferki.it/2025/03/05/installing-rex/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://blog.ferki.it/tag/rex/">rex</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Wed, 05 Mar 2025 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Virtues of Rex</title>
             <link>https://blog.ferki.it/2025/02/26/virtues-of-rex/</link>
             <guid>https://blog.ferki.it/2025/02/26/virtues-of-rex/</guid>

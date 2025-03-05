@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.ferki.it/</id>
     <title>agile sysadmin</title>
-    <updated>2025-02-26T00:00:00Z</updated>
+    <updated>2025-03-05T00:00:00Z</updated>
     <link href="https://blog.ferki.it/index.atom" rel="self" />
     <link href="https://blog.ferki.it/" rel="alternate" />
     <author>
@@ -10,6 +10,40 @@
     </author>
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://blog.ferki.it/2025/03/05/installing-rex/</id>
+        <title>Installing Rex</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://blog.ferki.it/2025/03/05/installing-rex/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>We briefly describe the different ways to install Rex, the friendly automation
+framework on the <a href="https://www.rexify.org/get/">Get Rex</a> page of our website, as
+well as in the
+<a href="https://github.com/RexOps/Rex?tab=readme-ov-file#installation">Installation</a>
+section of our README:</p>
+
+<ol>
+<li>Install from the Comprehensive Perl Archive Network (CPAN)</li>
+<li>Use standard, native package managers</li>
+<li>Build from source code</li>
+</ol>
+
+<p>Depending on the situation at hand, one of these often fit better than the
+rest.</p>
+
+<p>Let’s go through the available options in more detail to help choosing the best
+match.</p>
+
+                <p><a href="https://blog.ferki.it/2025/03/05/installing-rex/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://blog.ferki.it/tag/rex/">rex</a>
+                </p>
+
+        ]]></content>
+        <updated>2025-03-05T00:00:00Z</updated>
+        <category term="rex" />
+    </entry>
     <entry>
         <id>https://blog.ferki.it/2025/02/26/virtues-of-rex/</id>
         <title>Virtues of Rex</title>
@@ -133,33 +167,6 @@ ebuild repository as proxied maintainer.</p>
         <category term="ebuild" />
         <category term="overlay" />
         <category term="st" />
-    </entry>
-    <entry>
-        <id>https://blog.ferki.it/2024/05/01/packaging-clight-4-11-for-gentoo/</id>
-        <title>Packaging clight-4.11 for Gentoo</title>
-        <author><name>Ferenc Erki</name></author>
-        <link href="https://blog.ferki.it/2024/05/01/packaging-clight-4-11-for-gentoo/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><a href="https://github.com/FedeDP/Clight">Clight</a> describes itself as a “C daemon that
-turns your webcam into a light sensor”. <a href="https://github.com/ferki/gentoo-overlay">My
-overlay</a> has the latest
-<a href="https://github.com/FedeDP/Clight/releases/tag/4.11">v4.11</a> release available
-for fellow Gentoo users.</p>
-
-
-                <p>Tags:
-                    <a href="https://blog.ferki.it/tag/gentoo/">Gentoo</a>
-                    <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
-                    <a href="https://blog.ferki.it/tag/overlay/">overlay</a>
-                    <a href="https://blog.ferki.it/tag/clight/">clight</a>
-                </p>
-
-        ]]></content>
-        <updated>2024-05-01T00:00:00Z</updated>
-        <category term="Gentoo" />
-        <category term="ebuild" />
-        <category term="overlay" />
-        <category term="clight" />
     </entry>
 </feed>
 

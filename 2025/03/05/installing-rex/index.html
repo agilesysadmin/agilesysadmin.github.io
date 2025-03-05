@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="Installing Rex" name="title" property="og:title">
+        <meta content="article" name="type" property="og:type">
+        <meta content="/theme/images/agile_sysadmin.webp" name="type" property="og:image">
+        <meta content="https://blog.ferki.it/2025/03/05/installing-rex/index.html" name="url" property="og:url">
+        <meta content="Ferenc Erki - agile sysadmin" name="description">
+        <meta content="Ferenc Erki" name="author">
+        <meta content="4KzbYclokErOfwrKiBpX8XCu8ckJ9A7zwueL9VAbAYE" name="google-site-verification">
+        <link href="/theme/images/favicon.svg" rel="icon">
+        <link href="/theme/css/selenized.css" rel="stylesheet">
+        <script data-domain="blog.ferki.it" defer src="https://plausible.io/js/script.js"></script>
+        <title>Installing Rex</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">🧑‍💻 agile sysadmin</a></h1>
+            <p>by Ferenc Erki</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/">Posts</a></li>
+                <li><a href="https://ferki.it" target="_blank">Homepage</a></li>
+                <li><a href="https://cal.com/ferki" target="_blank">Booking</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+
+    <header>
+    <h1><a href="/2025/03/05/installing-rex/">Installing Rex</a></h1>
+
+    <aside>
+        <time datetime="2025-03-05" title="published">
+            🗓 2025-03-05
+        </time>
+            <a href="/tag/rex/">#rex</a>
+    </aside>
+
+</header>
+
+
+    <section id="section-1">
+        <p>We briefly describe the different ways to install Rex, the friendly automation
+framework on the <a href="https://www.rexify.org/get/">Get Rex</a> page of our website, as
+well as in the
+<a href="https://github.com/RexOps/Rex?tab=readme-ov-file#installation">Installation</a>
+section of our README:</p>
+
+<ol>
+<li>Install from the Comprehensive Perl Archive Network (CPAN)</li>
+<li>Use standard, native package managers</li>
+<li>Build from source code</li>
+</ol>
+
+<p>Depending on the situation at hand, one of these often fit better than the
+rest.</p>
+
+<p>Let’s go through the available options in more detail to help choosing the best
+match.</p>
+
+    </section>
+    <section id="section-2">
+        <h2 id="install-from-cpan"><a href="#install-from-cpan">Install from CPAN</a></h2>
+
+<p>CPAN serves as a well-established software repository for the Perl community.
+As a Perl project, we feel it natural to upload our official Rex releases to
+CPAN, and we also consider that as the canonical source for both Rex packages
+and documentation.</p>
+
+<p>For these reasons, we recommend to install the latest stable Rex version from
+there. This approach ensures using Rex versions in the same way we expect Rex
+to get installed.</p>
+
+<p>On top of stable releases, we also upload trial versions to CPAN during
+development to provide early access, and to gain insights from <a href="https://fast2-matrix.cpantesters.org/?dist=Rex">CPAN
+Testers</a> about the behavior of
+Rex across operating systems and Perl versions.</p>
+
+<p>CPAN itself supports a set of clients, like
+<a href="https://metacpan.org/dist/CPAN/view/scripts/cpan">cpan</a>,
+<a href="https://metacpan.org/dist/App-cpanminus/view/bin/cpanm">cpanm</a>, and
+<a href="https://metacpan.org/dist/App-cpm/view/script/cpm">cpm</a>, offering further
+choices to match a wide range of preferences and circumstances.</p>
+
+<p>These clients support running the built-in test suite of Rex and its
+dependencies, to verify everything can function as expected on the given
+machine.</p>
+
+<p>In general, we also recommend to install Rex and its dependencies into a
+separate Perl environment, as provided by
+<a href="https://metacpan.org/pod/local::lib">local::lib</a>,
+<a href="https://metacpan.org/dist/App-perlbrew/view/script/perlbrew">perlbrew</a>,
+<a href="https://github.com/tokuhirom/plenv">plenv</a>, or similar. This helps to keep a
+clean working environment to use Rex, isolating it from the system’s own Perl
+installations.</p>
+
+<h2 id="use-package-managers"><a href="#use-package-managers">Use package managers</a></h2>
+
+<p>Thanks to the generous effort of package maintainers, many operating systems
+ship Rex through their own official package repositories. For a known list of
+such packages, check <a href="https://repology.org/project/rex-automation-framework/versions">our Repology
+page</a>.</p>
+
+<p>It provides a convenient way to install Rex system-wide through native package
+management tools in a way deemed appropriate for proper integration into the
+given operating system.</p>
+
+<p>This integration means package maintainers may decide to apply patches, use
+different set of dependencies, or offer different testing options in a way
+relevant for the used operating system. Some organizations decide to apply
+patches to Rex according to their specific preferences, and package that for
+their own users.</p>
+
+<p>Since it may potentially lead to a different experience compared to the
+official packages released by us, please keep this in mind for the use case at
+hand, or when looking for support.</p>
+
+<p>In any case, we feel more than happy to directly collaborate with downstream
+package maintainers to deliver a great experience with Rex to their
+communities. This includes supporting packagers to stay close to the official
+setup, for example by merging downstream patches into Rex itself, or
+identifying both mandatory and optional dependencies.</p>
+
+<p>When noticing differences between our official releases and their packaged
+versions, please let both us and the package maintainers know, so we may figure
+out an even more streamlined delivery together.</p>
+
+<h2 id="build-from-source"><a href="#build-from-source">Build from source</a></h2>
+
+<p>Even with publishing trial releases to CPAN during development, sometimes it
+fits best to use an unreleased version of Rex. For example:</p>
+
+<ul>
+<li>requiring a recently merged, but still unreleased change</li>
+<li>during development itself, especially when evaluating the whole build process</li>
+<li>applying a custom patch to Rex</li>
+</ul>
+
+<p>We host our code in the <a href="https://github.com/RexOps/Rex">RexOps/Rex</a> GitHub
+repository, and use
+<a href="https://metacpan.org/dist/Dist-Zilla/view/bin/dzil">Dist::Zilla</a> to build our
+releases.</p>
+
+<p>It handles the dependencies for development, runtime, and testing, including
+optional ones, as well as local installation.</p>
+
+<p>Follow the steps below to build Rex from source.</p>
+
+<h3 id="preparation"><a href="#preparation">Preparation</a></h3>
+
+<ol>
+<li>Install Git, a CPAN client (we will use <code>cpanm</code> below), and Dist::Zilla</li>
+<li>Clone the source code with <code>git clone https://github.com/RexOps/Rex</code></li>
+<li>Switch to the source code directory with <code>cd Rex</code></li>
+</ol>
+
+<h3 id="dependencies"><a href="#dependencies">Dependencies</a></h3>
+
+<ol>
+<li>Install author dependencies with <code>dzil authordeps | cpanm</code></li>
+<li>Install common dependencies with <code>dzil listdeps | cpanm</code></li>
+<li>Install optional dependencies with <code>dzil listdeps --suggests | cpanm</code></li>
+</ol>
+
+<h3 id="installation"><a href="#installation">Installation</a></h3>
+
+<ol>
+<li>Install operating system-specific dependencies and Rex itself with <code>dzil
+install</code></li>
+</ol>
+
+<h2 id="verifying-the-installation"><a href="#verifying-the-installation">Verifying the installation</a></h2>
+
+<p>After installation, check the current version with the following command:</p>
+
+<pre><code class="highlight">$ rex -v
+(R)?ex 1.16.0
+</code></pre>
+
+<p>I also like to run an ad-hoc task locally, like printing the hostname:</p>
+
+<pre><code class="highlight">$ rex <span class="synSpecial">-e</span> <span class="synOperator">&#39;</span><span class="synString">say run q(hostname)</span><span class="synOperator">&#39;</span>
+</code></pre>
+
+<h2 id="summary"><a href="#summary">Summary</a></h2>
+
+<p>We looked at the main options to install Rex, their similarities and
+differences, as well as how to quickly verify the results.</p>
+
+<p>Choose the best approach according to the situation.</p>
+
+    </section>
+
+</article>
+
+<ul class="pager">
+    <li class="prev">
+            <a href="/2025/02/26/virtues-of-rex/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+    </li>
+</ul>
+
+
+        </main>
+
+        <footer>
+            
+            <ul>
+                <li><a href="https://blog.ferki.it/index.rss" target="_blank">RSS</a></li>
+                <li><a href="https://blog.ferki.it/index.atom" target="_blank">Atom</a></li>
+                <li><a href="https://github.com/ferki" rel="me" target="_blank">GitHub</a></li>
+                <li><a href="https://profile.codersrank.io/user/ferki" rel="me" target="_blank">CodersRank</a></li>
+                <li><a href="https://www.linkedin.com/in/ferki" rel="me" target="_blank">LinkedIn</a></li>
+                <li><a href="https://fosstodon.org/@ferki" rel="me" target="_blank">Mastodon</a></li>
+                <li><a href="mailto:ferki@ferki.it">Email</a></li>
+                <li><a href="/pages/impressum.html">Impressum</a></li>
+                <li><a href="/pages/privacy_policy.html">Privacy policy</a></li>
+            </ul>
+            <ul>
+                <li>© 2023–2025 Ferenc Erki</li>
+            </ul>
+
+        </footer>
+    </body>
+</html>

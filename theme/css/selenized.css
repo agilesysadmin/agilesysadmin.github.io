@@ -251,6 +251,7 @@ blockquote {
 :not(pre) > code {
     color: var(--cyan);
     background-color: var(--highlight);
+    white-space: nowrap;
 }
 
 pre code {
@@ -258,10 +259,6 @@ pre code {
     font-family: monospace;
     line-height: normal;
     border: 1px solid var(--secondary);
-}
-
-p code {
-    white-space: nowrap;
 }
 
 .highlight {
