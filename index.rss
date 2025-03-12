@@ -7,6 +7,38 @@
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Perl basics for Rex</title>
+            <link>https://blog.ferki.it/2025/03/12/perl-basics-for-rex/</link>
+            <guid>https://blog.ferki.it/2025/03/12/perl-basics-for-rex/</guid>
+            <description><![CDATA[
+                <p><a href="https://www.rexify.org/">Rex, the friendly automation framework</a> does not
+expect much previous programming or Perl experience, though knowing a few
+foundational elements may go a long way.</p>
+
+<p>While we provide a <a href="https://www.rexify.org/docs/guides/just_enough_perl_for_rex.html">Just enough Perl for
+Rex</a> page on
+the website of <a href="https://www.rexify.org/">Rex, the friendly automation
+framework</a>, I often find myself sharing my own
+experience about getting started with Perl.</p>
+
+<p>I decided to write my own take about the basics from a Rex perspective, and
+collect further resources I keep recommending or referring to.</p>
+
+<p>Let’s see what I considered useful when I started out.</p>
+
+                    <p><a href="https://blog.ferki.it/2025/03/12/perl-basics-for-rex/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://blog.ferki.it/tag/rex/">rex</a>
+                        <a href="https://blog.ferki.it/tag/perl/">perl</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Wed, 12 Mar 2025 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Installing Rex</title>
             <link>https://blog.ferki.it/2025/03/05/installing-rex/</link>
             <guid>https://blog.ferki.it/2025/03/05/installing-rex/</guid>
@@ -129,33 +161,6 @@ to streamline the distribution of their work.</p>
             ]]></description>
             <pubDate>
                 Thu, 25 Jul 2024 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Packaging st-0.9.2 for Gentoo</title>
-            <link>https://blog.ferki.it/2024/05/03/packaging-st-0-9-2-for-gentoo/</link>
-            <guid>https://blog.ferki.it/2024/05/03/packaging-st-0-9-2-for-gentoo/</guid>
-            <description><![CDATA[
-                <p><a href="https://st.suckless.org/">st</a>, “a simple terminal implementation for X”, has a
-new 0.9.2 release.</p>
-
-<p><a href="https://github.com/ferki/gentoo-overlay">My overlay</a> already makes it
-available for fellow Gentoo users. I also opened
-<a href="https://github.com/gentoo/gentoo/pull/36534">PR#36534</a> in the official Gentoo
-ebuild repository as proxied maintainer.</p>
-
-
-                    <p>Tags:
-                        <a href="https://blog.ferki.it/tag/gentoo/">Gentoo</a>
-                        <a href="https://blog.ferki.it/tag/proxied/">proxied</a>
-                        <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
-                        <a href="https://blog.ferki.it/tag/overlay/">overlay</a>
-                        <a href="https://blog.ferki.it/tag/st/">st</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Fri, 03 May 2024 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

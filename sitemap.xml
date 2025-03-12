@@ -4,7 +4,7 @@
         <loc>https://blog.ferki.it/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2025-03-05</lastmod>
+        <lastmod>2025-03-12</lastmod>
     </url>
     <url>
         <loc>https://blog.ferki.it/2013/03/28/unattended-ubuntu-install-in-a-vm/</loc>
@@ -139,28 +139,34 @@
         <lastmod>2025-03-05</lastmod>
     </url>
     <url>
+        <loc>https://blog.ferki.it/2025/03/12/perl-basics-for-rex/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2025-03-12</lastmod>
+    </url>
+    <url>
         <loc>https://blog.ferki.it/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2025-03-05</lastmod>
+        <lastmod>2025-03-12</lastmod>
     </url>
     <url>
         <loc>https://blog.ferki.it/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2025-03-05</lastmod>
+        <lastmod>2025-03-12</lastmod>
     </url>
     <url>
         <loc>https://blog.ferki.it/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2025-03-05</lastmod>
+        <lastmod>2025-03-12</lastmod>
     </url>
     <url>
         <loc>https://blog.ferki.it/page/5/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2025-03-05</lastmod>
+        <lastmod>2025-03-12</lastmod>
     </url>
     <url>
         <loc>https://blog.ferki.it/pages/about.html</loc>
@@ -289,6 +295,12 @@
         <lastmod>2024-05-03</lastmod>
     </url>
     <url>
+        <loc>https://blog.ferki.it/tag/perl/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2025-03-12</lastmod>
+    </url>
+    <url>
         <loc>https://blog.ferki.it/tag/proxied/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -310,7 +322,13 @@
         <loc>https://blog.ferki.it/tag/rex/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2025-03-05</lastmod>
+        <lastmod>2025-03-12</lastmod>
+    </url>
+    <url>
+        <loc>https://blog.ferki.it/tag/rex/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2025-03-12</lastmod>
     </url>
     <url>
         <loc>https://blog.ferki.it/tag/st/</loc>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="Perl basics for Rex" name="title" property="og:title">
+        <meta content="article" name="type" property="og:type">
+        <meta content="/theme/images/agile_sysadmin.webp" name="type" property="og:image">
+        <meta content="https://blog.ferki.it/2025/03/12/perl-basics-for-rex/index.html" name="url" property="og:url">
+        <meta content="Ferenc Erki - agile sysadmin" name="description">
+        <meta content="Ferenc Erki" name="author">
+        <meta content="4KzbYclokErOfwrKiBpX8XCu8ckJ9A7zwueL9VAbAYE" name="google-site-verification">
+        <link href="/theme/images/favicon.svg" rel="icon">
+        <link href="/theme/css/selenized.css" rel="stylesheet">
+        <script data-domain="blog.ferki.it" defer src="https://plausible.io/js/script.js"></script>
+        <title>Perl basics for Rex</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">🧑‍💻 agile sysadmin</a></h1>
+            <p>by Ferenc Erki</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/">Posts</a></li>
+                <li><a href="https://ferki.it" target="_blank">Homepage</a></li>
+                <li><a href="https://cal.com/ferki" target="_blank">Booking</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+
+    <header>
+    <h1><a href="/2025/03/12/perl-basics-for-rex/">Perl basics for Rex</a></h1>
+
+    <aside>
+        <time datetime="2025-03-12" title="published">
+            🗓 2025-03-12
+        </time>
+            <a href="/tag/rex/">#rex</a>
+            <a href="/tag/perl/">#perl</a>
+    </aside>
+
+</header>
+
+
+    <section id="section-1">
+        <p><a href="https://www.rexify.org/">Rex, the friendly automation framework</a> does not
+expect much previous programming or Perl experience, though knowing a few
+foundational elements may go a long way.</p>
+
+<p>While we provide a <a href="https://www.rexify.org/docs/guides/just_enough_perl_for_rex.html">Just enough Perl for
+Rex</a> page on
+the website of <a href="https://www.rexify.org/">Rex, the friendly automation
+framework</a>, I often find myself sharing my own
+experience about getting started with Perl.</p>
+
+<p>I decided to write my own take about the basics from a Rex perspective, and
+collect further resources I keep recommending or referring to.</p>
+
+<p>Let’s see what I considered useful when I started out.</p>
+
+    </section>
+    <section id="section-2">
+        <h2 id="documentation"><a href="#documentation">Documentation</a></h2>
+
+<p>Finding relevant information provides a solid foundation for learning
+effectively.</p>
+
+<h3 id="read-documentation"><a href="#read-documentation">Read documentation</a></h3>
+
+<p>Perl provides the <code>perldoc</code> command to read documentation on the command line.
+For example <code>perldoc perldoc</code> shows its own documentation, and <code>perldoc Rex</code>
+shows the documentation of Rex.</p>
+
+<p>To browse Perl’s own documentation online, I recommend either the <a href="https://perldoc.perl.org/">Perldoc
+Browser</a> or <a href="https://metacpan.org/">MetaCPAN</a>. The
+latter also renders the documentation of all CPAN modules too, including
+<a href="https://metacpan.org/pod/Rex">Rex</a>.</p>
+
+<h3 id="write-documentation"><a href="#write-documentation">Write documentation</a></h3>
+
+<p>Perl has extensive documentation in the <a href="https://perldoc.perl.org/perlpod">Plain Old Documentation
+(POD)</a> format, which describes itself as:</p>
+
+<blockquote>
+  <p>a simple-to-use markup language used for writing documentation for Perl, Perl
+  programs, and Perl modules.</p>
+</blockquote>
+
+<p>No need to feel discouraged by either “plain” or “old” in its name, though
+– POD proves simple enough to even write books in it.</p>
+
+<p>As a Perl project, Rex transparently supports documenting custom solutions in
+the POD format, and also uses POD for its own documentation.</p>
+
+<pre><code class="highlight"><span class="synStatement">=pod</span>
+
+<span class="synStatement">=head1</span> <span class="synString">Heading</span>
+
+Ordinary paragraph with <span class="synIdentifier">B&lt;bold&gt;</span> and <span class="synIdentifier">I&lt;italic&gt;</span> text,
+as well as with <span class="synIdentifier">C&lt;inline code&gt;</span> and <span class="synIdentifier">L&lt;hyperlink|https://www.example.com&gt;</span>.
+
+Command paragraphs treat the test specially and starts with “=”,
+like “=pod” above.
+
+<span class="synPreProc"> indent verbatim paragraphs</span>
+<span class="synPreProc"> for example for code blocks</span>
+
+<span class="synStatement">=cut</span>
+</code></pre>
+
+    </section>
+    <section id="section-3">
+        <h2 id="modules"><a href="#modules">Modules</a></h2>
+
+<p>Modules group together related functionality to reuse elsewhere. See <a href="https://perldoc.perl.org/perlmod">perlmod</a> as a reference.</p>
+
+<h3 id="core-modules"><a href="#core-modules">Core modules</a></h3>
+
+<p>Perl itself comes with a set of modules to reuse common functionality between projects. Use the <a href="https://metacpan.org/dist/Module-CoreList/view/corelist"><code>corelist</code></a> command to find more information about the core modules.</p>
+
+<p>For example to list all core modules coming with perl-5.40.1, use <code>corelist -v 5.40.1</code> on the command line.</p>
+
+<p>Import them with the <code>use</code> function:</p>
+
+<pre><code class="highlight"><span class="synStatement">use </span>Time::Local; <span class="synComment"># import functionality from the Time::Local module</span>
+</code></pre>
+
+<h3 id="other-modules"><a href="#other-modules">Other modules</a></h3>
+
+<p>The <a href="https://www.cpan.org/">Comprehensive Perl Archive Network (CPAN)</a> currently hosts the work from 14500+ authors in the form of 45000+ distribution containing 220000+ modules. Some of them likely solves the same problem one has to solve for their own use case.</p>
+
+<p>The <a href="https://metacpan.org/dist/CPAN/view/scripts/cpan">cpan</a> client comes with Perl, while CPAN itself supports other clients too, like
+<a href="https://metacpan.org/dist/App-cpanminus/view/bin/cpanm">cpanm</a>, and
+<a href="https://metacpan.org/dist/App-cpm/view/script/cpm">cpm</a>.</p>
+
+<p>Use the system package managers or one of those clients to install a distribution from CPAN locally, then reuse the modules:</p>
+
+<pre><code class="highlight"><span class="synStatement">use </span>Rex; <span class="synComment"># imports the Rex module</span>
+</code></pre>
+
+    </section>
+    <section id="section-4">
+        <h2 id="variables"><a href="#variables">Variables</a></h2>
+
+<p>Perl provides three built-in data types: scalars, arrays, and hashes.</p>
+
+<p>See <a href="https://perldoc.perl.org/perldata">perldata</a> as a reference.</p>
+
+<p>I will use the values from these example below throughout the document.</p>
+
+<h3 id="naming"><a href="#naming">Naming</a></h3>
+
+<p>Perl calls the first character of a variable a sigil, denoting to the type of
+the data stored or accessed:</p>
+
+<ul>
+<li><code>$</code> for scalars</li>
+<li><code>@</code> for arrays</li>
+<li><code>%</code> for hashes</li>
+</ul>
+
+<p>The variable name itself must begin with a letter or an underscore, and then
+may contain letters, underscores, and digits.</p>
+
+<h3 id="scalars"><a href="#scalars">Scalars</a></h3>
+
+<p>A scalar represents a single value, like a number, a string, or a reference to
+other variables and objects.</p>
+
+<pre><code class="highlight"><span class="synStatement">my</span> <span class="synIdentifier">$name</span> = <span class="synString">&#39;Rex&#39;</span>;       <span class="synComment"># a string</span>
+<span class="synStatement">my</span> <span class="synIdentifier">$year</span> = <span class="synNumber">2025</span>;        <span class="synComment"># a number (integer)</span>
+<span class="synStatement">my</span> <span class="synIdentifier">$pi</span>   = <span class="synFloat">3.14</span>;        <span class="synComment"># a number (float)</span>
+<span class="synStatement">my</span> <span class="synIdentifier">$site</span> = Site-&gt;new(); <span class="synComment"># an instance of a Site object</span>
+</code></pre>
+
+<h3 id="arrays"><a href="#arrays">Arrays</a></h3>
+
+<p>An array represents an ordered list of scalars.</p>
+
+<pre><code class="highlight"><span class="synStatement">my</span> <span class="synIdentifier">@projects</span>        = ( <span class="synString">&#39;Rex&#39;</span>, <span class="synString">&#39;Perl&#39;</span> ); <span class="synComment"># list of two scalars, in that order</span>
+<span class="synStatement">my</span> <span class="synIdentifier">@quoted_projects</span> = <span class="synString">qw( Rex Perl )</span>;    <span class="synComment"># qw() quotes the words</span>
+</code></pre>
+
+<p>Use the index of an element to access it, starting the numbering from 0.
+Negative numbers count from the end.</p>
+
+<pre><code class="highlight"><span class="synStatement">my</span> <span class="synIdentifier">$first_project</span> = <span class="synIdentifier">$projects[</span><span class="synNumber">0</span><span class="synIdentifier">]</span>;  <span class="synComment"># Rex; note the $ sigil to access a scalar</span>
+<span class="synStatement">my</span> <span class="synIdentifier">$last_project</span>  = <span class="synIdentifier">$projects[</span>-<span class="synNumber">1</span><span class="synIdentifier">]</span>; <span class="synComment"># Perl</span>
+</code></pre>
+
+<h3 id="hashes"><a href="#hashes">Hashes</a></h3>
+
+<p>Hashes represent an unordered collection of key-value pairs.</p>
+
+<pre><code class="highlight"><span class="synStatement">my</span> <span class="synIdentifier">%site_for</span> = (
+    <span class="synString">rex</span>     =&gt; <span class="synString">&#39;rexify.org&#39;</span>, <span class="synComment"># the fat arrow autoquotes simple values on left</span>
+    <span class="synString">&#39;perl&#39;</span>  =&gt; <span class="synString">&#39;perl.org&#39;</span>,   <span class="synComment"># recommended trailing comma</span>
+);
+</code></pre>
+
+<p>Access values by the name of their associated keys.</p>
+
+<pre><code class="highlight"><span class="synStatement">my</span> <span class="synIdentifier">$rex_site</span>  = <span class="synIdentifier">$site_for{</span><span class="synString">&#39;rex&#39;</span><span class="synIdentifier">}</span>; <span class="synComment"># rexify.org</span>
+<span class="synStatement">my</span> <span class="synIdentifier">$perl_site</span> = <span class="synIdentifier">$site_for{</span><span class="synString">perl</span><span class="synIdentifier">}</span>;  <span class="synComment"># curly braces autoquote simple values too</span>
+</code></pre>
+
+<h3 id="references"><a href="#references">References</a></h3>
+
+<p>A reference represents a scalar value that <em>references</em> something else: for
+example another scalar, an array, or a hash. Since arrays and hashes contain
+scalars, using references enable building complex data structures through
+nesting.</p>
+
+<p>See <a href="https://perldoc.perl.org/perlref">perlref</a> as a reference (pun intended
+🙃), and <a href="https://perldoc.perl.org/perlreftut">perlreftut</a> for “90% of the
+benefit with 10% of the details.”</p>
+
+<h4 id="create-references"><a href="#create-references">Create references</a></h4>
+
+<p>Perl provides two main ways to create references:</p>
+
+<pre><code class="highlight"><span class="synStatement">my</span> <span class="synIdentifier">$ref_to_projects</span> = \<span class="synIdentifier">@projects</span>;     <span class="synComment"># use \ in front to make a reference</span>
+<span class="synStatement">my</span> <span class="synIdentifier">$ref_to_site_for</span> = \<span class="synIdentifier">%site_for</span>;
+
+<span class="synStatement">my</span> <span class="synIdentifier">$projects_ref</span> = [ <span class="synString">&#39;Rex&#39;</span>, <span class="synString">&#39;Perl&#39;</span> ]; <span class="synComment"># note the square brackets for arrayrefs</span>
+<span class="synStatement">my</span> <span class="synIdentifier">$site_for_ref</span> = {
+    <span class="synString">rex</span>  =&gt; <span class="synString">&#39;rexify.org&#39;</span>,             <span class="synComment"># note the curly brackets for hashrefs</span>
+    <span class="synString">perl</span> =&gt; <span class="synString">&#39;perl.org&#39;</span>,
+};
+</code></pre>
+
+<h4 id="use-references"><a href="#use-references">Use references</a></h4>
+
+<p>Accordingly, Perl provides two ways to use references too, called dereferencing:</p>
+
+<pre><code class="highlight"><span class="synComment"># using curly braces</span>
+
+<span class="synStatement">my</span> <span class="synIdentifier">@project</span>  = <span class="synIdentifier">@{$projects_ref}</span>; <span class="synComment"># dereference as an array</span>
+<span class="synStatement">my</span> <span class="synIdentifier">%site_for</span> = <span class="synIdentifier">%{$site_for_ref}</span>; <span class="synComment"># dereference as a hash</span>
+
+<span class="synStatement">my</span> <span class="synIdentifier">$first_project</span> = <span class="synIdentifier">@{$projects_ref}[</span><span class="synNumber">0</span><span class="synIdentifier">]</span>;
+<span class="synStatement">my</span> <span class="synIdentifier">$perl_site</span>     = <span class="synIdentifier">%{$site_for_ref}{</span><span class="synString">perl</span><span class="synIdentifier">}</span>;
+
+<span class="synComment"># using an arrow</span>
+
+<span class="synStatement">my</span> <span class="synIdentifier">$last_project</span> = <span class="synIdentifier">$projects_ref-&gt;[</span>-<span class="synNumber">1</span><span class="synIdentifier">]</span>;
+<span class="synStatement">my</span> <span class="synIdentifier">$rex_site</span>     = <span class="synIdentifier">$site_for_ref-&gt;{</span><span class="synString">rex</span><span class="synIdentifier">}</span>;
+
+<span class="synComment"># postfix dereferencing with modern Perl</span>
+
+<span class="synStatement">use </span><span class="synString">v5.24</span>; <span class="synComment"># use perl-5.24 features</span>
+
+<span class="synStatement">my</span> <span class="synIdentifier">@project</span>  = <span class="synIdentifier">$projects_ref-&gt;@*</span>;
+<span class="synStatement">my</span> <span class="synIdentifier">%site_for</span> = <span class="synIdentifier">$site_for_ref-&gt;%*</span>;
+</code></pre>
+
+<h3 id="dump-data-structures"><a href="#dump-data-structures">Dump data structures</a></h3>
+
+<p>Perl comes with the <a href="https://perldoc.perl.org/Data::Dumper">Data::Dumper</a> core module to stringify data structures.</p>
+
+<pre><code class="highlight"><span class="synStatement">use </span>Data::Dumper;
+
+<span class="synStatement">print</span> <span class="synIdentifier">Dumper</span> \<span class="synIdentifier">@projects</span>; <span class="synComment"># Dumper dumps scalars, hence the reference</span>
+
+<span class="synComment"># prints this:</span>
+<span class="synIdentifier">$VAR1</span> = [
+          <span class="synString">&#39;Rex&#39;</span>,
+          <span class="synString">&#39;Perl&#39;</span>
+        ];
+</code></pre>
+
+<p>I also recommend using <a href="https://metacpan.org/pod/Data::Printer">Data::Printer</a>
+from CPAN for an improved experience:</p>
+
+<pre><code class="highlight"><span class="synStatement">use </span>Data::Printer; <span class="synComment"># or use DDP as an alias</span>
+
+p <span class="synIdentifier">@projects</span>;       <span class="synComment"># recognizes the type of parameter on its own</span>
+
+<span class="synComment"># prints this:</span>
+[
+    [<span class="synNumber">0</span>] <span class="synString">&quot;Rex&quot;</span>,
+    [<span class="synNumber">1</span>] <span class="synString">&quot;Perl&quot;</span>,
+]
+</code></pre>
+
+    </section>
+    <section id="section-5">
+        <h2 id="conditions"><a href="#conditions">Conditions</a></h2>
+
+<p>Make decisions based on comparing values.</p>
+
+<h3 id="comparing-strings"><a href="#comparing-strings">Comparing strings</a></h3>
+
+<pre><code class="highlight"><span class="synConditional">if</span> ( <span class="synIdentifier">$name</span> <span class="synOperator">eq</span> <span class="synString">&#39;Rex&#39;</span> ) { <span class="synComment"># condition to check; eq stands for equal</span>
+    <span class="synStatement">print</span> <span class="synString">&#39;Hi Rex!&#39;</span>;    <span class="synComment"># branch to execute when true</span>
+}
+
+<span class="synConditional">if</span> ( <span class="synIdentifier">$name</span> <span class="synOperator">ne</span> <span class="synString">&#39;FErki&#39;</span> ) { <span class="synComment"># ne stands for not equal</span>
+    <span class="synStatement">print</span> <span class="synString">&quot;Hi, </span><span class="synIdentifier">$name</span><span class="synString">!&quot;</span>;   <span class="synComment"># double quotes interpolate $name, prints Hi Rex!</span>
+)
+<span class="synConditional">else</span> {                    <span class="synComment"># optional branch to execute otherwise</span>
+    <span class="synStatement">print</span> <span class="synString">&#39;You must be FErki!&#39;</span>;
+}
+</code></pre>
+
+<h3 id="comparing-numerical-values"><a href="#comparing-numerical-values">Comparing numerical values</a></h3>
+
+<pre><code class="highlight"><span class="synConditional">if</span> ( <span class="synIdentifier">$year</span> == <span class="synNumber">2025</span> ) {   <span class="synComment"># note the double = signs</span>
+    <span class="synStatement">print</span> <span class="synString">&#39;this year&#39;</span>;
+}
+<span class="synConditional">elsif</span> { <span class="synIdentifier">$year</span> &lt; <span class="synNumber">2025</span> ) { <span class="synComment"># further condition in case previous didn’t match</span>
+    <span class="synStatement">print</span> <span class="synString">&#39;in the past&#39;</span>;
+}
+<span class="synConditional">else</span> {                   <span class="synComment"># optional branch to execute otherwise</span>
+    <span class="synStatement">print</span> <span class="synString">&#39;in the future&#39;</span>;
+}
+</code></pre>
+
+<h3 id="regular-expressions"><a href="#regular-expressions">Regular expressions</a></h3>
+
+<p>See <a href="https://perldoc.perl.org/perlre">perlre</a> as a reference, and
+<a href="https://perldoc.perl.org/perlretut">perlretut</a> as a tutorial to get started.
+If you already know about regular expressions, see also
+<a href="https://perldoc.perl.org/perlrequick">perlrequick</a> for a quick start.</p>
+
+<h4 id="matching"><a href="#matching">Matching</a></h4>
+
+<pre><code class="highlight"><span class="synStatement">print</span> <span class="synString">&#39;match&#39;</span> <span class="synConditional">if</span> <span class="synIdentifier">$name</span> =~ <span class="synStatement">m/</span><span class="synString">Rex</span><span class="synStatement">/</span>;   <span class="synComment"># match due equivalence</span>
+<span class="synStatement">print</span> <span class="synString">&#39;match&#39;</span> <span class="synConditional">if</span> <span class="synIdentifier">$name</span> =~ <span class="synStatement">m/</span><span class="synString">rex</span><span class="synStatement">/</span>;   <span class="synComment"># does not match due to lowercase r</span>
+<span class="synStatement">print</span> <span class="synString">&#39;match&#39;</span> <span class="synConditional">if</span> <span class="synIdentifier">$name</span> =~ <span class="synStatement">m/</span><span class="synString">rex</span><span class="synStatement">/i</span>;  <span class="synComment"># match due to case insensitive matching</span>
+<span class="synStatement">print</span> <span class="synString">&#39;match&#39;</span> <span class="synConditional">if</span> <span class="synIdentifier">$name</span> =~ <span class="synString">qr{rex}i</span>; <span class="synComment"># match, qr stands for quote like a regex</span>
+</code></pre>
+
+    </section>
+    <section id="section-6">
+        <h2 id="loops"><a href="#loops">Loops</a></h2>
+
+<p>Iterate over miltiple values, like arrays and hashes.</p>
+
+<pre><code class="highlight"><span class="synRepeat">foreach</span> <span class="synStatement">my</span> <span class="synIdentifier">$project</span> (<span class="synIdentifier">@projects</span>) {
+    <span class="synStatement">print</span> <span class="synIdentifier">$project</span>; <span class="synComment"># prints RexPerl</span>
+}
+
+<span class="synRepeat">foreach</span> <span class="synStatement">my</span> <span class="synIdentifier">$project</span> ( <span class="synStatement">keys</span> <span class="synIdentifier">%site_for</span> ) { <span class="synComment"># no guarantees about ordering</span>
+    <span class="synStatement">my</span> <span class="synIdentifier">$site</span> = <span class="synIdentifier">$site_for{$project}</span>;      <span class="synComment"># $site gets set on each iteration</span>
+}
+</code></pre>
+
+<h3 id="loop-control"><a href="#loop-control">Loop control</a></h3>
+
+<p>Stop the loop or continue with the next element given a certain condition.</p>
+
+<pre><code class="highlight"><span class="synRepeat">foreach</span> <span class="synStatement">my</span> <span class="synIdentifier">$project</span> (<span class="synIdentifier">@projects</span>) {
+    <span class="synStatement">print</span> <span class="synIdentifier">$project</span>;            <span class="synComment"># prints Rex</span>
+    <span class="synStatement">last</span> <span class="synConditional">if</span> <span class="synIdentifier">$project</span> <span class="synOperator">eq</span> <span class="synString">&#39;Rex&#39;</span>; <span class="synComment"># stop the loop when condition matches</span>
+}
+
+<span class="synRepeat">foreach</span> <span class="synStatement">my</span> <span class="synIdentifier">$project</span> (<span class="synIdentifier">@projects</span>) {
+    <span class="synStatement">next</span> <span class="synConditional">if</span> <span class="synIdentifier">$project</span> <span class="synOperator">eq</span> <span class="synString">&#39;Rex&#39;</span>; <span class="synComment"># skip the rest of loop when condition matches</span>
+    <span class="synStatement">print</span> <span class="synIdentifier">$project</span>;            <span class="synComment"># prints Perl</span>
+}
+</code></pre>
+
+    </section>
+    <section id="section-7">
+        <h2 id="subroutines"><a href="#subroutines">Subroutines</a></h2>
+
+<p>Subroutines serve as user-defined functions.</p>
+
+<pre><code class="highlight"><span class="synKeyword">sub </span><span class="synFunction">greet_rex </span>{
+    <span class="synStatement">print</span> <span class="synString">&#39;Hi Rex!&#39;</span>;
+}
+
+greet_rex(); <span class="synComment"># prints Hi Rex!</span>
+</code></pre>
+
+<h3 id="pass-parameters"><a href="#pass-parameters">Pass parameters</a></h3>
+
+<pre><code class="highlight"><span class="synKeyword">sub </span><span class="synFunction">greet_user </span>{
+    <span class="synStatement">my</span> (<span class="synIdentifier">$name</span>) = <span class="synIdentifier">@_</span>;
+    <span class="synStatement">print</span> <span class="synString">&quot;Hi </span><span class="synIdentifier">$name</span><span class="synString">!&quot;</span>;
+}
+
+greet_user(<span class="synString">&#39;FErki&#39;</span>); <span class="synComment"># prints Hi FErki!</span>
+</code></pre>
+
+<h3 id="return-results"><a href="#return-results">Return results</a></h3>
+
+<pre><code class="highlight"><span class="synKeyword">sub </span><span class="synFunction">get_this_year </span>{
+    <span class="synStatement">return</span> <span class="synNumber">2025</span>;
+}
+
+<span class="synStatement">my</span> <span class="synIdentifier">$current_year</span> = get_this_year(); <span class="synComment"># 2025</span>
+</code></pre>
+
+    </section>
+    <section id="section-8">
+        <h2 id="further-resources"><a href="#further-resources">Further resources</a></h2>
+
+<p>Due to Perl’s long history one may find a wide range of resources to learn
+from. I found the below ones valuable while I learned about Perl:</p>
+
+<ul>
+<li><a href="https://www.rexify.org/docs/guides/just_enough_perl_for_rex.html">Just enough Perl for
+Rex</a> by us,
+the Rex project</li>
+<li><a href="https://mvp.kablamo.org/">Minimum Viable Perl</a> by kablamo</li>
+<li><a href="https://blob.perl.org/books/impatient-perl/iperl.htm">Impatient Perl</a> by
+Greg London</li>
+<li><a href="https://www.extremeperl.org/">Extreme Perl</a> by Robert Nagler</li>
+<li><a href="https://www.modernperlbooks.com/books/modern_perl_2016/">Modern Perl</a> by
+chromatic</li>
+</ul>
+
+    </section>
+
+</article>
+
+<ul class="pager">
+    <li class="prev">
+            <a href="/2025/03/05/installing-rex/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+    </li>
+</ul>
+
+
+        </main>
+
+        <footer>
+            
+            <ul>
+                <li><a href="https://blog.ferki.it/index.rss" target="_blank">RSS</a></li>
+                <li><a href="https://blog.ferki.it/index.atom" target="_blank">Atom</a></li>
+                <li><a href="https://github.com/ferki" rel="me" target="_blank">GitHub</a></li>
+                <li><a href="https://profile.codersrank.io/user/ferki" rel="me" target="_blank">CodersRank</a></li>
+                <li><a href="https://www.linkedin.com/in/ferki" rel="me" target="_blank">LinkedIn</a></li>
+                <li><a href="https://fosstodon.org/@ferki" rel="me" target="_blank">Mastodon</a></li>
+                <li><a href="mailto:ferki@ferki.it">Email</a></li>
+                <li><a href="/pages/impressum.html">Impressum</a></li>
+                <li><a href="/pages/privacy_policy.html">Privacy policy</a></li>
+            </ul>
+            <ul>
+                <li>© 2023–2025 Ferenc Erki</li>
+            </ul>
+
+        </footer>
+    </body>
+</html>

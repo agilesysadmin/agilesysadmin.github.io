@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.ferki.it/tag/perl/</id>
+    <title>agile sysadmin</title>
+    <updated>2025-03-12T00:00:00Z</updated>
+    <link href="https://blog.ferki.it/tag/perl.atom" rel="self" />
+    <link href="https://blog.ferki.it/tag/perl/" rel="alternate" />
+    <author>
+        <name>Ferenc Erki</name>
+    </author>
+    <generator version="0.098">Statocles</generator>
+
+    <entry>
+        <id>https://blog.ferki.it/2025/03/12/perl-basics-for-rex/</id>
+        <title>Perl basics for Rex</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://blog.ferki.it/2025/03/12/perl-basics-for-rex/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://www.rexify.org/">Rex, the friendly automation framework</a> does not
+expect much previous programming or Perl experience, though knowing a few
+foundational elements may go a long way.</p>
+
+<p>While we provide a <a href="https://www.rexify.org/docs/guides/just_enough_perl_for_rex.html">Just enough Perl for
+Rex</a> page on
+the website of <a href="https://www.rexify.org/">Rex, the friendly automation
+framework</a>, I often find myself sharing my own
+experience about getting started with Perl.</p>
+
+<p>I decided to write my own take about the basics from a Rex perspective, and
+collect further resources I keep recommending or referring to.</p>
+
+<p>Let’s see what I considered useful when I started out.</p>
+
+                <p><a href="https://blog.ferki.it/2025/03/12/perl-basics-for-rex/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://blog.ferki.it/tag/rex/">rex</a>
+                    <a href="https://blog.ferki.it/tag/perl/">perl</a>
+                </p>
+
+        ]]></content>
+        <updated>2025-03-12T00:00:00Z</updated>
+        <category term="rex" />
+        <category term="perl" />
+    </entry>
+</feed>
+

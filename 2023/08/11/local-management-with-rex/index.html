@@ -97,7 +97,9 @@ end contains the steps to execute.</p>
 <p>I’ll not go into all details here to allow us staying aware of further
 internals while focusing on the general approach.</p>
 
-<h2 id="tasks-without-an-explicit-target"><a href="#tasks-without-an-explicit-target">Tasks without an explicit target</a></h2>
+    </section>
+    <section id="section-3">
+        <h2 id="tasks-without-an-explicit-target"><a href="#tasks-without-an-explicit-target">Tasks without an explicit target</a></h2>
 
 <p>Tasks without any explicit target get executed on the local machine directly:</p>
 
@@ -125,7 +127,9 @@ hook.</p>
 task)</a>
 section in the documentation.</p>
 
-<h2 id="tasks-targeting-local-explicitly"><a href="#tasks-targeting-local-explicitly">Tasks targeting <code>&lt;local&gt;</code> explicitly</a></h2>
+    </section>
+    <section id="section-4">
+        <h2 id="tasks-targeting-local-explicitly"><a href="#tasks-targeting-local-explicitly">Tasks targeting <code>&lt;local&gt;</code> explicitly</a></h2>
 
 <p>One may intentionally design a task to manage the local machine by using the
 special <code>&lt;local&gt;</code> hostname recognized by Rex:</p>
@@ -142,7 +146,9 @@ invalid hostname of <code>&lt;local&gt;</code>.</p>
 <code>-H</code> or <code>-G</code> options, or with the <code>on</code> option of
 <a href="https://metacpan.org/pod/Rex::Commands#run_task"><code>run_task</code></a> from code.</p>
 
-<h2 id="override-the-tasks-target-to-local"><a href="#override-the-tasks-target-to-local">Override the task’s target to <code>&lt;local&gt;</code></a></h2>
+    </section>
+    <section id="section-5">
+        <h2 id="override-the-tasks-target-to-local"><a href="#override-the-tasks-target-to-local">Override the task’s target to <code>&lt;local&gt;</code></a></h2>
 
 <p>The <code>-H</code> command line option supports the same special <code>&lt;local&gt;</code> hostname:</p>
 
@@ -166,7 +172,9 @@ invalid hostname of <code>&lt;local&gt;</code>.</p>
 <p>This approach allows users to intentionally choose local execution, regardless
 of a task having an explicit target or not.</p>
 
-<h2 id="disable-ssh-per-task-with-no_ssh-task"><a href="#disable-ssh-per-task-with-no_ssh-task">Disable SSH per task with <code>no_ssh task</code></a></h2>
+    </section>
+    <section id="section-6">
+        <h2 id="disable-ssh-per-task-with-no_ssh-task"><a href="#disable-ssh-per-task-with-no_ssh-task">Disable SSH per task with <code>no_ssh task</code></a></h2>
 
 <p>The <code>no_ssh</code> command hints individual tasks to not use SSH:</p>
 
@@ -190,7 +198,9 @@ such as monitoring, inventory, libvirt, or cloud providers.</p>
 <p>See also the <a href="https://metacpan.org/pod/Rex::Commands#no_ssh">no_ssh</a>
 documentation.</p>
 
-<h2 id="disable-ssh-globally-with-no_ssh"><a href="#disable-ssh-globally-with-no_ssh">Disable SSH globally with <code>no_ssh</code></a></h2>
+    </section>
+    <section id="section-7">
+        <h2 id="disable-ssh-globally-with-no_ssh"><a href="#disable-ssh-globally-with-no_ssh">Disable SSH globally with <code>no_ssh</code></a></h2>
 
 <p>In case none of the tasks need SSH to connect to their targets, the <code>no_ssh</code>
 command can disable it globally:</p>
@@ -212,7 +222,9 @@ alone.</p>
 <p>See also the <a href="https://metacpan.org/pod/Rex::Commands#no_ssh">no_ssh</a>
 documentation.</p>
 
-<h2 id="running-parts-of-a-task-within-local-blocks"><a href="#running-parts-of-a-task-within-local-blocks">Running parts of a task within <code>LOCAL{}</code> blocks</a></h2>
+    </section>
+    <section id="section-8">
+        <h2 id="running-parts-of-a-task-within-local-blocks"><a href="#running-parts-of-a-task-within-local-blocks">Running parts of a task within <code>LOCAL{}</code> blocks</a></h2>
 
 <p>Wrapping parts of the task steps in a <code>LOCAL{}</code> block forces these to run on
 the local machine instead of on the target in effect otherwise:</p>
@@ -233,7 +245,9 @@ to use in the rest of the steps.</p>
 <p>See also the <a href="https://metacpan.org/pod/Rex::Commands#LOCAL">LOCAL</a>
 documentation.</p>
 
-<h2 id="connect-to-local-host-over-ssh"><a href="#connect-to-local-host-over-ssh">Connect to local host over SSH</a></h2>
+    </section>
+    <section id="section-9">
+        <h2 id="connect-to-local-host-over-ssh"><a href="#connect-to-local-host-over-ssh">Connect to local host over SSH</a></h2>
 
 <p>Using the identity of the local machine as target makes it possible to treat it
 the same way as remotes, including connecting to it using SSH like to any

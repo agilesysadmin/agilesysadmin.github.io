@@ -140,8 +140,8 @@ a:visited {
 
 main,
 body > header,
-article:not(:last-child),
-nav {
+nav,
+section {
     border-bottom: 1px solid var(--secondary);
 }
 
