@@ -54,9 +54,8 @@ foundational elements may go a long way.</p>
 
 <p>While we provide a <a href="https://www.rexify.org/docs/guides/just_enough_perl_for_rex.html">Just enough Perl for
 Rex</a> page on
-the website of <a href="https://www.rexify.org/">Rex, the friendly automation
-framework</a>, I often find myself sharing my own
-experience about getting started with Perl.</p>
+our website, I often find myself sharing my own experience about getting
+started with Perl.</p>
 
 <p>I decided to write my own take about the basics from a Rex perspective, and
 collect further resources I keep recommending or referring to.</p>
@@ -104,7 +103,7 @@ the POD format, and also uses POD for its own documentation.</p>
 Ordinary paragraph with <span class="synIdentifier">B&lt;bold&gt;</span> and <span class="synIdentifier">I&lt;italic&gt;</span> text,
 as well as with <span class="synIdentifier">C&lt;inline code&gt;</span> and <span class="synIdentifier">L&lt;hyperlink|https://www.example.com&gt;</span>.
 
-Command paragraphs treat the test specially and starts with “=”,
+Command paragraphs treat the text specially and starts with “=”,
 like “=pod” above.
 
 <span class="synPreProc"> indent verbatim paragraphs</span>
@@ -117,13 +116,18 @@ like “=pod” above.
     <section id="section-3">
         <h2 id="modules"><a href="#modules">Modules</a></h2>
 
-<p>Modules group together related functionality to reuse elsewhere. See <a href="https://perldoc.perl.org/perlmod">perlmod</a> as a reference.</p>
+<p>Modules group together related functionality to reuse elsewhere. See
+<a href="https://perldoc.perl.org/perlmod">perlmod</a> as a reference.</p>
 
 <h3 id="core-modules"><a href="#core-modules">Core modules</a></h3>
 
-<p>Perl itself comes with a set of modules to reuse common functionality between projects. Use the <a href="https://metacpan.org/dist/Module-CoreList/view/corelist"><code>corelist</code></a> command to find more information about the core modules.</p>
+<p>Perl itself comes with a set of modules to reuse common functionality between
+projects. Use the
+<a href="https://metacpan.org/dist/Module-CoreList/view/corelist"><code>corelist</code></a> command
+to find more information about the core modules.</p>
 
-<p>For example to list all core modules coming with perl-5.40.1, use <code>corelist -v 5.40.1</code> on the command line.</p>
+<p>For example to list all core modules coming with perl-5.40.1, use <code>corelist -v
+5.40.1</code> on the command line.</p>
 
 <p>Import them with the <code>use</code> function:</p>
 
@@ -132,13 +136,18 @@ like “=pod” above.
 
 <h3 id="other-modules"><a href="#other-modules">Other modules</a></h3>
 
-<p>The <a href="https://www.cpan.org/">Comprehensive Perl Archive Network (CPAN)</a> currently hosts the work from 14500+ authors in the form of 45000+ distribution containing 220000+ modules. Some of them likely solves the same problem one has to solve for their own use case.</p>
+<p>The <a href="https://www.cpan.org/">Comprehensive Perl Archive Network (CPAN)</a>
+currently hosts the work from 14500+ authors in the form of 45000+
+distributions containing 220000+ modules. Some of them likely solves the same
+problem one has to solve for their own use case.</p>
 
-<p>The <a href="https://metacpan.org/dist/CPAN/view/scripts/cpan">cpan</a> client comes with Perl, while CPAN itself supports other clients too, like
+<p>The <a href="https://metacpan.org/dist/CPAN/view/scripts/cpan">cpan</a> client comes with
+Perl, while CPAN itself supports other clients too, like
 <a href="https://metacpan.org/dist/App-cpanminus/view/bin/cpanm">cpanm</a>, and
 <a href="https://metacpan.org/dist/App-cpm/view/script/cpm">cpm</a>.</p>
 
-<p>Use the system package managers or one of those clients to install a distribution from CPAN locally, then reuse the modules:</p>
+<p>Use the system package managers or one of those clients to install
+a distribution from CPAN locally, then reuse the modules:</p>
 
 <pre><code class="highlight"><span class="synStatement">use </span>Rex; <span class="synComment"># imports the Rex module</span>
 </code></pre>
@@ -151,7 +160,7 @@ like “=pod” above.
 
 <p>See <a href="https://perldoc.perl.org/perldata">perldata</a> as a reference.</p>
 
-<p>I will use the values from these example below throughout the document.</p>
+<p>I will use the values from the below examples throughout this post.</p>
 
 <h3 id="naming"><a href="#naming">Naming</a></h3>
 
@@ -236,7 +245,8 @@ benefit with 10% of the details.”</p>
 
 <h4 id="use-references"><a href="#use-references">Use references</a></h4>
 
-<p>Accordingly, Perl provides two ways to use references too, called dereferencing:</p>
+<p>Accordingly, Perl provides two ways to use references too, called
+dereferencing:</p>
 
 <pre><code class="highlight"><span class="synComment"># using curly braces</span>
 
@@ -261,7 +271,8 @@ benefit with 10% of the details.”</p>
 
 <h3 id="dump-data-structures"><a href="#dump-data-structures">Dump data structures</a></h3>
 
-<p>Perl comes with the <a href="https://perldoc.perl.org/Data::Dumper">Data::Dumper</a> core module to stringify data structures.</p>
+<p>Perl comes with the <a href="https://perldoc.perl.org/Data::Dumper">Data::Dumper</a> core
+module to stringify data structures.</p>
 
 <pre><code class="highlight"><span class="synStatement">use </span>Data::Dumper;
 
@@ -340,7 +351,8 @@ If you already know about regular expressions, see also
     <section id="section-6">
         <h2 id="loops"><a href="#loops">Loops</a></h2>
 
-<p>Iterate over miltiple values, like arrays and hashes.</p>
+<p>Iterate over data structures with a collection of values, like arrays and
+hashes.</p>
 
 <pre><code class="highlight"><span class="synRepeat">foreach</span> <span class="synStatement">my</span> <span class="synIdentifier">$project</span> (<span class="synIdentifier">@projects</span>) {
     <span class="synStatement">print</span> <span class="synIdentifier">$project</span>; <span class="synComment"># prints RexPerl</span>
