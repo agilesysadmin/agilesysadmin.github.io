@@ -7,6 +7,34 @@
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Minimum Viable Rex</title>
+            <link>https://blog.ferki.it/2025/03/21/minimum-viable-rex/</link>
+            <guid>https://blog.ferki.it/2025/03/21/minimum-viable-rex/</guid>
+            <description><![CDATA[
+                <p>We consider enabling graceful bootstrapping as one of our main guiding
+principles around <a href="https://metacpan.org/pod/Rex">Rex, the friendly automation
+framework</a>.</p>
+
+<p>While our <a href="https://www.rexify.org/docs/guides/start_using__r__ex.html">How to get started with
+Rex</a> page provides
+a good initial set of concepts, I wondered about the minimal set of features
+that already proves useful in practice. I find this especially interesting when
+using Rex from a cronjob or in a CI/CD pipeline.</p>
+
+<p>Let’s see what I found through this exercise in minimalism.</p>
+
+                    <p><a href="https://blog.ferki.it/2025/03/21/minimum-viable-rex/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://blog.ferki.it/tag/rex/">rex</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Fri, 21 Mar 2025 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Perl basics for Rex</title>
             <link>https://blog.ferki.it/2025/03/12/perl-basics-for-rex/</link>
             <guid>https://blog.ferki.it/2025/03/12/perl-basics-for-rex/</guid>
@@ -131,35 +159,6 @@ reducing their usefulness.</p>
             ]]></description>
             <pubDate>
                 Mon, 03 Feb 2025 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Packaging Go dependencies for Gentoo</title>
-            <link>https://blog.ferki.it/2024/07/25/packaging-go-dependencies-for-gentoo/</link>
-            <guid>https://blog.ferki.it/2024/07/25/packaging-go-dependencies-for-gentoo/</guid>
-            <description><![CDATA[
-                <p>While I don’t write Go code, I do package Go projects for Gentoo Linux. My
-previous post about how to <a href="https://blog.ferki.it/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/">Host Gentoo dependency tarballs as GitHub
-releases</a> got
-me invited to give a talk at the <a href="https://www.meetup.com/golang-users-berlin/events/300809374/">Google Developer Group Berlin Golang
-meetup</a>, to host
-a community round table discussion at GopherCon Europe 2024, and to hold an
-online workshop for <a href="https://gentoo-ev.org/">Gentoo e.V.</a></p>
-
-<p>My presentation expands on the above post, and I decided to share the extra
-parts in this follow-up, including an idea for Go project maintainers who wish
-to streamline the distribution of their work.</p>
-
-                    <p><a href="https://blog.ferki.it/2024/07/25/packaging-go-dependencies-for-gentoo/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://blog.ferki.it/tag/golang/">golang</a>
-                        <a href="https://blog.ferki.it/tag/gentoo/">gentoo</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Thu, 25 Jul 2024 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

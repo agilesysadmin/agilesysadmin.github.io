@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.ferki.it/tag/rex/</id>
     <title>agile sysadmin</title>
-    <updated>2025-03-12T00:00:00Z</updated>
+    <updated>2025-03-21T00:00:00Z</updated>
     <link href="https://blog.ferki.it/tag/rex.atom" rel="self" />
     <link href="https://blog.ferki.it/tag/rex/" rel="alternate" />
     <author>
@@ -10,6 +10,34 @@
     </author>
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://blog.ferki.it/2025/03/21/minimum-viable-rex/</id>
+        <title>Minimum Viable Rex</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://blog.ferki.it/2025/03/21/minimum-viable-rex/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>We consider enabling graceful bootstrapping as one of our main guiding
+principles around <a href="https://metacpan.org/pod/Rex">Rex, the friendly automation
+framework</a>.</p>
+
+<p>While our <a href="https://www.rexify.org/docs/guides/start_using__r__ex.html">How to get started with
+Rex</a> page provides
+a good initial set of concepts, I wondered about the minimal set of features
+that already proves useful in practice. I find this especially interesting when
+using Rex from a cronjob or in a CI/CD pipeline.</p>
+
+<p>Let’s see what I found through this exercise in minimalism.</p>
+
+                <p><a href="https://blog.ferki.it/2025/03/21/minimum-viable-rex/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://blog.ferki.it/tag/rex/">rex</a>
+                </p>
+
+        ]]></content>
+        <updated>2025-03-21T00:00:00Z</updated>
+        <category term="rex" />
+    </entry>
     <entry>
         <id>https://blog.ferki.it/2025/03/12/perl-basics-for-rex/</id>
         <title>Perl basics for Rex</title>
@@ -146,37 +174,6 @@ authors to express their intent explicitly according to their use case at hand:<
         ]]></content>
         <updated>2023-08-11T00:00:00Z</updated>
         <category term="rex" />
-    </entry>
-    <entry>
-        <id>https://blog.ferki.it/2023/08/05/releasing-rex-1-14-3/</id>
-        <title>Releasing Rex-1.14.3</title>
-        <author><name>Ferenc Erki</name></author>
-        <link href="https://blog.ferki.it/2023/08/05/releasing-rex-1-14-3/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>I released Rex-1.14.3 today, making it available both on
-<a href="https://metacpan.org/release/FERKI/Rex-1.14.3">CPAN</a> and in <a href="https://github.com/ferki/gentoo-overlay">my Gentoo
-overlay</a>.</p>
-
-<p>This version of the friendly automation framework contains bug fixes for local
-package installation, command existence checks, and git tests.</p>
-
-                <p><a href="https://blog.ferki.it/2023/08/05/releasing-rex-1-14-3/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://blog.ferki.it/tag/rex/">rex</a>
-                    <a href="https://blog.ferki.it/tag/release/">release</a>
-                    <a href="https://blog.ferki.it/tag/gentoo/">gentoo</a>
-                    <a href="https://blog.ferki.it/tag/ebuild/">ebuild</a>
-                    <a href="https://blog.ferki.it/tag/overlay/">overlay</a>
-                </p>
-
-        ]]></content>
-        <updated>2023-08-05T00:00:00Z</updated>
-        <category term="rex" />
-        <category term="release" />
-        <category term="gentoo" />
-        <category term="ebuild" />
-        <category term="overlay" />
     </entry>
 </feed>
 

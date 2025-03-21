@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.ferki.it/</id>
     <title>agile sysadmin</title>
-    <updated>2025-03-12T00:00:00Z</updated>
+    <updated>2025-03-21T00:00:00Z</updated>
     <link href="https://blog.ferki.it/index.atom" rel="self" />
     <link href="https://blog.ferki.it/" rel="alternate" />
     <author>
@@ -10,6 +10,34 @@
     </author>
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://blog.ferki.it/2025/03/21/minimum-viable-rex/</id>
+        <title>Minimum Viable Rex</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://blog.ferki.it/2025/03/21/minimum-viable-rex/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>We consider enabling graceful bootstrapping as one of our main guiding
+principles around <a href="https://metacpan.org/pod/Rex">Rex, the friendly automation
+framework</a>.</p>
+
+<p>While our <a href="https://www.rexify.org/docs/guides/start_using__r__ex.html">How to get started with
+Rex</a> page provides
+a good initial set of concepts, I wondered about the minimal set of features
+that already proves useful in practice. I find this especially interesting when
+using Rex from a cronjob or in a CI/CD pipeline.</p>
+
+<p>Let’s see what I found through this exercise in minimalism.</p>
+
+                <p><a href="https://blog.ferki.it/2025/03/21/minimum-viable-rex/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://blog.ferki.it/tag/rex/">rex</a>
+                </p>
+
+        ]]></content>
+        <updated>2025-03-21T00:00:00Z</updated>
+        <category term="rex" />
+    </entry>
     <entry>
         <id>https://blog.ferki.it/2025/03/12/perl-basics-for-rex/</id>
         <title>Perl basics for Rex</title>
@@ -138,36 +166,6 @@ reducing their usefulness.</p>
         <updated>2025-02-03T00:00:00Z</updated>
         <category term="linting" />
         <category term="static analysis" />
-    </entry>
-    <entry>
-        <id>https://blog.ferki.it/2024/07/25/packaging-go-dependencies-for-gentoo/</id>
-        <title>Packaging Go dependencies for Gentoo</title>
-        <author><name>Ferenc Erki</name></author>
-        <link href="https://blog.ferki.it/2024/07/25/packaging-go-dependencies-for-gentoo/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>While I don’t write Go code, I do package Go projects for Gentoo Linux. My
-previous post about how to <a href="https://blog.ferki.it/2023/04/24/host-gentoo-dependency-tarballs-as-github-releases/">Host Gentoo dependency tarballs as GitHub
-releases</a> got
-me invited to give a talk at the <a href="https://www.meetup.com/golang-users-berlin/events/300809374/">Google Developer Group Berlin Golang
-meetup</a>, to host
-a community round table discussion at GopherCon Europe 2024, and to hold an
-online workshop for <a href="https://gentoo-ev.org/">Gentoo e.V.</a></p>
-
-<p>My presentation expands on the above post, and I decided to share the extra
-parts in this follow-up, including an idea for Go project maintainers who wish
-to streamline the distribution of their work.</p>
-
-                <p><a href="https://blog.ferki.it/2024/07/25/packaging-go-dependencies-for-gentoo/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://blog.ferki.it/tag/golang/">golang</a>
-                    <a href="https://blog.ferki.it/tag/gentoo/">gentoo</a>
-                </p>
-
-        ]]></content>
-        <updated>2024-07-25T00:00:00Z</updated>
-        <category term="golang" />
-        <category term="gentoo" />
     </entry>
 </feed>
 

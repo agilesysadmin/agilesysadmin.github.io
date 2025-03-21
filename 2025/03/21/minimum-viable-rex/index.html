@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="Minimum Viable Rex" name="title" property="og:title">
+        <meta content="article" name="type" property="og:type">
+        <meta content="/theme/images/agile_sysadmin.webp" name="type" property="og:image">
+        <meta content="https://blog.ferki.it/2025/03/21/minimum-viable-rex/index.html" name="url" property="og:url">
+        <meta content="Ferenc Erki - agile sysadmin" name="description">
+        <meta content="Ferenc Erki" name="author">
+        <meta content="4KzbYclokErOfwrKiBpX8XCu8ckJ9A7zwueL9VAbAYE" name="google-site-verification">
+        <link href="/theme/images/favicon.svg" rel="icon">
+        <link href="/theme/css/selenized.css" rel="stylesheet">
+        <script data-domain="blog.ferki.it" defer src="https://plausible.io/js/script.js"></script>
+        <title>Minimum Viable Rex</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">🧑‍💻 agile sysadmin</a></h1>
+            <p>by Ferenc Erki</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/">Posts</a></li>
+                <li><a href="https://ferki.it" target="_blank">Homepage</a></li>
+                <li><a href="https://cal.com/ferki" target="_blank">Booking</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+
+    <header>
+    <h1><a href="/2025/03/21/minimum-viable-rex/">Minimum Viable Rex</a></h1>
+
+    <aside>
+        <time datetime="2025-03-21" title="published">
+            🗓 2025-03-21
+        </time>
+            <a href="/tag/rex/">#rex</a>
+    </aside>
+
+</header>
+
+
+    <section id="section-1">
+        <p>We consider enabling graceful bootstrapping as one of our main guiding
+principles around <a href="https://metacpan.org/pod/Rex">Rex, the friendly automation
+framework</a>.</p>
+
+<p>While our <a href="https://www.rexify.org/docs/guides/start_using__r__ex.html">How to get started with
+Rex</a> page provides
+a good initial set of concepts, I wondered about the minimal set of features
+that already proves useful in practice. I find this especially interesting when
+using Rex from a cronjob or in a CI/CD pipeline.</p>
+
+<p>Let’s see what I found through this exercise in minimalism.</p>
+
+    </section>
+    <section id="section-2">
+        <h2 id="basic-architecture"><a href="#basic-architecture">Basic architecture</a></h2>
+
+<p>Rex itself can run where Perl can run, and also can manage hosts both locally
+and over SSH. To differentiate it from managed hosts, we call the host where
+Rex runs as a control host.</p>
+
+<p>Rex code also stays entirely compatible with Perl code, making it extendable to
+support arbitrary use cases, including the use of other protocols when
+required.</p>
+
+<p>Just like the GNU Make tool uses Makefile to describe its actions, Rex uses
+a Rexfile to describe its configuration, inventory, authentication, and tasks.</p>
+
+<p>A task bundles related management steps together, optionally with task-specific
+options, like the default target host for these steps to run on.</p>
+
+<p>It still proves useful to keep those details in mind, though when striving for
+minimalism, it also turns out we may either omit most of them to let the
+built-in logic try likely settings, or just provide enough hints via
+command-line options.</p>
+
+<h2 id="requirements"><a href="#requirements">Requirements</a></h2>
+
+<p>While developing Rex we strive for keeping the requirements low and light.</p>
+
+<p>On the control hosts, Rex requires Perl itself and its dependencies to run. We
+generally aim to support Perl versions up to 10 years. We also consider many
+dependencies optional, especially external tools to streamline some specific
+features like rsync or Augeas.</p>
+
+<p>On the managed hosts, Rex attempts to detect and use Perl and core modules,
+though it can fall back to other methods for the most common situations. In
+case of remotely managed hosts, Rex also expected SSH running there and a valid
+account to log in. For administrative tasks, Rex may use either root directly
+or gain extra privileges with sudo.</p>
+
+<p>Since this post focuses on the minimal approach, in the examples I will use
+Perl-5.40.1 to run Rex-1.16.0 on Gentoo with Net::OpenSSH backend for SSH
+connections, and with SSH configured for key-based authentication for my user.</p>
+
+<h2 id="documentation"><a href="#documentation">Documentation</a></h2>
+
+<p>I find it always nice to keep related documentation at hand.</p>
+
+<p>For Rex, that means starting with the main module documentation via <code>perldoc
+Rex</code> and the main binary documentation via <code>man rex</code> – and both of which also
+points to the available built-in commands via <code>perldoc Rex::Commands</code>.</p>
+
+<p>On top of that, <code>rex -h</code> also shows the built-in help, which I reduced here for
+the minimal set I will cover in this post:</p>
+
+<pre><code class="highlight">$ rex <span class="synSpecial">-h</span>
+usage:
+  rex <span class="synOperator">[</span><span class="synConditional">&lt;</span>options<span class="synConditional">&gt;</span><span class="synOperator">]</span> <span class="synOperator">[</span><span class="synConditional">-H</span> <span class="synConditional">&lt;</span>host<span class="synConditional">&gt;</span><span class="synOperator">]</span> <span class="synOperator">[</span><span class="synConditional">-G</span> <span class="synConditional">&lt;</span>group<span class="synConditional">&gt;</span><span class="synOperator">]</span> <span class="synOperator">&lt;</span>task<span class="synOperator">&gt;</span> <span class="synOperator">[</span><span class="synConditional">&lt;</span>task-options<span class="synConditional">&gt;</span><span class="synOperator">]</span>
+  rex <span class="synSpecial">-T</span><span class="synOperator">[</span>m<span class="synOperator">|</span>y<span class="synOperator">|</span>v<span class="synOperator">]</span> <span class="synOperator">[</span><span class="synConditional">&lt;</span>string<span class="synConditional">&gt;</span><span class="synOperator">]</span>
+
+  <span class="synSpecial">-e</span>     Run the given code fragment
+  <span class="synSpecial">-H</span>     Execute a task on the given hosts <span class="synPreProc">(</span><span class="synSpecial">space delimited</span><span class="synPreProc">)</span>
+
+  <span class="synSpecial">-u</span>     Username <span class="synStatement">for</span> the ssh connection
+
+  <span class="synConditional">-d</span>     Show debug output
+  <span class="synSpecial">-qw</span>    Quiet mode: only output warnings and errors
+
+  <span class="synConditional">-h</span>     Display this <span class="synStatement">help</span> message
+  <span class="synConditional">-v</span>     Display <span class="synPreProc">(</span>R<span class="synPreProc">)</span>?ex version
+</code></pre>
+
+<p>Let’s check the current Rex version quickly to make sure we run what we think
+we run:</p>
+
+<pre><code class="highlight">$ rex <span class="synSpecial">-v</span>
+<span class="synPreProc">(</span><span class="synSpecial">R</span><span class="synPreProc">)</span>?ex <span class="synNumber">1</span>.<span class="synNumber">16</span>.<span class="synNumber">0</span>
+</code></pre>
+
+<h2 id="command-line-usage"><a href="#command-line-usage">Command line usage</a></h2>
+
+<p>Similarly to Perl’s <code>-e</code> command line switch to run one-liner programs, Rex
+provides its own <code>-e</code> to run short code fragments.</p>
+
+<p>Let’s print out the standard <code>Hello, World!</code> message with the help of Perl’s
+built-in <code>say()</code> function:</p>
+
+<pre><code class="highlight">$ rex -e &#39;say &quot;Hello, World!&quot;&#39;
+[2025-03-20 12:46:52] INFO - Running task eval-line on &lt;local&gt;
+Hello, World!
+[2025-03-20 12:46:52] INFO - All tasks successful on all hosts
+</code></pre>
+
+<p>On top of the output we asked for, Rex also shows the <code>INFO</code> log lines in
+green, letting us know that:</p>
+
+<ul>
+<li>it runs an eval-line task on the local host (the default target for tasks)</li>
+<li>everything finished successfully</li>
+</ul>
+
+<p>Some consider that an awful lot of single and double quotes next to each other,
+though. Since the argument of <code>rex -e</code> takes any Perl code, let’s use the <code>q()</code>
+quote-like operator instead:</p>
+
+<pre><code class="highlight">$ rex -e &#39;say q(Hello, World!)&#39;
+[2025-03-20 12:53:41] INFO - Running task eval-line on &lt;local&gt;
+Hello, World!
+[2025-03-20 12:53:42] INFO - All tasks successful on all hosts
+</code></pre>
+
+<p>Same result, though the code may feel easier to work with. For brevity, I will
+also exclude some of those logs in the further examples. The help shows a few
+options to hide the logs and I tend to use <code>-qw</code> to still keep any warnings and
+errors visible.</p>
+
+<pre><code class="highlight">$ rex -qw -e &#39;say q(Hello, World!)&#39;
+Hello, World!
+</code></pre>
+
+<h2 id="run-commands-and-manage-files"><a href="#run-commands-and-manage-files">Run commands and manage files</a></h2>
+
+<p>While printing messages sounds interesting, we consider the core capabilities
+of Rex as running commands and managing files.</p>
+
+<p>For example, the <code>hostname</code> command on Linux prints the hostname, and Rex
+provides the <code>run()</code> command to, well, run commands:</p>
+
+<pre><code class="highlight">$ rex -qw -e &#39;say run q(hostname)&#39;
+mymachine
+</code></pre>
+
+<p>The <code>file()</code> command of Rex helps manage files:</p>
+
+<pre><code class="highlight">$ rex -qw -e &#39;file &quot;/tmp/hello&quot;, content =&gt; q(Hello, World!)&#39;
+</code></pre>
+
+<p>Hmm, no output, though no signs of any warnings or errors. I’d like to check if
+the <code>/tmp/hello</code> file does indeed contain <code>Hello, World!</code> in it. On Linux,
+I would use the <code>cat</code> command for that, and Rex provides the same functionality
+under the same name:</p>
+
+<pre><code class="highlight">$ rex -qw -e &#39;say cat q(/tmp/hello)&#39;
+Hello, World!
+</code></pre>
+
+<p>Why does Rex duplicate the <code>cat</code> command, when we would also call <code>run q(cat
+/tmp/hello)</code>? Because we can only expect <code>cat</code>, the Linux command, to exist
+only on Linux – while Rex may have to manage other operating systems too, where
+the system does not have <code>cat</code>. On those systems Rex abstracts away the
+difference, and uses other methods to achieve the same results.</p>
+
+<h2 id="manage-remote-hosts"><a href="#manage-remote-hosts">Manage remote hosts</a></h2>
+
+<p>While executing ad-hoc tasks on the local machine sounds useful, many use cases
+involve running tasks remotely. Let’s pass a host to connect to via SSH with
+the <code>-H</code> option:</p>
+
+<pre><code class="highlight">$ rex -H myserver -e &#39;say run q(hostname)&#39;
+[2025-03-20 19:49:16] INFO - Running task eval-line on myserver
+myserver
+[2025-03-20 19:49:19] INFO - All tasks successful on all hosts
+</code></pre>
+
+<p>Note that the <code>INFO</code> log output now shows running the task on <code>myserver</code>, and
+the output of the <code>hostname</code> command changed accordingly – it did run on
+<code>myserver</code> after all.</p>
+
+<p>Also note that Rex discovered the authentication details it may use to log in
+to <code>myserver</code>. It can parse (a subset of<a class="footnote" href="#fn:ssh_config" id="fnref:ssh_config">1</a>) the SSH configuration in
+<code>~/.ssh/config</code>, and can also fall back to use the current local username to
+log in. In case we need to, we can enforce a specific user, like <code>myuser</code>, with
+<code>-u</code>:</p>
+
+<pre><code class="highlight">$ rex -qw -H myserver -u myuser -e &#39;say run q(hostname)&#39;
+myserver
+</code></pre>
+
+<p>Since I use the Net::OpenSSH backend, it can pick up and use my SSH keys too.
+In case it needs to fall back to password-based authentication, or the key
+needs a passphrase, it will prompt for it.</p>
+
+<h2 id="debug-output"><a href="#debug-output">Debug output</a></h2>
+
+<p>These one-liner tasks may prove difficult to debug, and the built-in debug
+output via <code>-d</code> often helps a lot to understand what happens from the
+perspective of Rex.</p>
+
+<pre><code class="highlight">$ rex -d -e &#39;say run q(hostname)&#39;
+</code></pre>
+
+<p>I omit the full output here as it can get verbose, though it will contain
+information about the following:</p>
+
+<ul>
+<li>the running Rex version</li>
+<li>list of command line parameters</li>
+<li>internal details of the whole process, including the picked up configuration,
+and dependencies</li>
+<li>authentication information used during execution</li>
+<li>task execution details</li>
+<li>list of shutdown steps</li>
+</ul>
+
+<h2 id="summary"><a href="#summary">Summary</a></h2>
+
+<p>For a frugal introduction to Rex, one may find the <code>-e</code> command line option
+already enough to execute ad-hoc tasks locally, and perhaps <code>-H</code> to execute the
+same remotely, along with how to find further information in the documentation.</p>
+
+<p>Adding a few more options to the repertoire, like overriding authentication
+details, and controlling the verbosity of the output, makes the first
+experience with Rex viable for the most common practical uses.</p>
+
+<div class="footnotes">
+<hr>
+<ol>
+
+<li id="fn:ssh_config"><p>I work on fully transparent support of arbitrary SSH
+configuration<a class="reversefootnote" href="#fnref:ssh_config"> ↩</a></p></li>
+
+</ol>
+</div>
+
+    </section>
+
+</article>
+
+<ul class="pager">
+    <li class="prev">
+            <a href="/2025/03/12/perl-basics-for-rex/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+    </li>
+</ul>
+
+
+        </main>
+
+        <footer>
+            
+            <ul>
+                <li><a href="https://blog.ferki.it/index.rss" target="_blank">RSS</a></li>
+                <li><a href="https://blog.ferki.it/index.atom" target="_blank">Atom</a></li>
+                <li><a href="https://github.com/ferki" rel="me" target="_blank">GitHub</a></li>
+                <li><a href="https://profile.codersrank.io/user/ferki" rel="me" target="_blank">CodersRank</a></li>
+                <li><a href="https://www.linkedin.com/in/ferki" rel="me" target="_blank">LinkedIn</a></li>
+                <li><a href="https://fosstodon.org/@ferki" rel="me" target="_blank">Mastodon</a></li>
+                <li><a href="mailto:ferki@ferki.it">Email</a></li>
+                <li><a href="/pages/impressum.html">Impressum</a></li>
+                <li><a href="/pages/privacy_policy.html">Privacy policy</a></li>
+            </ul>
+            <ul>
+                <li>© 2023–2025 Ferenc Erki</li>
+            </ul>
+
+        </footer>
+    </body>
+</html>

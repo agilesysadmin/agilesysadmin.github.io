@@ -34,6 +34,51 @@
             <article>
 
     <header>
+    <h1><a href="/2023/08/11/local-management-with-rex/">Local management with Rex</a></h1>
+
+    <aside>
+        <time datetime="2023-08-11" title="published">
+            🗓 2023-08-11
+        </time>
+            <a href="/tag/rex/">#rex</a>
+    </aside>
+
+</header>
+
+
+    <section>
+        <p>Automation challenges often focus on remote endpoints, while several use cases
+require automating locally as well. Typical situations range from managing
+a personal machine, through setups where the managed fleet includes the host
+managing the whole, to pull-style models where each node manages itself.</p>
+
+<p><a href="https://www.rexify.org/">Rex, the friendly automation framework</a> supports any
+combination of local and remote execution. This post summarizes the main
+orientation points about local management.</p>
+
+<h2 id="tldr">TL;DR</h2>
+
+<p>Rex provides several options for local management to choose from, allowing
+authors to express their intent explicitly according to their use case at hand:</p>
+
+<ol>
+<li><a href="/2023/08/11/local-management-with-rex/#taskswithoutanexplicittarget">Tasks without an explicit target</a></li>
+<li><a href="/2023/08/11/local-management-with-rex/#taskstargetinglocalexplicitly">Tasks targeting <code>&lt;local&gt;</code> explicitly</a></li>
+<li><a href="/2023/08/11/local-management-with-rex/#overridethetaskstargettolocal">Override the task’s target to <code>&lt;local&gt;</code></a></li>
+<li><a href="/2023/08/11/local-management-with-rex/#disablesshpertaskwithno_sshtask">Disable SSH per task with <code>no_ssh task</code></a></li>
+<li><a href="/2023/08/11/local-management-with-rex/#disablesshgloballywithno_ssh">Disable SSH globally with <code>no_ssh</code></a></li>
+<li><a href="/2023/08/11/local-management-with-rex/#runningpartsofataskwithinlocalblocks">Running parts of a task within <code>LOCAL{}</code> blocks</a></li>
+<li><a href="/2023/08/11/local-management-with-rex/#connecttolocalhostoverssh">Connect to local host over SSH</a></li>
+</ol>
+
+
+        <p><a href="/2023/08/11/local-management-with-rex/#section-2">Continue reading …</a></p>
+    </section>
+
+</article>
+<article>
+
+    <header>
     <h1><a href="/2023/08/05/releasing-rex-1-14-3/">Releasing Rex-1.14.3</a></h1>
 
     <aside>
@@ -155,38 +200,6 @@ ships the latest version — among the first distros, according to
 
 
         <p><a href="/2023/04/26/gentoo-has-xsel-1-2-1-among-the-firsts/#section-2">Continue reading …</a></p>
-    </section>
-
-</article>
-<article>
-
-    <header>
-    <h1><a href="/2023/04/25/packaging-vale-2-24-4-for-gentoo/">Packaging vale-2.24.4 for Gentoo</a></h1>
-
-    <aside>
-        <time datetime="2023-04-25" title="published">
-            🗓 2023-04-25
-        </time>
-            <a href="/tag/gentoo/">#Gentoo</a>
-            <a href="/tag/ebuild/">#ebuild</a>
-            <a href="/tag/overlay/">#overlay</a>
-            <a href="/tag/vale/">#vale</a>
-    </aside>
-
-</header>
-
-
-    <section>
-        <p><a href="https://vale.sh">Vale</a> describes itself as a “syntax-aware linter for prose
-built with speed and extensibility in mind”. <a href="https://github.com/ferki/gentoo-overlay">My
-overlay</a> has the latest <a href="https://github.com/errata-ai/vale/releases/tag/v2.24.4">v2.24.4
-release</a> available for
-fellow Gentoo users.</p>
-
-<p>I recommend previous users to continue reading about ebuild changes.</p>
-
-
-        <p><a href="/2023/04/25/packaging-vale-2-24-4-for-gentoo/#section-2">Continue reading …</a></p>
     </section>
 
 </article>

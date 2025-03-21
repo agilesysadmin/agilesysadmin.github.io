@@ -138,6 +138,11 @@ a:visited {
     color: var(--violet);
 }
 
+a.footnote {
+    font-size: smaller;
+    vertical-align: super;
+}
+
 main,
 body > header,
 nav,
