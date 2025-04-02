@@ -7,6 +7,43 @@
         <description>Blog feed of agile sysadmin</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Rexfile foundations</title>
+            <link>https://blog.ferki.it/2025/04/02/rexfile-foundations/</link>
+            <guid>https://blog.ferki.it/2025/04/02/rexfile-foundations/</guid>
+            <description><![CDATA[
+                <p>Running ad-hoc commands as shown in <a href="https://blog.ferki.it/2025/03/21/minimum-viable-rex/">Minimum Viable
+Rex</a> provides a good way to start benefiting
+from Rex. Then sometimes we have to repeat our typical procedures. Other times
+it would work best if we could enable others to follow the same steps.</p>
+
+<p>Just like GNU Make uses a Makefile to describe actions, Rex uses a Rexfile to
+describe our common procedures as code through the following foundational
+elements:</p>
+
+<ul>
+<li>dependencies</li>
+<li>configuration</li>
+<li>inventory</li>
+<li>authentication</li>
+<li>tasks</li>
+<li>arbitrary Perl code</li>
+</ul>
+
+<p>While we may treat most elements optional depending on the use case, let’s take
+an initial look at each.</p>
+
+                    <p><a href="https://blog.ferki.it/2025/04/02/rexfile-foundations/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://blog.ferki.it/tag/rex/">rex</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Wed, 02 Apr 2025 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Minimum Viable Rex</title>
             <link>https://blog.ferki.it/2025/03/21/minimum-viable-rex/</link>
             <guid>https://blog.ferki.it/2025/03/21/minimum-viable-rex/</guid>
@@ -128,37 +165,6 @@ underlying details.</p>
             ]]></description>
             <pubDate>
                 Wed, 26 Feb 2025 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Lint early, lint often</title>
-            <link>https://blog.ferki.it/2025/02/03/lint-early-lint-often/</link>
-            <guid>https://blog.ferki.it/2025/02/03/lint-early-lint-often/</guid>
-            <description><![CDATA[
-                <p>Wikipedia defines <a href="https://en.wikipedia.org/wiki/Lint_(software)">linting
-software</a> as:</p>
-
-<blockquote>
-  <p>a static code analysis tool used to flag programming errors, bugs, stylistic
-  errors and suspicious constructs.</p>
-</blockquote>
-
-<p>Linters play an important role to detect common mistakes fast. I often find
-that running them first in the build pipelines happens already too late,
-reducing their usefulness.</p>
-
-<p>When to lint to maximize their value?</p>
-
-                    <p><a href="https://blog.ferki.it/2025/02/03/lint-early-lint-often/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://blog.ferki.it/tag/linting/">linting</a>
-                        <a href="https://blog.ferki.it/tag/static-analysis/">static analysis</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Mon, 03 Feb 2025 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

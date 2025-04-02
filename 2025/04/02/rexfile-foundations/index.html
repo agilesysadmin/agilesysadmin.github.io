@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="Rexfile foundations" name="title" property="og:title">
+        <meta content="article" name="type" property="og:type">
+        <meta content="/theme/images/agile_sysadmin.webp" name="type" property="og:image">
+        <meta content="https://blog.ferki.it/2025/04/02/rexfile-foundations/index.html" name="url" property="og:url">
+        <meta content="Ferenc Erki - agile sysadmin" name="description">
+        <meta content="Ferenc Erki" name="author">
+        <meta content="4KzbYclokErOfwrKiBpX8XCu8ckJ9A7zwueL9VAbAYE" name="google-site-verification">
+        <link href="/theme/images/favicon.svg" rel="icon">
+        <link href="/theme/css/selenized.css" rel="stylesheet">
+        <script data-domain="blog.ferki.it" defer src="https://plausible.io/js/script.js"></script>
+        <title>Rexfile foundations</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">🧑‍💻 agile sysadmin</a></h1>
+            <p>by Ferenc Erki</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/">Posts</a></li>
+                <li><a href="https://ferki.it" target="_blank">Homepage</a></li>
+                <li><a href="https://cal.com/ferki" target="_blank">Booking</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+
+    <header>
+    <h1><a href="/2025/04/02/rexfile-foundations/">Rexfile foundations</a></h1>
+
+    <aside>
+        <time datetime="2025-04-02" title="published">
+            🗓 2025-04-02
+        </time>
+            <a href="/tag/rex/">#rex</a>
+    </aside>
+
+</header>
+
+
+    <section id="section-1">
+        <p>Running ad-hoc commands as shown in <a href="/2025/03/21/minimum-viable-rex/">Minimum Viable
+Rex</a> provides a good way to start benefiting
+from Rex. Then sometimes we have to repeat our typical procedures. Other times
+it would work best if we could enable others to follow the same steps.</p>
+
+<p>Just like GNU Make uses a Makefile to describe actions, Rex uses a Rexfile to
+describe our common procedures as code through the following foundational
+elements:</p>
+
+<ul>
+<li>dependencies</li>
+<li>configuration</li>
+<li>inventory</li>
+<li>authentication</li>
+<li>tasks</li>
+<li>arbitrary Perl code</li>
+</ul>
+
+<p>While we may treat most elements optional depending on the use case, let’s take
+an initial look at each.</p>
+
+    </section>
+    <section id="section-2">
+        <h2 id="dependencies"><a href="#dependencies">Dependencies</a></h2>
+
+<p>To use Rex, we have to import it first:</p>
+
+<pre><code class="highlight"><span class="synStatement">use </span>Rex;
+</code></pre>
+
+<p>This loads the <code>Rex</code> module, and configures common default settings, like
+initializing the random number seed, and detecting preferred dependencies for
+remote management, such as Net::OpenSSH. It also enables the <code>strict</code> and
+<code>warnings</code> pragmas.</p>
+
+<p>As Rex evolved over the years we introduced a <code>-feature</code> flag to import the
+features and configuration we deem necessary for the intended out-of-the-box
+experience, while also providing a way to (de)activate the desired features for
+the given solution as a whole.</p>
+
+<p>Please see the <a href="https://metacpan.org/pod/Rex#FEATURE-FLAGS">feature flags</a>
+section of the documentation to learn more about the available ones (also
+offline via <code>perldoc Rex</code>.)</p>
+
+<p>For new projects, I generally recommend starting out with activating the latest
+versioned feature bundle, and <code>exec_autodie</code> to stop executing early upon any
+errors (much like <code>set -e</code> or <code>set -o errexit</code> does with Bash):</p>
+
+<pre><code class="highlight"><span class="synStatement">use </span>Rex <span class="synString">-feature</span> =&gt; [ <span class="synString">&#39;1.4&#39;</span>, <span class="synString">&#39;exec_autodie&#39;</span> ];
+</code></pre>
+
+<p>I find it useful to think about Rex feature flags the same way as the
+<a href="https://perldoc.perl.org/feature">feature</a> concept Perl itself has to control
+different language features.</p>
+
+<p>Since Rex code does not differ from Perl code (in fact, internally we even
+<code>require</code> the Rexfile), we may also import any other Perl module we would like
+to use. For example:</p>
+
+<pre><code class="highlight"><span class="synStatement">use </span>Data::Printer;
+</code></pre>
+
+<h2 id="configuration"><a href="#configuration">Configuration</a></h2>
+
+<p>Rex provides a wide range of configuration options to allow fine-tuning its
+behavior to the given use case at hand.</p>
+
+<p>For example, we implement the above <code>exec_autodie</code> feature flag via the
+following call:</p>
+
+<pre><code class="highlight">Rex::Config-&gt;set_exec_autodie(<span class="synNumber">1</span>);
+</code></pre>
+
+<p>Most other feature flags work similarly too.</p>
+
+<p>The <a href="https://metacpan.org/pod/Rex::Commands">Rex::Commands</a> module also
+provides convenience wrappers for some configuration options. For example the
+following two calls results in configuring the same output format for <code>say()</code>
+calls:</p>
+
+<pre><code class="highlight"><span class="synStatement">sayformat</span> <span class="synString">&#39;%h %s&#39;</span>; <span class="synComment"># prefix the %s message with its %h source host</span>
+
+Rex::Config-&gt;set_say_format(<span class="synString">&#39;%h %s&#39;</span>);
+</code></pre>
+
+<p>While internally <a href="https://metacpan.org/pod/Rex::Config">Rex::Config</a> handles
+Rex configuration (see also <code>perldoc Rex::Config</code>), I recommend using feature
+flags and convenience wrappers when possible, keeping the direct approach in
+mind as a possibility just in case.</p>
+
+<h2 id="inventory"><a href="#inventory">Inventory</a></h2>
+
+<p>Rex considers the local host as the default target for its operations, though
+we often need to manage remote endpoints too. The inventory helps describe the
+hosts and host groups our code aims to manage.</p>
+
+<p>The <a href="https://metacpan.org/pod/Rex::Commands#group"><code>group()</code></a> command defines
+a named host group as a list of hosts:</p>
+
+<pre><code class="highlight"><span class="synStatement">group</span> <span class="synString">&#39;webservers&#39;</span> =&gt; <span class="synString">&#39;www1&#39;</span>, <span class="synString">&#39;www2&#39;</span>, <span class="synString">&#39;www3&#39;</span>;
+</code></pre>
+
+<p>It also supports expressions to describe ranges, for example this expands to
+the same three hosts as above:</p>
+
+<pre><code class="highlight"><span class="synStatement">group</span> <span class="synString">&#39;webservers&#39;</span> =&gt; <span class="synString">&#39;www[1..3]&#39;</span>;
+</code></pre>
+
+<h2 id="authentication"><a href="#authentication">Authentication</a></h2>
+
+<p>To manage remote hosts, we need to specify how to log in remotely to these.</p>
+
+<p>Rex has a modular connection layer, and currently supports two different SSH
+backends:</p>
+
+<ol>
+<li><a href="https://metacpan.org/pod/Net::SSH2">Net::SSH2</a> which depends on libssh2</li>
+<li><a href="https://metacpan.org/pod/Net::OpenSSH">Net::OpenSSH</a>, which depends on the OpenSSH binary</li>
+</ol>
+
+<p>These implementations support different authentication methods, like passwords,
+key files, and SSH agents.</p>
+
+<p>When the Rexfile does not specify any authentication details, Rex tries to
+figure out what to use based on the current environments, available modules,
+files, and SSH configuration.</p>
+
+<p>While one may find that comfortable, some use cases work best when we describe
+these details explicitly.</p>
+
+<p>The <code>user()</code> command specifies the username to use for logins:</p>
+
+<pre><code class="highlight"><span class="synStatement">user</span> <span class="synString">&#39;rex&#39;</span>;
+</code></pre>
+
+<p>To use password authentication specify the password too, optionally forcing
+this method with <code>pass_auth()</code>:</p>
+
+<pre><code class="highlight"><span class="synStatement">password</span> <span class="synString">&#39;secret_ssh_password&#39;</span>;
+<span class="synStatement">pass_auth</span>; <span class="synComment"># optionally forcing password authentication</span>
+</code></pre>
+
+<p>To force key-based authentication, use <code>key_auth()</code>, and in case of Net:SSH2
+backend, also specify which keys to use:</p>
+
+<pre><code class="highlight"><span class="synStatement">key_auth</span>;
+<span class="synStatement">private_key</span> <span class="synString">&#39;/path/to/private.key&#39;</span>; <span class="synComment"># only mandatory with Net::SSH2</span>
+<span class="synStatement">public_key</span> <span class="synString">&#39;/path/to/public.key&#39;</span>;   <span class="synComment"># only mandatory with Net::SSH2</span>
+</code></pre>
+
+<p>In case a passphrase protects the key, specify that with <code>password()</code>:</p>
+
+<pre><code class="highlight"><span class="synStatement">key_auth</span>;
+<span class="synStatement">password</span> <span class="synString">&#39;secret_key_passphrase&#39;</span>;
+</code></pre>
+
+<p>When using an SSH agent, omit <code>pass_auth()</code> and <code>key_auth()</code>.</p>
+
+<h2 id="tasks"><a href="#tasks">Tasks</a></h2>
+
+<p>A task describes the steps Rex executes on the specified targets.</p>
+
+<p>In general, a task has:</p>
+
+<ol>
+<li>a description (optional, though recommended)</li>
+<li>a name</li>
+<li>a default target: either a host group from the inventory, a list of hosts,
+or omitted to manage the local machine</li>
+<li>the code steps to follow while executing the task</li>
+</ol>
+
+<p>This general structure looks like the following:</p>
+
+<pre><code class="highlight"><span class="synStatement">desc</span> <span class="synIdentifier">$description_of_following_task</span>;
+<span class="synStatement">task</span> <span class="synIdentifier">$task_name</span>, <span class="synIdentifier">@target_hosts_or_host_groups</span>, <span class="synKeyword">sub </span>{
+    ... <span class="synComment"># steps</span>
+};
+</code></pre>
+
+<p>For example, the following task named <code>chrony</code> installs the software package
+called <code>chrony</code>, sets up a basic configuration file for it, ensures running the
+<code>chronyd</code> service, and does all that on every host in the <code>webservers</code> host
+group:</p>
+
+<pre><code class="highlight"><span class="synStatement">desc</span> <span class="synString">&#39;Manage chrony&#39;</span>;    <span class="synComment"># description of next task</span>
+<span class="synStatement">task</span> <span class="synString">&#39;chrony&#39;</span>,           <span class="synComment"># task name</span>
+  <span class="synStatement">group</span> =&gt; <span class="synString">&#39;webservers&#39;</span>, <span class="synComment"># default target host group</span>
+  <span class="synKeyword">sub </span>{
+    <span class="synStatement">pkg</span> <span class="synString">&#39;chrony&#39;</span>,          <span class="synComment"># manage the chrony package</span>
+      <span class="synStatement">ensure</span> =&gt; <span class="synString">&#39;present&#39;</span>; <span class="synComment"># ensure its presence</span>
+
+    <span class="synStatement">file</span> <span class="synString">&#39;/etc/chrony/chrony.conf&#39;</span>,            <span class="synComment"># manage the chrony config file</span>
+      <span class="synStatement">content</span> =&gt; <span class="synString">&quot;ipool pool.ntp.org</span><span class="synSpecial">\t</span><span class="synString">iburst&quot;</span>; <span class="synComment"># ensure its content</span>
+
+    <span class="synStatement">service</span> <span class="synString">&#39;chronyd&#39;</span>,                         <span class="synComment"># manage the chronyd service</span>
+      <span class="synStatement">ensure</span> =&gt; <span class="synString">&#39;started&#39;</span>;                     <span class="synComment"># ensure it runs now and on boot</span>
+  };
+</code></pre>
+
+<p>Given that the modules in the
+<a href="https://metacpan.org/search?q=distribution:Rex+rex::commands::">Rex::Commands</a>
+namespace implement the <code>pkg()</code>, <code>file()</code>, and <code>service()</code> functions, we call
+these Rex commands – and these manage package, file, and service resources
+accordingly.</p>
+
+<h2 id="arbitrary-perl-code"><a href="#arbitrary-perl-code">Arbitrary Perl code</a></h2>
+
+<p>Since Rex code does not differ from Perl code, it makes Rexfiles seamlessly
+extendable with custom logic.</p>
+
+<p>These may implement API calls to build the inventory from external sources, or
+retrieve secrets from an encrypted store – practically anything else Perl can
+do, and the use case requires.</p>
+
+<p>Notably, this includes the following capabilities:</p>
+
+<ol>
+<li>include documentation in POD format, and display it later with <code>perldoc</code></li>
+<li>use other programming languages through the <a href="https://metacpan.org/search?size=100&amp;q=inline%3A%3A">Inline
+modules</a>, or
+<a href="https://metacpan.org/pod/FFI::Platypus">FFI::Platypus</a></li>
+</ol>
+
+<h2 id="example"><a href="#example">Example</a></h2>
+
+<p>Let’s consider the following example Rexfile based on the above details:</p>
+
+<pre><code class="highlight"><span class="synStatement">use </span>Rex <span class="synString">-feature</span> =&gt; [ <span class="synString">&#39;1.4&#39;</span>, <span class="synString">&#39;exec_autodie&#39;</span> ];
+
+<span class="synStatement">sayformat</span> <span class="synString">&#39;%h %s&#39;</span>;
+
+<span class="synStatement">group</span> <span class="synString">webservers</span> =&gt; <span class="synString">&#39;www[1..3]&#39;</span>;
+
+<span class="synStatement">user</span> <span class="synString">&#39;root&#39;</span>;
+
+<span class="synStatement">desc</span> <span class="synString">&#39;Manage chrony&#39;</span>;
+<span class="synStatement">task</span> <span class="synString">&#39;chrony&#39;</span>,
+  <span class="synStatement">group</span> =&gt; <span class="synString">&#39;webservers&#39;</span>,
+  <span class="synKeyword">sub </span>{
+    <span class="synStatement">pkg</span> <span class="synString">&#39;chrony&#39;</span>, <span class="synStatement">ensure</span> =&gt; <span class="synString">&#39;present&#39;</span>;
+
+    <span class="synStatement">file</span> <span class="synString">&#39;/etc/chrony/chrony.conf&#39;</span>, <span class="synStatement">content</span> =&gt; <span class="synString">&quot;ipool pool.ntp.org</span><span class="synSpecial">\t</span><span class="synString">iburst&quot;</span>;
+
+    <span class="synStatement">service</span> <span class="synString">&#39;chronyd&#39;</span>, <span class="synStatement">ensure</span> =&gt; <span class="synString">&#39;started&#39;</span>;
+  };
+</code></pre>
+
+<p>Given that Rexfile, <code>rex -T</code> lists the tasks and inventory as the following:</p>
+
+<pre><code class="highlight">$ rex -T
+Tasks
+ chrony  Manage chrony
+Server Groups
+ webservers  www[1..3]
+</code></pre>
+
+<p>The verbose version with <code>rex -Tv</code> also shows the tasks with their default
+targets, expanding any host group expressions:</p>
+
+<pre><code class="highlight">$ rex -Tv
+Tasks
+ chrony  Manage chrony
+    Servers: www1, www2, www3
+Server Groups
+ webservers  www[1..3]
+</code></pre>
+
+<p>Running <code>rex chrony</code> executes the task named <code>chrony</code>:</p>
+
+<pre><code class="highlight">$ rex chrony
+[2025-04-02 13:14:33] INFO - Running task chrony on www1
+[2025-04-02 13:14:35] INFO - Installing chrony.
+[2025-04-02 13:14:39] INFO - Running task chrony on www2
+[2025-04-02 13:14:41] INFO - Installing chrony.
+[2025-04-02 13:14:46] INFO - Running task chrony on www3
+[2025-04-02 13:14:47] INFO - Installing chrony.
+[2025-04-02 13:14:52] INFO - All tasks successful on all hosts
+</code></pre>
+
+<h2 id="summary"><a href="#summary">Summary</a></h2>
+
+<p>Rexfiles help to turn the manual and ad-hoc steps of common procedures
+into code, which allows reproducible results between runs, and enables
+others to follow the same steps.</p>
+
+<p>Its flexibility allows both writing just enough details that we deem
+relevant for the given use case and situation, and adding more details
+incrementally when needed.</p>
+
+    </section>
+
+</article>
+
+<ul class="pager">
+    <li class="prev">
+            <a href="/2025/03/21/minimum-viable-rex/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+    </li>
+</ul>
+
+
+        </main>
+
+        <footer>
+            
+            <ul>
+                <li><a href="https://blog.ferki.it/index.rss" target="_blank">RSS</a></li>
+                <li><a href="https://blog.ferki.it/index.atom" target="_blank">Atom</a></li>
+                <li><a href="https://github.com/ferki" rel="me" target="_blank">GitHub</a></li>
+                <li><a href="https://profile.codersrank.io/user/ferki" rel="me" target="_blank">CodersRank</a></li>
+                <li><a href="https://www.linkedin.com/in/ferki" rel="me" target="_blank">LinkedIn</a></li>
+                <li><a href="https://fosstodon.org/@ferki" rel="me" target="_blank">Mastodon</a></li>
+                <li><a href="mailto:ferki@ferki.it">Email</a></li>
+                <li><a href="/pages/impressum.html">Impressum</a></li>
+                <li><a href="/pages/privacy_policy.html">Privacy policy</a></li>
+            </ul>
+            <ul>
+                <li>© 2023–2025 Ferenc Erki</li>
+            </ul>
+
+        </footer>
+    </body>
+</html>

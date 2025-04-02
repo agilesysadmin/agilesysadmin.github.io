@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.ferki.it/</id>
     <title>agile sysadmin</title>
-    <updated>2025-03-21T00:00:00Z</updated>
+    <updated>2025-04-02T00:00:00Z</updated>
     <link href="https://blog.ferki.it/index.atom" rel="self" />
     <link href="https://blog.ferki.it/" rel="alternate" />
     <author>
@@ -10,6 +10,43 @@
     </author>
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://blog.ferki.it/2025/04/02/rexfile-foundations/</id>
+        <title>Rexfile foundations</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://blog.ferki.it/2025/04/02/rexfile-foundations/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Running ad-hoc commands as shown in <a href="https://blog.ferki.it/2025/03/21/minimum-viable-rex/">Minimum Viable
+Rex</a> provides a good way to start benefiting
+from Rex. Then sometimes we have to repeat our typical procedures. Other times
+it would work best if we could enable others to follow the same steps.</p>
+
+<p>Just like GNU Make uses a Makefile to describe actions, Rex uses a Rexfile to
+describe our common procedures as code through the following foundational
+elements:</p>
+
+<ul>
+<li>dependencies</li>
+<li>configuration</li>
+<li>inventory</li>
+<li>authentication</li>
+<li>tasks</li>
+<li>arbitrary Perl code</li>
+</ul>
+
+<p>While we may treat most elements optional depending on the use case, let’s take
+an initial look at each.</p>
+
+                <p><a href="https://blog.ferki.it/2025/04/02/rexfile-foundations/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://blog.ferki.it/tag/rex/">rex</a>
+                </p>
+
+        ]]></content>
+        <updated>2025-04-02T00:00:00Z</updated>
+        <category term="rex" />
+    </entry>
     <entry>
         <id>https://blog.ferki.it/2025/03/21/minimum-viable-rex/</id>
         <title>Minimum Viable Rex</title>
@@ -134,38 +171,6 @@ underlying details.</p>
         ]]></content>
         <updated>2025-02-26T00:00:00Z</updated>
         <category term="rex" />
-    </entry>
-    <entry>
-        <id>https://blog.ferki.it/2025/02/03/lint-early-lint-often/</id>
-        <title>Lint early, lint often</title>
-        <author><name>Ferenc Erki</name></author>
-        <link href="https://blog.ferki.it/2025/02/03/lint-early-lint-often/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>Wikipedia defines <a href="https://en.wikipedia.org/wiki/Lint_(software)">linting
-software</a> as:</p>
-
-<blockquote>
-  <p>a static code analysis tool used to flag programming errors, bugs, stylistic
-  errors and suspicious constructs.</p>
-</blockquote>
-
-<p>Linters play an important role to detect common mistakes fast. I often find
-that running them first in the build pipelines happens already too late,
-reducing their usefulness.</p>
-
-<p>When to lint to maximize their value?</p>
-
-                <p><a href="https://blog.ferki.it/2025/02/03/lint-early-lint-often/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://blog.ferki.it/tag/linting/">linting</a>
-                    <a href="https://blog.ferki.it/tag/static-analysis/">static analysis</a>
-                </p>
-
-        ]]></content>
-        <updated>2025-02-03T00:00:00Z</updated>
-        <category term="linting" />
-        <category term="static analysis" />
     </entry>
 </feed>
 

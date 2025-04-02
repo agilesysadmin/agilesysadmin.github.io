@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.ferki.it/tag/rex/</id>
     <title>agile sysadmin</title>
-    <updated>2025-03-21T00:00:00Z</updated>
+    <updated>2025-04-02T00:00:00Z</updated>
     <link href="https://blog.ferki.it/tag/rex.atom" rel="self" />
     <link href="https://blog.ferki.it/tag/rex/" rel="alternate" />
     <author>
@@ -10,6 +10,43 @@
     </author>
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://blog.ferki.it/2025/04/02/rexfile-foundations/</id>
+        <title>Rexfile foundations</title>
+        <author><name>Ferenc Erki</name></author>
+        <link href="https://blog.ferki.it/2025/04/02/rexfile-foundations/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Running ad-hoc commands as shown in <a href="https://blog.ferki.it/2025/03/21/minimum-viable-rex/">Minimum Viable
+Rex</a> provides a good way to start benefiting
+from Rex. Then sometimes we have to repeat our typical procedures. Other times
+it would work best if we could enable others to follow the same steps.</p>
+
+<p>Just like GNU Make uses a Makefile to describe actions, Rex uses a Rexfile to
+describe our common procedures as code through the following foundational
+elements:</p>
+
+<ul>
+<li>dependencies</li>
+<li>configuration</li>
+<li>inventory</li>
+<li>authentication</li>
+<li>tasks</li>
+<li>arbitrary Perl code</li>
+</ul>
+
+<p>While we may treat most elements optional depending on the use case, let’s take
+an initial look at each.</p>
+
+                <p><a href="https://blog.ferki.it/2025/04/02/rexfile-foundations/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://blog.ferki.it/tag/rex/">rex</a>
+                </p>
+
+        ]]></content>
+        <updated>2025-04-02T00:00:00Z</updated>
+        <category term="rex" />
+    </entry>
     <entry>
         <id>https://blog.ferki.it/2025/03/21/minimum-viable-rex/</id>
         <title>Minimum Viable Rex</title>
@@ -133,46 +170,6 @@ underlying details.</p>
 
         ]]></content>
         <updated>2025-02-26T00:00:00Z</updated>
-        <category term="rex" />
-    </entry>
-    <entry>
-        <id>https://blog.ferki.it/2023/08/11/local-management-with-rex/</id>
-        <title>Local management with Rex</title>
-        <author><name>Ferenc Erki</name></author>
-        <link href="https://blog.ferki.it/2023/08/11/local-management-with-rex/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>Automation challenges often focus on remote endpoints, while several use cases
-require automating locally as well. Typical situations range from managing
-a personal machine, through setups where the managed fleet includes the host
-managing the whole, to pull-style models where each node manages itself.</p>
-
-<p><a href="https://www.rexify.org/">Rex, the friendly automation framework</a> supports any
-combination of local and remote execution. This post summarizes the main
-orientation points about local management.</p>
-
-<h2 id="tldr">TL;DR</h2>
-
-<p>Rex provides several options for local management to choose from, allowing
-authors to express their intent explicitly according to their use case at hand:</p>
-
-<ol>
-<li><a href="https://blog.ferki.it/2023/08/11/local-management-with-rex/#taskswithoutanexplicittarget">Tasks without an explicit target</a></li>
-<li><a href="https://blog.ferki.it/2023/08/11/local-management-with-rex/#taskstargetinglocalexplicitly">Tasks targeting <code>&lt;local&gt;</code> explicitly</a></li>
-<li><a href="https://blog.ferki.it/2023/08/11/local-management-with-rex/#overridethetaskstargettolocal">Override the task’s target to <code>&lt;local&gt;</code></a></li>
-<li><a href="https://blog.ferki.it/2023/08/11/local-management-with-rex/#disablesshpertaskwithno_sshtask">Disable SSH per task with <code>no_ssh task</code></a></li>
-<li><a href="https://blog.ferki.it/2023/08/11/local-management-with-rex/#disablesshgloballywithno_ssh">Disable SSH globally with <code>no_ssh</code></a></li>
-<li><a href="https://blog.ferki.it/2023/08/11/local-management-with-rex/#runningpartsofataskwithinlocalblocks">Running parts of a task within <code>LOCAL{}</code> blocks</a></li>
-<li><a href="https://blog.ferki.it/2023/08/11/local-management-with-rex/#connecttolocalhostoverssh">Connect to local host over SSH</a></li>
-</ol>
-
-                <p><a href="https://blog.ferki.it/2023/08/11/local-management-with-rex/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://blog.ferki.it/tag/rex/">rex</a>
-                </p>
-
-        ]]></content>
-        <updated>2023-08-11T00:00:00Z</updated>
         <category term="rex" />
     </entry>
 </feed>
