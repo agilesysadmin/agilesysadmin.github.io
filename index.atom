@@ -18,8 +18,9 @@
         <content type="html"><![CDATA[
             <p>Running ad-hoc commands as shown in <a href="https://blog.ferki.it/2025/03/21/minimum-viable-rex/">Minimum Viable
 Rex</a> provides a good way to start benefiting
-from Rex. Then sometimes we have to repeat our typical procedures. Other times
-it would work best if we could enable others to follow the same steps.</p>
+from <a href="https://www.rexify.org">Rex, the friendly automation framework</a>. Then
+sometimes we have to repeat our typical procedures. Other times it would work
+best if we could enable others to follow the same steps.</p>
 
 <p>Just like GNU Make uses a Makefile to describe actions, Rex uses a Rexfile to
 describe our common procedures as code through the following foundational
