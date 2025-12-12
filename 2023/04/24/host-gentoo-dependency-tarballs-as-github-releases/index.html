@@ -12,8 +12,12 @@
         <meta content="4KzbYclokErOfwrKiBpX8XCu8ckJ9A7zwueL9VAbAYE" name="google-site-verification">
         <link href="/theme/images/favicon.svg" rel="icon">
         <link href="/theme/css/selenized.css" rel="stylesheet">
-        <script data-domain="blog.ferki.it" defer src="https://plausible.io/js/script.js"></script>
         <title>Host Gentoo dependency tarballs as GitHub releases</title>
+        <script async src="https://plausible.io/js/pa-2mrPsGU4BY8dnoolD3Vhg.js"></script>
+        <script>
+          window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+          plausible.init()
+        </script>
     </head>
     <body>
         <header>
@@ -177,7 +181,7 @@ humans to read.</p>
 <p>With the GitHub release in place in the fork, add the tarball as an extra
 distfile to the <code>SRC_URI</code> in the ebuild:</p>
 
-<pre><code class="highlight">SRC_URI<span class="synOperator">+=&quot;</span><span class="synString"> https://github.com/ferki/vale/releases/download/v</span><span class="synPreProc">${PV}</span><span class="synString">-gentoo-deps/</span><span class="synPreProc">${P}</span><span class="synString">-gentoo-deps.tar.xz</span><span class="synOperator">&quot;</span>
+<pre><code class="highlight"><span class="synIdentifier">SRC_URI</span>+=<span class="synOperator">&quot;</span><span class="synString"> https://github.com/ferki/vale/releases/download/v</span><span class="synPreProc">${PV}</span><span class="synString">-gentoo-deps/</span><span class="synPreProc">${P}</span><span class="synString">-gentoo-deps.tar.xz</span><span class="synOperator">&quot;</span>
 </code></pre>
 
 <h2 id="conclusion"><a href="#conclusion">Conclusion</a></h2>

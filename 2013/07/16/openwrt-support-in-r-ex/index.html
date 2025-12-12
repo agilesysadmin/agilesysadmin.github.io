@@ -12,8 +12,12 @@
         <meta content="4KzbYclokErOfwrKiBpX8XCu8ckJ9A7zwueL9VAbAYE" name="google-site-verification">
         <link href="/theme/images/favicon.svg" rel="icon">
         <link href="/theme/css/selenized.css" rel="stylesheet">
-        <script data-domain="blog.ferki.it" defer src="https://plausible.io/js/script.js"></script>
         <title>OpenWrt support in (R)?ex</title>
+        <script async src="https://plausible.io/js/pa-2mrPsGU4BY8dnoolD3Vhg.js"></script>
+        <script>
+          window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+          plausible.init()
+        </script>
     </head>
     <body>
         <header>
@@ -71,7 +75,7 @@ opkg install perl
 <pre><code class="highlight">opkg update
 opkg install gesftpserver
 <span class="synStatement">mkdir</span> /usr/libexec
-ln <span class="synSpecial">-s</span> /usr/bin/gesftpserver /usr/libexec/sftp-server
+<span class="synStatement">ln</span> <span class="synSpecial">-s</span> /usr/bin/gesftpserver /usr/libexec/sftp-server
 </code></pre>
 
 <p>Optionally you may want to install additional Perl components for convenience:</p>

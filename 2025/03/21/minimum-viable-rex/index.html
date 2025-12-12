@@ -12,8 +12,12 @@
         <meta content="4KzbYclokErOfwrKiBpX8XCu8ckJ9A7zwueL9VAbAYE" name="google-site-verification">
         <link href="/theme/images/favicon.svg" rel="icon">
         <link href="/theme/css/selenized.css" rel="stylesheet">
-        <script data-domain="blog.ferki.it" defer src="https://plausible.io/js/script.js"></script>
         <title>Minimum Viable Rex</title>
+        <script async src="https://plausible.io/js/pa-2mrPsGU4BY8dnoolD3Vhg.js"></script>
+        <script>
+          window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+          plausible.init()
+        </script>
     </head>
     <body>
         <header>
@@ -114,8 +118,8 @@ the minimal set I will cover in this post:</p>
 
 <pre><code class="highlight">$ rex <span class="synSpecial">-h</span>
 usage:
-  rex <span class="synOperator">[</span><span class="synConditional">&lt;</span>options<span class="synConditional">&gt;</span><span class="synOperator">]</span> <span class="synOperator">[</span><span class="synConditional">-H</span> <span class="synConditional">&lt;</span>host<span class="synConditional">&gt;</span><span class="synOperator">]</span> <span class="synOperator">[</span><span class="synConditional">-G</span> <span class="synConditional">&lt;</span>group<span class="synConditional">&gt;</span><span class="synOperator">]</span> <span class="synOperator">&lt;</span>task<span class="synOperator">&gt;</span> <span class="synOperator">[</span><span class="synConditional">&lt;</span>task-options<span class="synConditional">&gt;</span><span class="synOperator">]</span>
-  rex <span class="synSpecial">-T</span><span class="synOperator">[</span>m<span class="synOperator">|</span>y<span class="synOperator">|</span>v<span class="synOperator">]</span> <span class="synOperator">[</span><span class="synConditional">&lt;</span>string<span class="synConditional">&gt;</span><span class="synOperator">]</span>
+  rex <span class="synDelimiter">[</span>&lt;options&gt;<span class="synDelimiter">]</span> <span class="synDelimiter">[</span>-H &lt;host&gt;<span class="synDelimiter">]</span> <span class="synDelimiter">[</span>-G &lt;group&gt;<span class="synDelimiter">]</span> <span class="synOperator">&lt;</span>task<span class="synOperator">&gt;</span> <span class="synDelimiter">[</span>&lt;task-options&gt;<span class="synDelimiter">]</span>
+  rex <span class="synSpecial">-T</span><span class="synDelimiter">[</span>m|y|v<span class="synDelimiter">]</span> <span class="synDelimiter">[</span>&lt;string&gt;<span class="synDelimiter">]</span>
 
   <span class="synSpecial">-e</span>     Run the given code fragment
   <span class="synSpecial">-H</span>     Execute a task on the given hosts <span class="synPreProc">(</span><span class="synSpecial">space delimited</span><span class="synPreProc">)</span>
